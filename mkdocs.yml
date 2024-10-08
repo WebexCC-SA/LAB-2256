@@ -1,7 +1,7 @@
 ---
 site_name: LAB-2256 Implementing Cisco Calling for Microsoft Teams # This must begin with the session ID, e.g. LABXXX-1234 This is my Cisco Live Lab
 site_description: LAB-2256 Implementing Cisco Calling for Microsoft Teams # must be same as "site_name"
-site_author: John Doe
+site_author: Sara Macias Salete
 copyright: Copyright &copy; 2024 Cisco
 theme:
   name: material
@@ -39,10 +39,10 @@ extra_css:
   - stylesheets/extra.css
 plugins:
   - search
-  - with-pdf:
-      cover_title: LAB-2256
-      cover_subtitle: Implementing Cisco Calling for Microsoft Teams
-      cover_logo: template_assets/wx1Splash_new.gif
+  #- with-pdf:
+   #   cover_title: LAB-2256
+    #  cover_subtitle: Implementing Cisco Calling for Microsoft Teams
+     # cover_logo: template_assets/wx1Splash_new.gif
   - glightbox:
       touchNavigation: true
       loop: false
@@ -77,8 +77,9 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
 nav:
   - Home: index.md
-  - Lab:
-      - Overview: overview.md
-      - Lab 1 - Getting Started: lab1_getting_started.md
-      - Conclusion: conclusion.md
-  - Topologies: topologies.md
+  - Lab access and tenant configuration: lab_access_and_tenant_config/Lab_access_and_tenant_config.markdown
+  - Module 1: module_1/module_1.markdown
+  #- Module 2: module_1a/Module_1a.markdown
+  #- Module 3: module_1a/Module_1a.markdown
+  #- Appendix: module_1a/Module_1a.markdown
+
