@@ -79,7 +79,7 @@ nav:
   - Home: index.md
   - Lab access and tenant configuration: lab_access_and_tenant_config/Lab_access_and_tenant_config.markdown
   - Module 1: module_1/module_1.markdown
-  #- Module 2: module_1a/Module_1a.markdown
-  #- Module 3: module_1a/Module_1a.markdown
-  #- Appendix: module_1a/Module_1a.markdown
+  - Module 2: module_2/module_2.markdown
+  - Module 3: module_3/module_3.markdown
+  - Appendix: appendix/appendix.markdown
 
