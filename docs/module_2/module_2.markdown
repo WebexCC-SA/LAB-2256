@@ -12,16 +12,13 @@ This integrated app works with the Cisco Unified Communications Manager
 (UCM) call-control solution, Webex Calling for cloud deployment or the
 Dedicated Instance offering.
 
-This would be the call flow diagram when using Webex Calling Multitenant
-as the call control:
+This would be the call flow diagram when using Webex Calling Multitenant as the call control:
 
-![A screenshot of a webex cloud Description automatically
-generated](module_2_media/media/image1.png){width="6.625in"
-height="3.111666666666667in"}
+![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image1.png)
 
-**NOTE: *Make sure you have added the domain (cbXXX.dc-YY.com) to
-Microsoft tenant in Add cbXXX.dc-YY.com domain to Microsoft Trial tenant
-section of the lab before you continue*.**
+>   **NOTE: *Make sure you have added the domain (cbXXX.dc-YY.com) to
+    Microsoft tenant in Add cbXXX.dc-YY.com domain to Microsoft Trial tenant
+    section of the lab before you continue*.**
 
 ## Module 2a: Configure Single Sign-On (SSO) for Control Hub \[Approx 15 min\]
 
@@ -54,40 +51,36 @@ configuration only.
     Control Hub** or you can directly go to <https://admin.webex.com> &
     log in with **cholland@cbXXX.dc-YY.com** and **dCloud*AAAA*!**
 
-> **NOTE:** You need to Replace XXX, YY *(in domain name) & AAAA (in
-> password) with your session-specific details. If you haven\'t already
-> done as explained in Accessing your lab section, go to Lab_info.txt
-> file located on your **workstation 1** and copy the domain and
-> password**. ***
+    > **NOTE:** You need to Replace XXX, YY *(in domain name) & AAAA (in
+    > password) with your session-specific details. If you haven\'t already
+    > done as explained in Accessing your lab section, go to Lab_info.txt
+    > file located on your **workstation 1** and copy the domain and
+    > password**. ***
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image2.png){ width=600 }
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image2.png)
 
-**NOTE**: *If you are asked for a PIN when signing to Control Hub or to
-the Webex App, you can get this pin by signing in to **Cloud Outlook Web
-Access** **using the Collaboration User Links** on your Chrome browser*
+    >**NOTE**: *If you are asked for a PIN when signing to Control Hub or to
+    the Webex App, you can get this pin by signing in to **Cloud Outlook Web
+    Access** **using the Collaboration User Links** on your Chrome browser*
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image3.jpeg){width="2.304582239720035in"
-height="2.2543350831146105in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image3.jpeg)
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image4.png){width="4.628087270341207in"
-height="2.0069597550306213in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image4.png)
 
-*Insert **dCloud\\cholland** as the username (for Charles Holland) and
-**dCloud123!** as your password.*
+    *Insert **dCloud\\cholland** as the username (for Charles Holland) and
+    **dCloud123!** as your password.*
 
-![A login screen with blue text and blue letters Description
-automatically
-generated](module_2_media/media/image5.png){width="3.468497375328084in"
-height="2.252341426071741in"}
+    ![A login screen with blue text and blue letters Description
+    automatically
+    generated](module_2_media/media/image5.png)
 
-*You will find the PIN requested in your Inbox:*
+    *You will find the PIN requested in your Inbox:*
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image6.png){width="4.749496937882765in"
-height="2.7904538495188103in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image6.png)
 
 3.  For security reasons, Webex Control Hub signs out every 20 minutes
     (Idle timeout) by default. For this lab, let's make the idle time
@@ -96,50 +89,45 @@ height="2.7904538495188103in"}
     Hub's idle timeout.** Drop down the option for **Control Hub idle
     timeout** and select **12 hours** or **no timeout**. Click **Save**.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image7.png){width="6.246218285214348in"
-height="3.9042136920384953in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image7.png)
 
 4.  Continuing on **Organization Settings** page, scroll down to the
     section **Microsoft Azure Active Directory Wizard App** and click
     **Set up.**
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image8.png){width="6.903452537182853in"
-height="3.1156255468066494in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image8.png)
 
 5.  It will take you to the Microsoft authentication page. Log in with
     the Microsoft credentials <cholland@cbXXX.dc-YY.com> & dCloud123!
     Click **Login**.
 
-> **NOTE:** *You need to replace XXX & YY in domain name with with your
-> session-specific details. If you haven\'t already done as explained in
-> Accessing your lab section, go to Lab_info.txt file located on your
-> workstation 1 and copy the domain and password**.***
+    > **NOTE:** *You need to replace XXX & YY in domain name with with your
+    > session-specific details. If you haven\'t already done as explained in
+    > Accessing your lab section, go to Lab_info.txt file located on your
+    > workstation 1 and copy the domain and password**.***
 
 6.  On the following page, Microsoft login page will show you the
     permissions required. Review the permissions. Check mark option for
     **Consent on behalf of your organization**. Click **Accept**.
 
-![A screenshot of a phone Description automatically
-generated](module_2_media/media/image9.png){width="2.34632217847769in"
-height="2.923879046369204in"}
+    ![A screenshot of a phone Description automatically
+    generated](module_2_media/media/image9.png)
 
 7.  On the following it will show you all details about permissions that
     are required for SSO configuration. **Click Accept**.
 
-![A screenshot of a application Description automatically
-generated](module_2_media/media/image10.png){width="2.8524234470691163in"
-height="4.505786307961505in"}
+    ![A screenshot of a application Description automatically
+    generated](module_2_media/media/image10.png)
 
 8.  You will be taken back to Webex Control Hub and a pop-up window will
     be displayed. Keep the radio button selected for **Sync defaults**
     and click **Proceed**.
 
-![Graphical user interface, text, application, email Description
-automatically
-generated](module_2_media/media/image11.png){width="3.8976990376202973in"
-height="2.8662029746281714in"}
+    ![Graphical user interface, text, application, email Description
+    automatically
+    generated](module_2_media/media/image11.png)
 
 9.  It will create the instance/integration with Microsoft tenant. It
     will take around 2 to 3 minutes for the process to complete.
@@ -147,9 +135,8 @@ height="2.8662029746281714in"}
 10. Once the integration process is completed, Job status will be
     displayed **NotRun**.
 
-![A screenshot of a phone Description automatically
-generated](module_2_media/media/image12.png){width="6.145921916010499in"
-height="1.1557425634295713in"}
+    ![A screenshot of a phone Description automatically
+    generated](module_2_media/media/image12.png)
 
 11. Within few min the Job status would change to **Active.** Wait until
     the job status is changed to **Active**. You need to refresh the
@@ -164,17 +151,15 @@ height="1.1557425634295713in"}
     section. Click the three dots on the right side and select **Edit
     Configuration**.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image13.png){width="6.899728783902012in"
-height="1.7968842957130358in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image13.png)
 
 13. It will bring up the Microsoft Azure AD integration page, go to the
     **More** tab. Select the checkbox option for **Activate single
     sign-on** and click **Save**.
 
-![Graphical user interface Description automatically
-generated](module_2_media/media/image14.png){width="7.291622922134733in"
-height="3.958140857392826in"}
+    ![Graphical user interface Description automatically
+    generated](module_2_media/media/image14.png)
 
 14. You have now successfully enabled single sign-on for your Webex
     tenant. From now on, all logins to this Webex tenant will be
@@ -197,49 +182,39 @@ this module.
 
 2.  Go to **SERVICES** \> **Calling**. Click **+ Add Numbers**.
 
-![A screenshot of a call center Description automatically
-generated](module_2_media/media/image15.png){width="4.948340988626422in"
-height="3.7092957130358704in"}
+    ![A screenshot of a call center Description automatically
+    generated](module_2_media/media/image15.png)
 
 3.  On the **Add Numbers** page, drop down the option for Location and
     choose **dCloud.** Since we are setting up this location for the
     first time, first we need to select the PSTN Connection for this
     location. Click **Edit** **PSTN**.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image16.png){width="5.589108705161855in"
-height="3.3650306211723535in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image16.png)
 
 4.  You will be taken to **Edit PSTN connection for dCloud** (Location)
     and under the connection type choose **Cisco Calling Plans** and
     click **Next**.
 
-> **NOTE:** *If you do not see the option Cisco Calling Plans, close the
-> page and repeat steps 2 through*
+    > **NOTE:** *If you do not see the option Cisco Calling Plans, close the
+    > page and repeat steps 2 through*
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image17.png){width="6.755613517060367in"
-height="2.844580052493438in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image17.png)
 
 5.  Enter the following information & leave rest of the fields blank and
     click **Next**.
 
-  -----------------------------------------------------------------------
-  ***Parameter***                       ***Value***
-  ------------------------------------- ---------------------------------
-  First Name                            Charles
+    | **Parameter**                        | **Value**                        |
+    |--------------------------------------|----------------------------------|
+    | First Name                           | Charles                          |
+    | Last Name                            | Holland                          |
+    | Email Address & Confirm Email Address| cholland@cbXXX.dc-YY.com         |
 
-  Last Name                             Holland
+    > **NOTE:** *You need replace domain with the domain assigned for your session (from Lab_info.txt file)*
 
-  Email Address & Confirm Email Address cholland@cbXXX.dc-YY.com
-  -----------------------------------------------------------------------
-
-**NOTE:** *You need replace domain with the domain assigned for your
-session (from Lab_info.txt file)*.
-
-> ![A screenshot of a contact form Description automatically
-> generated](module_2_media/media/image18.png){width="6.48869094488189in"
-> height="4.006698381452319in"}
+    ![A screenshot of a contact form Description automatically generated](module_2_media/media/image18.png)
 
 6.  On the pop up window click **Yes, Change**.
 
@@ -247,9 +222,8 @@ session (from Lab_info.txt file)*.
     information all the way down. Enter Authorized Contact as **Charles
     Holland** and title as **Engineer** & Click **Agree and Continue**.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image19.png){width="5.764305555555556in"
-height="3.3808956692913386in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image19.png)
 
 8.  Under **Emergency Services Address**, leave everything default and
     click **Save**.
@@ -257,17 +231,15 @@ height="3.3808956692913386in"}
 9.  It will save all the information for PSTN connection we entered and
     take you summary page. On the following page, click **Add numbers.**
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image20.png){width="5.7237882764654415in"
-height="2.889861111111111in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image20.png)
 
 10. On the **Add Numbers** page, make sure location is selected as
     **dCloud** and the number type is selected as **PSTN number**. Keep
     the option **Order New Numbers** is selected and click **Next.**
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image21.png){width="5.445843175853018in"
-height="3.848053368328959in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image21.png)
 
 11. On the **Specify numbers you want to order page**, drop down the
     option for **State/Province/Region** and choose any of the available
@@ -279,9 +251,7 @@ height="3.848053368328959in"}
     **How may numbers do you want auto-selected for you?** Enter **5**
     and click **Search.**
 
-> ![A screenshot of a computer Description automatically
-> generated](module_2_media/media/image22.png){width="5.845119203849519in"
-> height="3.223393482064742in"}
+    ![A screenshot of a computer Description automatically generated](module_2_media/media/image22.png)
 
 13. On the next page, it will show you list of available number in that
     area code that you specified above. It will auto select four
@@ -290,9 +260,8 @@ height="3.848053368328959in"}
     select that number you like. For now, just keep the auto selected
     numbers as is and click **Order**.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image23.png){width="5.601696194225722in"
-height="3.9458497375328085in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image23.png)
 
 14. Order will be submitted for these numbers. On the following page,
     click **View orders**. The status will read **Pending** then change
@@ -302,13 +271,12 @@ height="3.9458497375328085in"}
 15. Click on the order you placed (Order ID) \> Phone Numbers to verify
     all phone numbers are provisioned.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image24.png){width="6.625in"
-height="1.9368055555555554in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image24.png)
 
-Webex will not let incoming or outgoing PSTN calls until a **Main phone
-number** is assigned to the location. So first we need to assign one of
-these number to the location.
+    Webex will not let incoming or outgoing PSTN calls until a **Main phone
+    number** is assigned to the location. So first we need to assign one of
+    these number to the location.
 
 16. On **Webex Control Hub page** Navigate to **MANAGEMENT** \>
     **Locations**.
@@ -324,9 +292,8 @@ these number to the location.
 20. Drop down the Mian number option and choose one of the numbers we
     ordered above and click **Save**.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image25.png){width="6.685955818022747in"
-height="4.39077646544182in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image25.png)
 
 21. Observe that as soon as main number is assigned to location, the
     warning will be gone. Indicating now you will be able to make and
@@ -352,9 +319,8 @@ Licenses for both users on Webex Control Hub
     Integration section and toggle the radio button **Presence Sync** &
     **Hide Webex windows**.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image26.png){width="6.661023622047244in"
-height="4.186018153980752in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image26.png)
 
 5.  Now, let's assign Webex Calling license for users, go to
     **MANAGEMENT** \> **Users** and choose **Kellie Melby** from the
@@ -362,9 +328,8 @@ height="4.186018153980752in"}
 
 6.  Scroll down on the summary page, click **Edit Licenses**
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image27.png){width="5.285919728783902in"
-height="4.304734251968504in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image27.png)
 
 7.  On the **Edit services for <kmelby@cbXXX.dc-YY.com>** page, click
     **Edit Licenses** again.
@@ -372,9 +337,8 @@ height="4.304734251968504in"}
 8.  On the next page go to **Calling tab**. Check mark both options for
     **Webex Calling** & **Professional**. Click **Save**.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image28.png){width="6.477193788276465in"
-height="4.527370953630796in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image28.png)
 
 9.  On the next page, drop down the option for location and choose
     **dCloud** & drop down the option for **Phone Number** and choose
@@ -382,20 +346,19 @@ height="4.527370953630796in"}
     Make sure you select a number other than the number you assigned to
     location **Main Number**. Click **Save**. Click **Close**.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image29.png){width="7.369176509186352in"
-height="2.846077209098863in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image29.png)
 
-> **NOTE**: *Take note of the phone number being assigned to Kellie and
-> Taylor, we will add this number to contact information on Microsoft in
-> the following steps.*
+    > **NOTE**: *Take note of the phone number being assigned to Kellie and
+    > Taylor, we will add this number to contact information on Microsoft in
+    > the following steps.*
 
 10. Go back to **MANAGEMENT** \> **Users** again and on users page
     choose <tbard@cbXXX.dc-YY.com> & repeat steps 5 through 9.
 
-> **NOTE**: *Once both users are assigned the licenses and phone
-> numbers. Let's add these newly phone numbers to user contacts on
-> Microsoft, users can use click to dial feature in Microsoft Teams.*
+    > **NOTE**: *Once both users are assigned the licenses and phone
+    > numbers. Let's add these newly phone numbers to user contacts on
+    > Microsoft, users can use click to dial feature in Microsoft Teams.*
 
 11. Continuing on Workstation 5, open a new browser tab and from home
     page go to **Collaboration Admin Links** \> **Microsoft Admin
@@ -415,31 +378,29 @@ height="2.846077209098863in"}
     +19725556038. Click **Save changes**. Click **Close** \[x\] to close
     out the fly-out window.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image30.png){width="6.469884076990376in"
-height="4.120657261592301in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image30.png)
 
 15. Similarly assign the number to **Taylor Bard** (same phone number
     you assigned to Taylor on Webex, remember to enter the phone number
     in E.164 format. Example +19725556023).
 
-> **NOTE**: *Sometimes Microsoft takes long time to update contact
-> information and would not be able to find on Microsoft teams. This is
-> not limitation of the lab or Webex it's just Microsoft Cloud taking
-> longer time to update contact information.*
+    > **NOTE**: *Sometimes Microsoft takes long time to update contact
+    > information and would not be able to find on Microsoft teams. This is
+    > not limitation of the lab or Webex it's just Microsoft Cloud taking
+    > longer time to update contact information.*
 
-Now let's publish and authorize the **Webex Calling app** for whole
-Microsoft Organization. So, each user is not prompted for authorization.
-Also, we will disable Microsoft Native calling option so users would not
-get confused between Microsoft Native calling and Webex Calling.
+    Now let's publish and authorize the **Webex Calling app** for whole
+    Microsoft Organization. So, each user is not prompted for authorization.
+    Also, we will disable Microsoft Native calling option so users would not
+    get confused between Microsoft Native calling and Webex Calling.
 
 16. Continuing on Microsoft admin center, on left side page, click
     **Show all** to see all admin centers. Under **Admin centers**
     select **Teams**.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image31.png){width="4.536503718285214in"
-height="5.011003937007874in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image31.png)
 
 17. It will open **Microsoft Teams admin center** in a new tab. Once the
     Teams Admin center is opened go to **Voice** \> **Calling
@@ -450,9 +411,8 @@ height="5.011003937007874in"}
     option for **Make private calls** and click **Save**. Click
     **Confirm** on the pop-up window.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image32.png){width="5.330947069116361in"
-height="5.188261154855643in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image32.png)
 
 19. Finally lets publish the Webex Calling app for organization so that
     each user would not need to request admin authorization. Continuing
@@ -462,9 +422,8 @@ height="5.188261154855643in"}
 20. On the Manage apps page, towards right search for **Webex Calling**.
     Select the **Webex Calling** app that is listed.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image33.png){width="7.248871391076116in"
-height="2.6820056867891515in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image33.png)
 
 21. On the Webex Calling app page, go to **Permissions tab**. Under
     permissions tab click **Grant admin consent**. It will bring up a
@@ -472,25 +431,22 @@ height="2.6820056867891515in"}
     <cholland@cbXXX.dc-YY.com> & dCloud123!. It will prompt you to
     accept some permissions. Click **Accept**.
 
-![A screenshot of a webex calling application Description automatically
-generated](module_2_media/media/image34.png){width="6.225071084864392in"
-height="3.4218318022747156in"}
+    ![A screenshot of a webex calling application Description automatically
+    generated](module_2_media/media/image34.png)
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image35.png){width="2.7985279965004373in"
-height="3.792094269466317in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image35.png)
 
 22. Now any user in the organization can go to Apps on **Microsoft
     Teams** and add **Webex Calling** app from store.
 
-> **NOTE**: As *Organization admin, you can also install/publish this
-> app for all users. If you want to publish the app for all users, go to
-> **Teams apps** \> **Setup policies** and update **Global (Org-wide
-> default)** to have **Webex Calling** app*.
+    > **NOTE**: As *Organization admin, you can also install/publish this
+    > app for all users. If you want to publish the app for all users, go to
+    > **Teams apps** \> **Setup policies** and update **Global (Org-wide
+    > default)** to have **Webex Calling** app*.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image36.png){width="5.342141294838145in"
-height="6.444169947506562in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image36.png)
 
 23. Now Microsoft and Webex tenants & users are ready for use.
 
@@ -510,54 +466,48 @@ total 8 testing scenarios that are described below.
 2.  Once logged in, there would be a **Webex Emergency Calling
     Notification**, click **OK**.
 
-![A screenshot of a computer error Description automatically
-generated](module_2_media/media/image37.png){width="2.4341108923884516in"
-height="2.2417869641294836in"}
+    ![A screenshot of a computer error Description automatically
+    generated](module_2_media/media/image37.png)
 
 3.  By default Webex will be minimized, to bring it up go to bottom
     right corner (where you see the time) and click Up Arrow and select
     Webex from the available applications.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image38.png){width="4.783783902012249in"
-height="3.359159011373578in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image38.png)
 
 4.  On the Webex bottom left corner click **Call** **settings** \>
     **Open Call Preferences.** It will bring up Webex **settings** page
     go to **Phone Service** & make sure Phone service is connected.
 
-> **NOTE**: *If you do not see **Call settings** option quit (Click on
-> profile picture and select Exit) the Webex and relaunch.*
+    > **NOTE**: *If you do not see **Call settings** option quit (Click on
+    > profile picture and select Exit) the Webex and relaunch.*
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image39.png){width="5.905636482939633in"
-height="3.9832688101487315in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image39.png)
 
 5.  Now, open Microsoft Teams from desktop and login with same
     credentials that you logged into Webex (<kmelby@cbXXX.dc-YY.com> &
     dCloud123!). Click **OK**. Click **Done**.
 
-**NOTE**: *DO NOT click **No, sign into this app only**.*
+    >**NOTE**: *DO NOT click **No, sign into this app only**.*
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image40.png){width="3.3562073490813646in"
-height="3.180799431321085in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image40.png)
 
 6.  Accept any information/warning messages while logging in. Once
     logged in click eclipse icon (three dots) on the left side pane. On
     the new fly-out window search for **Webex Calling**. It will list
     the Webex Calling app. Click **Add**.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image41.png){width="4.219209317585302in"
-height="5.592676071741033in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image41.png)
 
 7.  It will add **Webex Calling app** to Microsoft teams and take you to
     login screen. Click **Continue.**
 
-> ![A screenshot of a phone call Description automatically
-> generated](module_2_media/media/image42.png){width="5.334554899387577in"
-> height="3.2644794400699912in"}
+    ![A screenshot of a phone call Description automatically
+    generated](module_2_media/media/image42.png)
 
 8.  You will be signed into **Webex Calling** on Microsoft Teams.
 
@@ -567,18 +517,16 @@ height="5.592676071741033in"}
     setup policies on Microsoft Teams Admin center, you will see the
     Webex Calling app pinned already.
 
-![A screenshot of a phone call Description automatically
-generated](module_2_media/media/image43.png){width="3.5086253280839896in"
-height="3.9738156167979004in"}
+    ![A screenshot of a phone call Description automatically
+    generated](module_2_media/media/image43.png)
 
-> **NOTE**: *If you do not see the Webex Calling app on left side, click
-> on the three dots on the left side pane again & right click on the
-> Webex Calling app and select **Pin** so the application always
-> displays on left side pane for easier access.*
+    > **NOTE**: *If you do not see the Webex Calling app on left side, click
+    > on the three dots on the left side pane again & right click on the
+    > Webex Calling app and select **Pin** so the application always
+    > displays on left side pane for easier access.*
 
-![A screenshot of a chat Description automatically
-generated](module_2_media/media/image44.png){width="3.5176902887139105in"
-height="4.015475721784777in"}
+    ![A screenshot of a chat Description automatically
+    generated](module_2_media/media/image44.png)
 
 10. Now both of your clients are on workstation 5 are ready for use.
 
@@ -590,9 +538,9 @@ height="4.015475721784777in"}
 
 ### Module 2d.1: **Calling Scenarios 1 of 8** -- Making an internal call \[Approx 5 min\]
 
-**NOTE**: *Make sure you are logged in to both clients on both
-workstations 5 and 6 before continuing*. Similarly you can dial any PSTN
-number in E.164 format (+1AAABBBCCCC).
+>   **NOTE**: *Make sure you are logged in to both clients on both
+    workstations 5 and 6 before continuing*. Similarly you can dial any PSTN
+    number in E.164 format (+1AAABBBCCCC).
 
 1.  Continuing on workstation 5 as **Kellie Melby**, go to **Webex
     Calling app** on Microsoft Teams (On left side pane) & Search for
@@ -602,39 +550,35 @@ number in E.164 format (+1AAABBBCCCC).
     to call (either phone number or email) using either **Audio** or
     **Video**. Click on any of the options to place the call.
 
-![A screenshot of a phone call Description automatically
-generated](module_2_media/media/image45.png){width="3.7881430446194226in"
-height="3.400645231846019in"}
+    ![A screenshot of a phone call Description automatically
+    generated](module_2_media/media/image45.png)
 
 3.  Answer the call on workstation 6 (as **Taylor Bard**). Verify that
     call gets connected. Wait for few seconds and hang up the call. Also
     verify the call status reflects as shown below.
 
-> **NOTE**: *You will not be able to hear audio in either direction as
-> we are using virtual workstations and microphone is not available*.
->
-> **NOTE**: *If you do not see the correct status, try to bring the
-> Microsoft Teams into foreground or initiate a chat conversation
-> between **Kellie** and **Taylor**.*
+    > **NOTE**: *You will not be able to hear audio in either direction as
+    > we are using virtual workstations and microphone is not available*.
+    >
+    > **NOTE**: *If you do not see the correct status, try to bring the
+    > Microsoft Teams into foreground or initiate a chat conversation
+    > between **Kellie** and **Taylor**.*
 
-![A screenshot of a video chat Description automatically
-generated](module_2_media/media/image46.png){width="4.85752624671916in"
-height="2.232863079615048in"}
+    ![A screenshot of a video chat Description automatically
+    generated](module_2_media/media/image46.png)
 
 4.  As soon as the call is hung up, verify that Kellie's availability
     status changes to **Available**.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image47.png){width="3.2603816710411198in"
-height="3.4831408573928258in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image47.png)
 
 5.  You will see the up to date call history is synchronized/reflected
     to Webex Calling app on Microsoft Teams. To verify the call history
     go to **Webex Calling app** \> **Recent Calls** as shown below.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image48.png){width="6.625in"
-height="1.5125568678915136in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image48.png)
 
 6.  Similarly you can dial any PSTN number in E.164 format
     (+1AAABBBCCCC). Or you can dial the Cisco support number
@@ -646,8 +590,7 @@ height="1.5125568678915136in"}
     **Chat** on left side page. On the top search window search for
     **Taylor Bard**.
 
-![](module_2_media/media/image49.png){width="5.8442858705161855in"
-height="1.2623392388451444in"}
+    ![](module_2_media/media/image49.png)
 
 2.  Initiate a chat conversation with **Taylor** **Bard** and send few
     messages back and forth.
@@ -655,35 +598,30 @@ height="1.2623392388451444in"}
 3.  Click on the + sign towards right side of typing window for chat and
     select Webex Calling from available options.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image50.png){width="6.026896325459318in"
-height="3.2648851706036743in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image50.png)
 
 4.  It will bring up available calling options for **Taylor Bard**.
     Choose either Phone number or Email Address from the drop down
     option. Then choose either **Audio** or **Video** option to make the
     call.
 
-![A screenshot of a phone call Description automatically
-generated](module_2_media/media/image51.png){width="4.476404199475065in"
-height="2.959869860017498in"}
+    ![A screenshot of a phone call Description automatically
+    generated](module_2_media/media/image51.png)
 
 5.  Answer the call on Workstation 6, verify that call is connected and
     presence status is updated to show that Taylor (and Kellie) **In a
     call**. Hang up the call after few seconds.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image52.png){width="2.9915693350831147in"
-height="3.113865923009624in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image52.png)
 
 ### Module 2d.3: **Calling Scenarios 3 of 8** - Pushing Do Not Disturb (DND) status from Microsoft \[Approx 5 min\]
 
 Presence sync is supported between Microsoft Teams and Webex for the
 following status:
 
-![A diagram of a call Description automatically
-generated](module_2_media/media/image53.png){width="4.656414041994751in"
-height="4.318990594925634in"}
+![A diagram of a call Description automatically generated](module_2_media/media/image53.png)
 
 When being on DND on **Microsoft Teams**, we want to avoid receiving
 calls. As these calls come on Webex, it is important to push the DND
@@ -698,23 +636,20 @@ minutes to sync the presence status to Webex.
     profile picture & drop down option for availability and choose **Do
     not disturb**.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image54.png){width="2.837331583552056in"
-height="3.655621172353456in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image54.png)
 
 2.  Verify that user status on **Webex** is also updated to **Do Not
     Disturb**.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image55.png){width="6.1434536307961505in"
-height="1.9961362642169729in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image55.png)
 
 3.  To clear the status, go to Microsoft Teams & click on the profile
     picture again and choose **Reset status**.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image56.png){width="2.761434820647419in"
-height="3.37508530183727in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image56.png)
 
 ### Module 2d.4: **Calling Scenarios 4 of 8** -- Multi-Line \[Approx 5 min\]
 
@@ -728,56 +663,43 @@ line, or an individual line with a different caller ID.
     **Calling** & on the Calling page go to **Virtual Lines.** Click
     **Create**.
 
-![A screenshot of a virtual line Description automatically
-generated](module_2_media/media/image57.png){width="6.033187882764654in"
-height="3.7657742782152233in"}
+    ![A screenshot of a virtual line Description automatically
+    generated](module_2_media/media/image57.png)
 
 2.  On the **Add virtual line** page, populate the following and click
     **Add**.
 
-  -----------------------------------------------------------------------
-  ***Parameter Name***       ***Value***
-  -------------------------- --------------------------------------------
-  First name                 Kellie
+    | **Parameter Name**         | **Value**                                                                 |
+    |----------------------------|---------------------------------------------------------------------------|
+    | First name                 | Kellie                                                                    |
+    | Last name                  | Melby                                                                     |
+    | Display Name               | Kellie Melby -- Personal                                                  |
+    | Location                   | Drop down and choose **dCloud**                                           |
+    | Phone Number               | Drop down and choose the number other than what we assigned to Main number and users Kellie and Taylor. |
 
-  Last name                  Melby
-
-  Display Name               Kellie Melby -- Personal
-
-  Location                   Drop down and choose **dCloud**
-
-  Phone Number               Drop down and choose the number other than
-                             what we assigned to Main number and users
-                             Kellie and Taylor.
-  -----------------------------------------------------------------------
-
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image58.png){width="5.835287620297462in"
-height="4.208370516185477in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image58.png)
 
 3.  It will add the Virtual Line and take you to next page with couple
     of options. We need to assign this line to **Kellie**, so on the
     next page choose **Assign**.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image59.png){width="5.329156824146982in"
-height="4.013822178477691in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image59.png)
 
 4.  It will take you to available devices, drop down the option for
     **Assign device** & again drop down option for **Select device** and
     from the available options choose **Kellie, Melby. Webex
     App.dCloud.+1XXXXX** as shown below. Click **Assign**
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image60.png){width="5.749328521434821in"
-height="4.815288713910761in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image60.png)
 
 5.  On the next page, for **Line Label** give a name like **Personal
     Line** or something descriptive of your choice. Click **Save**.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image61.png){width="7.357108486439195in"
-height="3.42121062992126in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image61.png)
 
 6.  Now Webex will have two lines configured. If you do not see the
     second line yet, just quit (Click on Profile picture & select **Exit
@@ -789,13 +711,12 @@ height="3.42121062992126in"}
     select the **secondary line** (Personal Line that you added above)
     to make out bound calls.
 
-> **NOTE**: *If you see an additional window (Calling dock) just press
-> **Ctrl + Shift + x** to close it. We will explore Calling dock in
-> later sections.*
+    > **NOTE**: *If you see an additional window (Calling dock) just press
+    > **Ctrl + Shift + x** to close it. We will explore Calling dock in
+    > later sections.*
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image62.png){width="4.3314796587926505in"
-height="2.439028871391076in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image62.png)
 
 8.  Now, go to **Microsoft teams** \> **Webex Calling app**. Call
     **Taylor Bard** either using phone number or email address. Answer
@@ -803,23 +724,21 @@ height="2.439028871391076in"}
     workstation 5, observe that the call is made from Line 2 (**Personal
     Line**) of Kellie Melby.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image63.png){width="6.807903543307087in"
-height="3.2219794400699913in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image63.png)
 
-**NOTE**: *Call Presence status is currently not supported on secondary
+    >**NOTE**: *Call Presence status is currently not supported on secondary
 line.*
 
 9.  Hangup the call after few seconds. On workstation 5, go to Webex and
     click on lines (towards bottom left corner) and choose the **primary
     line** (L1 Kellie, Melby) .
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image64.png){width="3.9316983814523185in"
-height="3.1453576115485564in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image64.png)
 
-> **NOTE**: *Make sure you switch to primary line before continuing to
-> next module.*
+    > **NOTE**: *Make sure you switch to primary line before continuing to
+    > next module.*
 
 ### Module 2d.5: **Calling Scenarios 5 of 8** -- Calling Dock/Multi Call Window \[Approx 5 min\]
 
@@ -829,8 +748,7 @@ effectively. It can act as a companion app for Microsoft Teams. Also
 helps to hide the Webex app during calls.
 
 ![A screenshot of a phone Description automatically
-generated](module_2_media/media/image65.png){width="3.2231572615923008in"
-height="4.726333114610673in"}
+generated](module_2_media/media/image65.png)
 
 1.  Continuing on Workstation 5, on Microsoft Teams go to **Webex
     Calling** app on left side pane. On the Webex Calling window click
@@ -842,298 +760,159 @@ height="4.726333114610673in"}
     toggle Calling dock on or off**. **Uncheck** the option for **Keep
     Calling dock in front**. Click **Save**.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image66.png){width="4.939810804899388in"
-height="3.6489359142607176in"}
+    ![A screenshot of a computer Description automatically
+    generated](module_2_media/media/image66.png)
 
-3.  Notice that Webex will bring a small call window (called as Calling
-    Dock) as shown below. You can close the main call window & use this
-    Calling dock for any calling functions like, making call, answering
-    call, recent calls, dial pad and accessing voicemail etc.,
+3. Notice that Webex will bring a small call window (called as Calling Dock) as shown below. You can close the main call window & use this Calling dock for any calling functions like, making call, answering call, recent calls, dial pad and accessing voicemail etc.,
 
-> ![A screenshot of a computer Description automatically
-> generated](module_2_media/media/image67.png){width="6.625in"
-> height="2.276061898512686in"}
+    ![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image67.png)
 
-4.  Drag and drop the Calling Dock to the right side of the screen to
-    notice it minimizes itself (docking feature).
+4.  Drag and drop the Calling Dock to the right side of the screen to notice it minimizes itself (docking feature).
 
-> ![A screenshot of a computer Description automatically
-> generated](module_2_media/media/image68.png){width="3.026968503937008in"
-> height="0.998264435695538in"}
+    ![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image68.png)
 
-5.  Hover your mouse over the new dock icon on the right to see the
-    Calling Dock without keeping it open. Click on the dock to maximize
-    the Calling Dock again.
+5.  Hover your mouse over the new dock icon on the right to see the Calling Dock without keeping it open. Click on the dock to maximize the Calling Dock again.
 
-> ![A screenshot of a computer Description automatically
-> generated](module_2_media/media/image69.png){width="2.6026924759405072in"
-> height="2.0166951006124236in"}
+    ![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image69.png)
 
-These are the current supported features:
+    These are the current supported features:
+    
+    ![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image70.png)
 
-![A screenshot of a phone call Description automatically
-generated](module_2_media/media/image70.png){width="6.625in"
-height="4.2875in"}
+6.  On Workstation 5, Go to **Microsoft Teams** \> **Webex Calling app** and call **Taylor Bard** either using phone number or email address**.** Answer the call on workstation 6 (as **Taylor**). Verify that call is connected.
 
-6.  On Workstation 5, Go to **Microsoft Teams** \> **Webex Calling app**
-    and call **Taylor Bard** either using phone number or email
-    address**.** Answer the call on workstation 6 (as **Taylor**).
-    Verify that call is connected.
+7.  Switch back to workstation 5 and observe that the Calling Dock reflects the current call, its status, option for dial pad, transfer, hold etc., Also, observe that presence status is reflected correctly (**In a call**) with the Webex Calling Dock. Hang up the call after few seconds.
 
-7.  Swith back to workstation 5 and observe that the Calling Dock
-    reflects the current call, its status, option for dial pad,
-    transfer, hold etc., Also, observe that presence status is reflected
-    correctly (**In a call**) with the Webex Calling Dock. Hang up the
-    call after few seconds.
-
-![A screenshot of a phone call Description automatically
-generated](module_2_media/media/image71.png){width="4.586488407699037in"
-height="3.3860203412073493in"}
+    ![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image71.png)
 
 ### Module 2d.6: **Calling Scenarios 6 of 8** - Set Microsoft Teams as default app from Webex Calling Dock \[Approx 5 min\]
 
 **Microsoft Teams as the default App for Calling Dock**
 
-The Webex Calling Dock is normally linked to the Webex App. This means
-that, when clicking on "Call History" or "Voicemail" notifications, they
-will take us to the Webex App. There is an option to make Microsoft
-Teams the default App for the Calling Dock. When enabling this, if we
-click on "Call History" on the Calling Dock it will take us now to the
-Microsoft Teams client where Call History for Webex Calling is located.
+The Webex Calling Dock is normally linked to the Webex App. This means that, when clicking on "Call History" or "Voicemail" notifications, they will take us to the Webex App. There is an option to make Microsoft Teams the default App for the Calling Dock. When enabling this, if we click on "Call History" on the Calling Dock it will take us now to the Microsoft Teams client where Call History for Webex Calling is located.
 
-1.  Continuing on Workstation 5, go back to browser tab where you logged
-    into **Webex Control Hub**. On the Control Hub, go to **MANAGEMENT**
-    \> **Users**, choose user **Kellie Melby.** On user page, go to
-    **Calling** tab. On the calling tab, scroll down to **User call
-    experience** \> **Microsoft Teams integration**
+1.  Continuing on Workstation 5, go back to browser tab where you logged into **Webex Control Hub**. On the Control Hub, go to **MANAGEMENT** \> **Users**, choose user **Kellie Melby.** On user page, go to **Calling** tab. On the calling tab, scroll down to **User call experience** \> **Microsoft Teams integration**
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image72.png){width="5.955236220472441in"
-height="4.534589895013124in"}
+    ![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image72.png)
 
-2.  On the calling page, under **MS Teams Integration**, toggle **ON**
-    the option for **Set Microsoft Teams as the default app for
-    multi-call window** (on Control Hub it is still called "Multi call
-    window" instead of "Calling Dock"). Click **Save**
+2.  On the calling page, under **MS Teams Integration**, toggle **ON** the option for **Set Microsoft Teams as the default app for multi-call window** (on Control Hub it is still called "Multi call window" instead of "Calling Dock"). Click **Save**
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image73.png){width="6.9259098862642166in"
-height="2.983804680664917in"}
+    ![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image73.png)
 
-**NOTE**: *You can also toggle this option for entire organization by
-going to **SERVICES** \> **Calling** \> **Client Settings** & Microsoft
-Teams Integration*.
+   > **NOTE**: *You can also toggle this option for entire organization by going to **SERVICES** \> **Calling** \> **Client Settings** & Microsoft Teams Integration*.
 
-3.  Now go to the Webex Calling Dock and click on Call history
-    (clock/history) icon & notice that it will take you to call history
-    on the Microsoft teams.
+3.  Now go to the Webex Calling Dock and click on Call history (clock/history) icon & notice that it will take you to call history on the Microsoft teams.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image74.png){width="7.444791119860017in"
-height="1.3059667541557305in"}
+    ![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image74.png)
 
-4.  Similarly you can click on voice mail icon on the Calling Dock and
-    it will you to the voicemails on Microsoft teams. FYI, voicemail is
-    not part of this lab.
+4.  Similarly you can click on voice mail icon on the Calling Dock and it will you to the voicemails on Microsoft teams. FYI, voicemail is not part of this lab.
 
-**NOTE**: *Sometimes it might take few minutes for the change to take
-effect and until then you will be still redirected to Webex.*
+    > **NOTE**: *Sometimes it might take few minutes for the change to take effect and until then you will be still redirected to Webex.*
 
-### Module 2d.7: **Calling Scenarios 7 of 8** - Create a Call Queue & Assing Users/Agets to Call Queue \[Approx 10 min\]
+### Module 2d.7: **Calling Scenarios 7 of 8** - Create a Call Queue & Assign Users/Agents to Call Queue \[Approx 10 min\]
 
-We can create a call queue and assign users (agents) to it. Those users
-will have visibility of the Call Queues they have been assigned to on
-the Calling Dock. They can sign in/out of the queue and set their
-status.
+We can create a call queue and assign users (agents) to it. Those users will have visibility of the Call Queues they have been assigned to on the Calling Dock. They can sign in/out of the queue and set their status.
 
-1.  Continuing on Workstation 5, go back to browser tab where you logged
-    into **Webex Control Hub**. On the Control Hub, go to **SERVICES**
-    \> **Calling**, and click on the tab **Features**. Then, click on
-    the tab **Call Queue**.
+1.  Continuing on Workstation 5, go back to browser tab where you logged into **Webex Control Hub**. On the Control Hub, go to **SERVICES** \> **Calling**, and click on the tab **Features**. Then, click on the tab **Call Queue**.
 
-2.  On the bottom, click on **Create Call Queue**
+2.  On the bottom, click on **Create Call  Queue**
 
-> ![A screenshot of a phone call Description automatically
-> generated](module_2_media/media/image75.png){width="6.005599300087489in"
-> height="1.7960148731408574in"}
+    ![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image75.png)
 
-3.  Assign the location **dCloud** and name the call queue as **dCloud
-    Call Queue.**
+3.  Assign the location **dCloud** and name the call queue as **dCloud Call Queue.**
 
-4.  Drop down the option for Phone Number and choose one of the
-    available PSTN numbers. Make sure to select the number other than
-    the number assigned to **Main Number**. You can add last 4 digits of
-    the DID number for extension field or you can choose to ignore that
-    field.
+4.  Drop down the option for Phone Number and choose one of the available PSTN numbers. Make sure to select the number other than the number assigned to **Main Number**. You can add last 4 digits of the DID number for extension field or you can choose to ignore that field.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image76.png){width="4.119265091863517in"
-height="3.4707370953630794in"}
+    ![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image76.png)
 
-**NOTE**: *Make a note of the pone number assinged to the Queue here, we
-will need this number to dial later*.
+    >**NOTE**: *Make a note of the phone number assigned to the Queue here, we will need this number to dial later*.
 
-5.  Scroll down a little and for the **Caller ID**, select **Direct
-    Line** under **External caller ID phone number**. Click **Next.**
+5.  Scroll down a little and for the **Caller ID**, select **Direct Line** under **External caller ID phone number**. Click **Next.**
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image77.png){width="4.817606080489939in"
-height="4.047619203849519in"}
+    ![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image77.png)
 
-6.  Keep defautls and click **Next** for the three next steps
+6.  Keep defaults and click **Next** for the three next steps
 
     -   Call Routing type: **Circular**
 
     -   Overflow Settings: **Perform busy treatment**
 
-    -   Announcements: **Welcome Message** (checked) and **Comfort
-        Message** (checked)
+    -   Announcements: **Welcome Message** (checked) and **Comfort Message** (checked)
 
-7.  On the **Select Users to Add to the Call Queue**: Drop dwon the
-    option **Add user, workspace, or virtual line** and select **Kelly
-    Melby** (with primary line) and **Taylor Bard**. Check the option
-    **Allow agents to join or unjoin the queue.** Click on **Next.**
+7.  On the **Select Users to Add to the Call Queue**: Drop down the option **Add user, workspace, or virtual line** and select **Kelly Melby** (with primary line) and **Taylor Bard**. Check the option **Allow agents to join or unjoin the queue.** Click on **Next.**
 
-![A screenshot of a call queue Description automatically
-generated](module_2_media/media/image78.png){width="4.743593613298338in"
-height="4.0037117235345585in"}
+    ![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image78.png)
 
-8.  Review the options selected and click on **Create.** Click on
-    **Done** on the next screen.
+8.  Review the options selected and click on **Create.** Click on **Done** on the next screen.
 
-![A screenshot of a call queue Description automatically
-generated](module_2_media/media/image79.png){width="5.415513998250218in"
-height="4.5776432633420825in"}
+    ![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image79.png)
 
-9.  You will be taken back to **Calling** \> **Features** \> **Call
-    Queue** & will see newly created Call Queue.
+9.  You will be taken back to **Calling** \> **Features** \> **Call Queue** & will see newly created Call Queue.
 
-![A screenshot of a phone call Description automatically
-generated](module_2_media/media/image80.png){width="5.714054024496938in"
-height="2.882781058617673in"}
+    ![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image80.png)
 
-10. Now go to the Webex Calling Dock for Kelly Melby (Workstation 5).
-    You will find there a new icon: "**Queues: Available"**
+10. Now go to the Webex Calling Dock for Kelly Melby (Workstation 5). You will find there a new icon: "**Queues: Available"**
 
-> ![A screenshot of a computer Description automatically
-> generated](module_2_media/media/image81.png){width="3.0956047681539807in"
-> height="1.0550043744531934in"}
+    ![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image81.png)
 
-**NOTE**: *If you do not see Queue Avaialable status, quit the Webex
-(Profile Picrure \> Exit) & Relaunch Webex App.*
+**NOTE**: *If you do not see Queue Available status, quit the Webex (Profile Picture \> Exit) & Relaunch Webex App.*
 
 11. Click on the Queues icon to explore the available options
 
-> ![A screenshot of a computer Description automatically
-> generated](module_2_media/media/image82.png){width="3.028336614173228in"
-> height="2.290051399825022in"}
+    ![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image82.png)
 
-12. Dial the DID number that is assigned to the **Call** **Queue**
-    number from your personal phone or ask one of the proctors to make
-    the call for you. Notice the **incoming** call for **Kelly Melby.
-    Decline** the Call for Kellie on Workstation 5.
+12. Dial the DID number that is assigned to the **Call Queue** number from your personal phone or ask one of the proctors to make the call for you. Notice the **incoming** call for **Kelly Melby. Decline** the Call for Kellie on Workstation 5.
 
-> ![A screenshot of a call Description automatically
-> generated](module_2_media/media/image83.png){width="3.688330052493438in"
-> height="2.6369050743657043in"}
+    ![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image83.png)
 
-13. Switch to Wokstation 6 (as Taylor) & notice the incoming call for
-    Taylor Bard.
+13. Switch to Workstation 6 (as Taylor) & notice the incoming call for Taylor Bard.
 
-> ![A screenshot of a phone call Description automatically
-> generated](module_2_media/media/image84.png){width="3.5851607611548557in"
-> height="2.322666229221347in"}
+    ![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image84.png)
 
-14. Either Answer the call on Workstation 6 (as Taylor) or decline. If
-    you choose decline the call again, it will go back to **Kelly
-    Melby**, as the **Queue behaviour** is configured as **Circular**.
-    Hang up the call from your personal/proctor phone or workstation
-    that you answered it on.
+14. Either Answer the call on Workstation 6 (as Taylor) or decline. If you choose decline the call again, it will go back to **Kelly Melby**, as the **Queue behaviour** is configured as **Circular**. Hang up the call from your personal/proctor phone or workstation that you answered it on.
 
 ### Module 2d.8: **Calling Scenarios 8 of 8** - Enable Watchlist \[Approx 10 min\]
 
 **Watchlist**
 
-Users can can have a list of monitored users (**Busy Lamp Field** --
-BLF). They will see the presence status of the monitored users and they
-can pick up their calls from the Calling Dock.
+Users can have a list of monitored users (**Busy Lamp Field** -- BLF). They will see the presence status of the monitored users and they can pick up their calls from the Calling Dock.
 
-You must ensure that members have been added to your **Busy Lamp Field**
-(BLF) list to monitor.
+You must ensure that members have been added to your **Busy Lamp Field** (BLF) list to monitor.
 
-In the Watchlist you\'ll see a list of people in your BLF list and can
-monitor their availability. If someone in your list has an incoming
-call, you have the option to pickup the call on their behalf. You can
-check if someone is available before you transfer a call to them.
+In the Watchlist you'll see a list of people in your BLF list and can monitor their availability. If someone in your list has an incoming call, you have the option to pickup the call on their behalf. You can check if someone is available before you transfer a call to them.
 
-1.  Continuing on Workstation 5, go back to browser tab where you logged
-    into **Webex Control Hub**. On the Control Hub, go to **MANAGEMENT**
-    \> **Users**, choose user **Kellie Melby.** On user page, go to
-    **Calling** tab. On the calling tab, scroll down to **Between-user
-    permissions** \> **Monitoring.**
+1.  Continuing on Workstation 5, go back to browser tab where you logged into **Webex Control Hub**. On the Control Hub, go to **MANAGEMENT** \> **Users**, choose user **Kellie Melby.** On user page, go to **Calling** tab. On the calling tab, scroll down to **Between-user permissions** \> **Monitoring.**
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image85.png){width="6.625in"
-height="2.0458333333333334in"}
+    ![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image85.png)
 
-2.  Drop down the option **Add Monitored Line** and choose **Taylor
-    Bard** from available list
+2.  Drop down the option **Add Monitored Line** and choose **Taylor Bard** from available list
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image86.png){width="5.841167979002624in"
-height="3.27080927384077in"}
+    ![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image86.png)
 
-3.  You will see now **Taylor Bard** as part of the Monitoring List for
-    **Kellie Melby**. Click on **Save**
+3.  You will see now **Taylor Bard** as part of the Monitoring List for **Kellie Melby**. Click on **Save**
 
-> ![A screenshot of a computer Description automatically
-> generated](module_2_media/media/image87.png){width="4.485281058617673in"
-> height="2.5802121609798774in"}
+    ![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image87.png)
 
-4.  Now go to the **Webex Calling Dock** for **Kellie Melby**
-    (Workstation 5) and click on the **Call Settings** (the wheel icon).
-    This will open the **Call Settings** for the Webex App for **Kelly
-    Melby**.
+4.  Now go to the **Webex Calling Dock** for **Kellie Melby** (Workstation 5) and click on the **Call Settings** (the wheel icon). This will open the **Call Settings** for the Webex App for **Kelly Melby**.
 
-> ![A screenshot of a computer Description automatically
-> generated](module_2_media/media/image81.png){width="3.0956047681539807in"
-> height="1.0550043744531934in"}
+    ![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image81.png)
 
-5.  Click on the menu **Notifications** and then, on **Calls**. Under
-    **Call** Pickup, unckeck the option **Mute**. This will allow you to
-    do Call Pickup from your monitored users. Click on **Save** and
-    close the Call Settings window.
+5.  Click on the menu **Notifications** and then, on **Calls**. Under **Call Pickup**, uncheck the option **Mute**. This will allow you to do Call Pickup from your monitored users. Click on **Save** and close the Call Settings window.
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image88.png){width="3.777774496937883in"
-height="3.249915791776028in"}
+    ![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image88.png)
 
-6.  Go back to the Calling Dock for **Kelly Melby** and notice that
-    **Taylor Bard** is now part of the **Watchlist**
+6.  Go back to the Calling Dock for **Kelly Melby** and notice that **Taylor Bard** is now part of the **Watchlist**
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image89.png){width="2.4058202099737533in"
-height="1.772334864391951in"}
+    ![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image89.png)
 
-7.  Make a phone call to **Taylor Bard's phone number** (check the phone
-    number on Control Hub) from your personal phone or ask one of the
-    proctors to make the call for you. **Don't answer this call as
-    Taylor (Workstation 6).**
+7.  Make a phone call to **Taylor Bard's phone number** (check the phone number on Control Hub) from your personal phone or ask one of the proctors to make the call for you. **Don't answer this call as Taylor (Workstation 6).**
 
-8.  Switch to Workstation 5. Wait few seconds and notice the **Call**
-    **Pick-up** coming to **Kellie Melby**
+8.  Switch to Workstation 5. Wait few seconds and notice the **Call Pick-up** coming to **Kellie Melby**
 
-![A screenshot of a computer Description automatically
-generated](module_2_media/media/image90.png){width="2.7729516622922135in"
-height="2.4350929571303586in"}
+    ![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image90.png)
 
-9.  Click on **Pick-up** to pick-up the incoming call. Notice the call
-    has been established with **Kellie Melby**
+9.  Click on **Pick-up** to pick-up the incoming call. Notice the call has been established with **Kellie Melby**
 
-![A screenshot of a phone Description automatically
-generated](module_2_media/media/image91.png){width="2.3999912510936134in"
-height="2.685573053368329in"}
+    ![A screenshot of a webex cloud Description automatically generated](module_2_media/media/image91.png)
 
-This Completes entire module 2 -- ***Webex Calling Integration for
-Microsoft Teams***
+This Completes entire module 2 -- ***Webex Calling Integration for Microsoft Teams***

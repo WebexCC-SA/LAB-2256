@@ -6,8 +6,7 @@
     ***cisco.com*** credentials
 
     ![Graphical user interface, text, application, email Description
-automatically
-generated](lab_access_and_tenant_config_media/media/image1.png)
+    automatically generated](lab_access_and_tenant_config_media/media/image1.png)
 
 3.  Once logged in, open a new browser tab and paste the **event URL**
     for your lab. The **event URL** is
@@ -23,8 +22,7 @@ generated](lab_access_and_tenant_config_media/media/image1.png)
     **Workstation 1** related information like **IP Address**,
     **username,** and **password** as shown below.
 
-    ![A screenshot of a computer Description automatically
-generated](lab_access_and_tenant_config_media/media/image3.png)
+    ![A screenshot of a computer Description automatically generated](lab_access_and_tenant_config_media/media/image3.png)
 
 6.  Similarly, you can click on any other Virtual Machine on the
     topology page to get its accessing details.
@@ -39,40 +37,40 @@ generated](lab_access_and_tenant_config_media/media/image3.png)
     connection or via a **WebRDP connection** (option B) from your
     classroom laptop.
 
-**Option (A) -- \[Preferred\]**
- 
-  To connect to the Workstation using your **local RDP connection**,
-  first, you need to connect to your lab session via a VPN. Open **Cisco
-  AnyConnect** on your laptop. It will prompt you for the **Host
-  Address**, **username,** and **password** information for your
-  session. You will find all these details under the **Info** \ 
-  **AnyConnect** **Credentials** section of your lab. Enter all the
-  details as shown below and click **OK** to connect to your session.
-  The **Host Address**, **username,** and **password** will be different
-  for each lab. Use **YOUR OWN** assigned lab details.
- 
+    **Option (A) -- \[Preferred\]**
+    
+    To connect to the Workstation using your **local RDP connection**,
+    first, you need to connect to your lab session via a VPN. Open **Cisco
+    AnyConnect** on your laptop. It will prompt you for the **Host
+    Address**, **username,** and **password** information for your
+    session. You will find all these details under the **Info** \ 
+    **AnyConnect** **Credentials** section of your lab. Enter all the
+    details as shown below and click **OK** to connect to your session.
+    The **Host Address**, **username,** and **password** will be different
+    for each lab. Use **YOUR OWN** assigned lab details.
+    
     ![A screenshot of a computer Description automatically generated](lab_access_and_tenant_config_media/media/image4.png)
- 
-  Once you are connected to your lab session over VPN, you can open a
-  local RDP connection on your laptop and connect to **Workstation 1**
-  using the following details:
- 
-  Host: **198.18.1.36**
- 
-  Username: **dcloud\\cholland**
- 
-  Password: **dCloud123!**
- 
-**Option (B)**
- 
-  To access Workstation 1 over **WebRDP**, click on the **Workstation
-  1** icon on the topology page and when it brings up a fly-out window
-  with workstation details. On the fly-out window go to click on the
-  **Remote Access \  Web RDP**. It will open a new browser tab and
-  connect you to Workstation 1.
- 
+    
+    Once you are connected to your lab session over VPN, you can open a
+    local RDP connection on your laptop and connect to **Workstation 1**
+    using the following details:
+    
+    Host: **198.18.1.36**
+    
+    Username: **dcloud\\cholland**
+    
+    Password: **dCloud123!**
+    
+    **Option (B)**
+    
+    To access Workstation 1 over **WebRDP**, click on the **Workstation
+    1** icon on the topology page and when it brings up a fly-out window
+    with workstation details. On the fly-out window go to click on the
+    **Remote Access \  Web RDP**. It will open a new browser tab and
+    connect you to Workstation 1.
+    
     ![A screenshot of a computer Description automatically
-  generated](lab_access_and_tenant_config_media/media/image5.png)
+    generated](lab_access_and_tenant_config_media/media/image5.png)
 
 9.  On the lab topology page, click on the **Info** tab on the top a
     fly-out window will open on left side. Here you will find all your
@@ -104,7 +102,7 @@ generated](lab_access_and_tenant_config_media/media/image3.png)
   **Expressway -- E Password**: Same as **AnyConnect password**, found
   under **Info** tab \  **AnyConnect Credentials**.
  
-    ![A screenshot of a computer Description automatically generated](lab_access_and_tenant_config_media/media/image7.png)
+![A screenshot of a computer Description automatically generated](lab_access_and_tenant_config_media/media/image7.png)
 
 ## Configuring Microsoft trial Tenant - \[Approx 15 min\]
 
