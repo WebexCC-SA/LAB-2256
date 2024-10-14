@@ -61,8 +61,7 @@ configuration only.
 > password**. ***
 
 ![A screenshot of a computer Description automatically
-generated](module_2_media/media/image2.png){width="5.6543449256342955in"
-height="3.721555118110236in"}
+generated](module_2_media/media/image2.png){ width=600 }
 
 **NOTE**: *If you are asked for a PIN when signing to Control Hub or to
 the Webex App, you can get this pin by signing in to **Cloud Outlook Web

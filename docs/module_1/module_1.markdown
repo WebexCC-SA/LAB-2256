@@ -81,16 +81,13 @@ desktop.
     platform as used for the Microsoft tenant.
 
     ```
-    +-----------------------------------------------------------------------+
-    | config t                                                              |
-    |                                                                       |
-    | ip domain name cbXXX.dc-YY.com **!Replace cbXXX.dc-YY.com with your   |
-    | session Domain**                                                      |
-    |                                                                       |
-    | end                                                                   |
-    +=======================================================================+
-    +-----------------------------------------------------------------------+
+    config t                                                              
+
+    ip domain name cbXXX.dc-YY.com **!Replace cbXXX.dc-YY.com with your session Domain**                                                      
+
+    end
     ```
+    Press enter after **end**.
 
     ![A computer screen with white text Description automatically generated](module_1a_media/media/image5.png)
 
@@ -112,12 +109,10 @@ generated](module_1a_media/media/image7.png)
 5. Enter the following command to import Public Key and Private Key
 
     ```
-    -----------------------------------------------------------------------
+ 
     crypto key import rsa CUBE_PEM exportable pem encryption terminal
     dCloud123!
-    -----------------------------------------------------------------------
-
-    -----------------------------------------------------------------------
+  
     ```
 
 6. It will prompt you to paste/enter the **public key** first. Copy the
@@ -139,12 +134,12 @@ generated](module_1a_media/media/image8.png)
     the CA signed CUBE certificate. Enter the following commands.
 
 
-        +-----------------------------------------------------------------------+
-        | config t                                                              |
-        |                                                                       |
-        | crypto pki import CUBE_CA_CERT pem terminal password dCloud123!       |
-        +=======================================================================+
-        +-----------------------------------------------------------------------+
+       ```
+       config t
+
+       crypto pki import CUBE_CA_CERT pem terminal password dCloud123!
+       
+       ```
 
 10. It will prompt you to enter the **CA certificate chain**. Copy the
     contents of **chain.pem** file that you opened from the certs folder
@@ -178,19 +173,20 @@ generated](module_1a_media/media/image10.png)
 
 17. Configure the CUBE_CA_CERT trustpoint and enable HTTP authentication
 
-        +-----------------------------------------------------------------------+
-        | config t                                                              |
-        |                                                                       |
-        | ip http secure-trustpoint CUBE_CA_CERT                                |
-        |                                                                       |
-        | ip http authentication enable                                         |
-        |                                                                       |
-        | ip http authentication local                                          |
-        |                                                                       |
-        | end                                                                   |
-        +=======================================================================+
-        +-----------------------------------------------------------------------+
+    ```
+    config t
+    
+    ip http secure-trustpoint CUBE_CA_CERT
+    
+    ip http authentication enable
+    
+    ip http authentication local
+    
+    end
+    ```
 
+    Press enter after **end**.
+    
     ![A computer screen with white text Description automatically
 generated](module_1a_media/media/image5.png)
 
@@ -199,58 +195,57 @@ generated](module_1a_media/media/image5.png)
 <span style="color:green">*Lets_Encrypt_Authority_X3_signed_by_DST_Root_X3*</span> 
 and <span style="color:blue">*CUBE_CA_CERT*</span>.
 
-        +-----------------------------------------------------------------------+
-        | conf t                                                                |
-        |                                                                       |
-        | crypto pki trustpoint DST_Root_X3                                     |
-        |                                                                       |
-        | enrollment terminal pem                                               |
-        |                                                                       |
-        | revocation-check none                                                 |
-        |                                                                       |
-        | end                                                                   |
-        |                                                                       |
-        | !                                                                     |
-        |                                                                       |
-        | config t                                                              |
-        |                                                                       |
-        | crypto pki trustpoint Lets_Encrypt_Authority_X3_signed_by_DST_Root_X3 |
-        |                                                                       |
-        | enrollment terminal pem                                               |
-        |                                                                       |
-        | chain-validation continue DST_Root_X3                                 |
-        |                                                                       |
-        | revocation-check none                                                 |
-        |                                                                       |
-        | end                                                                   |
-        |                                                                       |
-        | !                                                                     |
-        |                                                                       |
-        | config t                                                              |
-        |                                                                       |
-        | crypto pki trustpoint CUBE_CA_CERT                                    |
-        |                                                                       |
-        | enrollment pkcs12 **! might not need this command**                   |
-        |                                                                       |
-        | revocation-check crl                                                  |
-        |                                                                       |
-        | rsakeypair CUBE_CA_CERT                                               |
-        |                                                                       |
-        | end                                                                   |
-        |                                                                       |
-        | !                                                                     |
-        |                                                                       |
-        | config t                                                              |
-        |                                                                       |
-        | voice class srtp-crypto 1                                             |
-        |                                                                       |
-        | crypto 1 AES_CM_128_HMAC_SHA1_80                                      |
-        |                                                                       |
-        | end                                                                   |
-        |                                                                       |
-        | !                                                                     |
-        +=======================================================================+
-        +-----------------------------------------------------------------------+
+    ```
+    conf t
+
+        crypto pki trustpoint DST_Root_X3
+
+            enrollment terminal pem
+
+            revocation-check none
+
+        end
+
+    !
+
+    config t
+
+        crypto pki trustpoint Lets_Encrypt_Authority_X3_signed_by_DST_Root_X3
+
+            enrollment terminal pem
+
+            chain-validation continue DST_Root_X3
+
+            revocation-check none
+
+        end
+
+    !
+
+    config t
+
+        crypto pki trustpoint CUBE_CA_CERT
+
+            enrollment pkcs12 **! might not need this command**
+
+            revocation-check crl
+
+            rsakeypair CUBE_CA_CERT
+
+        end
+
+    !
+
+    config t
+
+        voice class srtp-crypto 1
+
+            crypto 1 AES_CM_128_HMAC_SHA1_80
+
+        end
+
+    !
+    ```
 
     With the voice class srtp-crypto command, we are setting the crypto
 cipher for the Microsoft Phone System trunk as SHA1_80.
@@ -263,22 +258,20 @@ generated](module_1a_media/media/image11.png)
 19. Download the trust bundle from cisco.com to CUBE using the below
     commands.
 
-        +-----------------------------------------------------------------------+
-        | config t                                                              |
-        |                                                                       |
-        | crypto pki trustpool policy                                           |
-        |                                                                       |
-        | no cabundle url http://www.cisco.com/security/pki/trs/ios_core.p7b    |
-        |                                                                       |
-        | cabundle url http://www.cisco.com/security/pki/trs/ios.p7b            |
-        |                                                                       |
-        | revocation-check crl                                                  |
-        |                                                                       |
-        | crypto pki trustpool import ca-bundle                                 |
-        |                                                                       |
-        | end                                                                   |
-        +=======================================================================+
-        +-----------------------------------------------------------------------+
+        config t
+
+        crypto pki trustpool policy
+
+            no cabundle url http://www.cisco.com/security/pki/trs/ios_core.p7b
+
+            cabundle url http://www.cisco.com/security/pki/trs/ios.p7b
+
+            revocation-check crl
+
+            crypto pki trustpool import ca-bundle
+
+        end
+        
 
     ![A screenshot of a computer program Description automatically generated](module_1a_media/media/image12.png)
 
@@ -295,24 +288,23 @@ run the commands again.*
     trustpoint as **CUBE_CA_CERT**. We are also disabling Remote-Party
     Identity (RPID) value to send the calling party information.
 
-        +-----------------------------------------------------------------------+
-        | config t                                                              |
-        |                                                                       |
-        | sip-ua                                                                |
-        |                                                                       |
-        | no remote-party-id                                                    |
-        |                                                                       |
-        | retry invite 2                                                        |
-        |                                                                       |
-        | transport tcp tls v1.2                                                |
-        |                                                                       |
-        | crypto signaling default trustpoint CUBE_CA_CERT                      |
-        |                                                                       |
-        | handle-replaces                                                       |
-        |                                                                       |
-        | end                                                                   |
-        +=======================================================================+
-        +-----------------------------------------------------------------------+
+     
+        config t
+
+        sip-ua
+
+        no remote-party-id
+
+        retry invite 2
+
+        transport tcp tls v1.2
+
+        crypto signaling default trustpoint CUBE_CA_CERT
+
+        handle-replaces
+
+        end
+   
 
     ![A black screen with white text Description automatically
 generated](module_1a_media/media/image13.png)
@@ -320,53 +312,49 @@ generated](module_1a_media/media/image13.png)
 
 2.  Configure voice service voip with the below commands
 
-        +-----------------------------------------------------------------------+
-        | config t                                                              |
-        |                                                                       |
-        | voice service voip                                                    |
-        |                                                                       |
-        | ip address trusted list ! SIP messages allowed from these networks    |
-        |                                                                       |
-        | ipv4 52.112.0.0 255.252.0.0 ! Microsoft cloud services                |
-        |                                                                       |
-        | ipv4 52.120.0.0 255.252.0.0                                           |
-        |                                                                       |
-        | ipv4 19.51.100.0 ! Service Provider trunk                             |
-        |                                                                       |
-        | rtcp keepalive                                                        |
-        |                                                                       |
-        | address-hiding                                                        |
-        |                                                                       |
-        | mode border-element **! ignore the warning about CSR reload**         |
-        |                                                                       |
-        | media bulk-stats                                                      |
-        |                                                                       |
-        | media-address range 198.18.1.231 198.18.1.231 port-range 36000 48000  |
-        |                                                                       |
-        | allow-connections sip to sip                                          |
-        |                                                                       |
-        | no supplementary-service sip refer                                    |
-        |                                                                       |
-        | supplementary-service media-renegotiate                               |
-        |                                                                       |
-        | fax protocol t38 version 0 ls-redundancy 0 hs-redundancy 0 fallback   |
-        | none                                                                  |
-        |                                                                       |
-        | sip                                                                   |
-        |                                                                       |
-        | listen-port secure 5061                                               |
-        |                                                                       |
-        | session refresh                                                       |
-        |                                                                       |
-        | header-passing                                                        |
-        |                                                                       |
-        | error-passthru                                                        |
-        |                                                                       |
-        | no conn-reuse                                                         |
-        |                                                                       |
-        | end                                                                   |
-        +=======================================================================+
-        +-----------------------------------------------------------------------+
+            config t
+
+        voice service voip
+
+            ip address trusted list ! SIP messages allowed from these networks
+
+                ipv4 52.112.0.0 255.252.0.0 ! Microsoft cloud services
+
+                ipv4 52.120.0.0 255.252.0.0
+
+                ipv4 19.51.100.0 ! Service Provider trunk
+
+            rtcp keepalive
+
+            address-hiding
+
+            mode border-element **! ignore the warning about CSR reload**
+
+            media bulk-stats
+
+            media-address range 198.18.1.231 198.18.1.231 port-range 36000 48000
+
+            allow-connections sip to sip
+
+            no supplementary-service sip refer
+
+            supplementary-service media-renegotiate
+
+            fax protocol t38 version 0 ls-redundancy 0 hs-redundancy 0 fallback none
+
+            sip
+
+                listen-port secure 5061
+
+                session refresh
+
+                header-passing
+
+                error-passthru
+
+                no conn-reuse
+
+        end
 
     ![A screenshot of a computer program Description automatically
 generated](module_1a_media/media/image14.png)
@@ -391,26 +379,23 @@ reload.*
 3.  Enter the following commands to configure the listening port to 5061
     under voice service voip
 
-        +-----------------------------------------------------------------------+
-        | config t                                                              |
-        |                                                                       |
-        | sip                                                                   |
-        |                                                                       |
-        | voice service voip                                                    |
-        |                                                                       |
-        | sip                                                                   |
-        |                                                                       |
-        | shutdown                                                              |
-        |                                                                       |
-        | sip                                                                   |
-        |                                                                       |
-        | listen-port secure 5061                                               |
-        |                                                                       |
-        | no shut                                                               |
-        |                                                                       |
-        | end                                                                   |
-        +=======================================================================+
-        +-----------------------------------------------------------------------+
+            config t
+
+        sip
+
+        voice service voip
+
+            sip
+
+                shutdown
+
+            sip
+
+                listen-port secure 5061
+
+                no shut
+
+        end
 
     ![A screen shot of a computer Description automatically
 generated](module_1a_media/media/image15.png)
@@ -419,24 +404,21 @@ generated](module_1a_media/media/image15.png)
     header to be used in the REFER INVITE send to the Microsoft Phone
     System.
 
-        +-----------------------------------------------------------------------+
-        | config t                                                              |
-        |                                                                       |
-        | voice class sip-hdr-passthrulist 290                                  |
-        |                                                                       |
-        | passthru-hdr Referred-By                                              |
-        |                                                                       |
-        | voice service voip                                                    |
-        |                                                                       |
-        | sip                                                                   |
-        |                                                                       |
-        | sip-profiles inbound                                                  |
-        |                                                                       |
-        | pass-thru headers 290                                                 |
-        |                                                                       |
-        | end                                                                   |
-        +=======================================================================+
-        +-----------------------------------------------------------------------+
+            config t
+
+        voice class sip-hdr-passthrulist 290
+
+            passthru-hdr Referred-By
+
+        voice service voip
+
+            sip
+
+                sip-profiles inbound
+
+                    pass-thru headers 290
+
+        end
 
     ![A screenshot of a computer program Description automatically
 generated](module_1a_media/media/image16.png)
@@ -477,86 +459,82 @@ generated](module_1a_media/media/image18.png)
     ![A screenshot of a computer Description automatically
 generated](module_1a_media/media/image19.png)
 
-**IMPORTANT NOTE**: *Once SIP profiles are configured on CUBE, you can close the **Ready**-**SIP-Profiles_Direct-Routing.txt** file (or minimize Notepad++) and go back to **CUBE_Commands-For_Direct-Routing.txt** file to continue to configure rest of the configuration on CUBE.*
+    > **IMPORTANT NOTE**: *Once SIP profiles are configured on CUBE, you can close the **Ready**-**SIP-Profiles_Direct-Routing.txt** file (or minimize Notepad++) and go back to **CUBE_Commands-For_Direct-Routing.txt** file to continue to configure rest of the configuration on CUBE.*
 
-**Hint**: *In the **CUBE_Commands-For_Direct-Routing.txt** file there is a note **You will Configure SIP Profiles & then come back to following commands** for you to identify the place you need to continue from. If copying from Notepad, make sure you don't copy the ! symbol at the end of the script.*
+    > **Hint**: *In the **CUBE_Commands-For_Direct-Routing.txt** file there is a note **You will Configure SIP Profiles & then come back to following commands** for you to identify the place you need to continue from. If copying from Notepad, make sure you don't copy the ! symbol at the end of the script.*
 
 3.  Configure the voice class tenants with below commands. Replace the
     dns name with your session cube name that you noted above.
 
-        +-----------------------------------------------------------------------+
-        | config t                                                              |
-        |                                                                       |
-        | voice class sip-options-keepalive 200                                 |
-        |                                                                       |
-        | sip-profiles 299                                                      |
-        |                                                                       |
-        | transport tcp tls                                                     |
-        |                                                                       |
-        | end                                                                   |
-        |                                                                       |
-        | !                                                                     |
-        |                                                                       |
-        | config t                                                              |
-        |                                                                       |
-        | voice class stun-usage 1                                              |
-        |                                                                       |
-        | stun usage ice lite                                                   |
-        |                                                                       |
-        | end                                                                   |
-        |                                                                       |
-        | !                                                                     |
-        |                                                                       |
-        | config t                                                              |
-        |                                                                       |
-        | voice class tenant 200                                                |
-        |                                                                       |
-        | handle-replaces                                                       |
-        |                                                                       |
-        | srtp-crypto 1                                                         |
-        |                                                                       |
-        | localhost dns:cube.cbXXX.dc-YY.com **!Replace cbXXX.dc-YY.com with    |
-        | your session domain**                                                 |
-        |                                                                       |
-        | session transport tcp tls                                             |
-        |                                                                       |
-        | no referto-passing                                                    |
-        |                                                                       |
-        | bind all source-interface GigabitEthernet 1                           |
-        |                                                                       |
-        | pass-thru headers 290                                                 |
-        |                                                                       |
-        | no pass-thru content custom-sdp                                       |
-        |                                                                       |
-        | sip-profiles 200                                                      |
-        |                                                                       |
-        | sip-profiles 290 inbound                                              |
-        |                                                                       |
-        | early-offer forced                                                    |
-        |                                                                       |
-        | block 183 sdp present                                                 |
-        |                                                                       |
-        | end                                                                   |
-        |                                                                       |
-        | !                                                                     |
-        |                                                                       |
-        | conf t                                                                |
-        |                                                                       |
-        | voice class tenant 100                                                |
-        |                                                                       |
-        | session transport udp                                                 |
-        |                                                                       |
-        | bind control source-interface GigabitEthernet2                        |
-        |                                                                       |
-        | bind media source-interface GigabitEthernet2                          |
-        |                                                                       |
-        | no pass-thru content custom-sdp                                       |
-        |                                                                       |
-        | early-offer forced                                                    |
-        |                                                                       |
-        | end                                                                   |
-        +=======================================================================+
-        +-----------------------------------------------------------------------+
+        config t
+
+            voice class sip-options-keepalive 200
+
+                sip-profiles 299
+
+                transport tcp tls
+
+            end
+
+        !
+
+        config t
+
+            voice class stun-usage 1
+
+                stun usage ice lite
+
+            end
+
+        !
+
+        config t
+
+            voice class tenant 200
+
+                handle-replaces
+
+                srtp-crypto 1
+
+                localhost dns:cube.cbXXX.dc-YY.com **!Replace cbXXX.dc-YY.com with your session domain**
+
+                session transport tcp tls
+
+                no referto-passing
+
+                bind all source-interface GigabitEthernet 1
+
+                pass-thru headers 290
+
+                no pass-thru content custom-sdp
+
+                sip-profiles 200
+
+                sip-profiles 290 inbound
+
+                early-offer forced
+
+                block 183 sdp present
+
+            end
+
+        !
+
+        config t
+
+            voice class tenant 100
+
+                session transport udp
+
+                bind control source-interface GigabitEthernet2
+
+                bind media source-interface GigabitEthernet2
+
+                no pass-thru content custom-sdp
+
+                early-offer forced
+
+            end
 
     ![A screenshot of a computer screen Description automatically
 generated](module_1a_media/media/image20.png)
@@ -584,315 +562,311 @@ Defines parameters for the trunk towards Phone System in a tenant.
 1.  Configure the required dial-peers, voice class URIs and translation
     profiles for the Direct Routing to work.
 
-        +-----------------------------------------------------------------------+
-        | conf t                                                                |
-        |                                                                       |
-        | voice class codec 1                                                   |
-        |                                                                       |
-        | codec preference 1 g711ulaw                                           |
-        |                                                                       |
-        | end                                                                   |
-        |                                                                       |
-        | !                                                                     |
-        |                                                                       |
-        | conf t                                                                |
-        |                                                                       |
-        | voice class e164-pattern-map 200                                      |
-        |                                                                       |
-        | e164 6018                                                             |
-        |                                                                       |
-        | end                                                                   |
-        |                                                                       |
-        | !                                                                     |
-        |                                                                       |
-        | conf t                                                                |
-        |                                                                       |
-        | voice class uri 290 sip                                               |
-        |                                                                       |
-        | host cube.cbXXX.dc-YY.com **!Replace cbXXX.dc-YY.com with your        |
-        | session domain**                                                      |
-        |                                                                       |
-        | end                                                                   |
-        |                                                                       |
-        | !                                                                     |
-        |                                                                       |
-        | conf t                                                                |
-        |                                                                       |
-        | voice class uri 190 sip                                               |
-        |                                                                       |
-        | host ipv4:198.18.133.3                                                |
-        |                                                                       |
-        | end                                                                   |
-        |                                                                       |
-        | !                                                                     |
-        |                                                                       |
-        | conf t                                                                |
-        |                                                                       |
-        | dial-peer voice 200 voip                                              |
-        |                                                                       |
-        | description towards Phone System Proxy 1                              |
-        |                                                                       |
-        | preference 1                                                          |
-        |                                                                       |
-        | rtp payload-type comfort-noise 13                                     |
-        |                                                                       |
-        | session protocol sipv2                                                |
-        |                                                                       |
-        | session target dns:sip.pstnhub.microsoft.com                          |
-        |                                                                       |
-        | destination e164-pattern-map 200                                      |
-        |                                                                       |
-        | voice-class codec 1                                                   |
-        |                                                                       |
-        | voice-class sip tenant 200                                            |
-        |                                                                       |
-        | voice-class sip options-keepalive profile 200                         |
-        |                                                                       |
-        | dtmf-relay rtp-nte                                                    |
-        |                                                                       |
-        | srtp                                                                  |
-        |                                                                       |
-        | fax protocol none                                                     |
-        |                                                                       |
-        | no vad                                                                |
-        |                                                                       |
-        | end                                                                   |
-        |                                                                       |
-        | !                                                                     |
-        |                                                                       |
-        | conf t                                                                |
-        |                                                                       |
-        | dial-peer voice 201 voip                                              |
-        |                                                                       |
-        | description towards Phone System Proxy 2                              |
-        |                                                                       |
-        | preference 2                                                          |
-        |                                                                       |
-        | rtp payload-type comfort-noise 13                                     |
-        |                                                                       |
-        | session protocol sipv2                                                |
-        |                                                                       |
-        | session target dns:sip2.pstnhub.microsoft.com                         |
-        |                                                                       |
-        | destination e164-pattern-map 200                                      |
-        |                                                                       |
-        | voice-class codec 1                                                   |
-        |                                                                       |
-        | voice-class sip tenant 200                                            |
-        |                                                                       |
-        | voice-class sip options-keepalive profile 200                         |
-        |                                                                       |
-        | dtmf-relay rtp-nte                                                    |
-        |                                                                       |
-        | srtp                                                                  |
-        |                                                                       |
-        | fax protocol none                                                     |
-        |                                                                       |
-        | no vad                                                                |
-        |                                                                       |
-        | end                                                                   |
-        |                                                                       |
-        | !                                                                     |
-        |                                                                       |
-        | conf t                                                                |
-        |                                                                       |
-        | dial-peer voice 202 voip                                              |
-        |                                                                       |
-        | description towards Phone System Proxy 3                              |
-        |                                                                       |
-        | preference 3                                                          |
-        |                                                                       |
-        | rtp payload-type comfort-noise 13                                     |
-        |                                                                       |
-        | session protocol sipv2                                                |
-        |                                                                       |
-        | session target dns:sip3.pstnhub.microsoft.com                         |
-        |                                                                       |
-        | destination e164-pattern-map 200                                      |
-        |                                                                       |
-        | voice-class codec 1                                                   |
-        |                                                                       |
-        | voice-class sip tenant 200                                            |
-        |                                                                       |
-        | voice-class sip options-keepalive profile 200                         |
-        |                                                                       |
-        | dtmf-relay rtp-nte                                                    |
-        |                                                                       |
-        | srtp                                                                  |
-        |                                                                       |
-        | fax protocol none                                                     |
-        |                                                                       |
-        | no vad                                                                |
-        |                                                                       |
-        | end                                                                   |
-        |                                                                       |
-        | !                                                                     |
-        |                                                                       |
-        | conf t                                                                |
-        |                                                                       |
-        | dial-peer voice 290 voip                                              |
-        |                                                                       |
-        | description inbound from Microsoft Phone System                       |
-        |                                                                       |
-        | rtp payload-type comfort-noise 13                                     |
-        |                                                                       |
-        | session protocol sipv2                                                |
-        |                                                                       |
-        | incoming uri to 290                                                   |
-        |                                                                       |
-        | voice-class codec 1                                                   |
-        |                                                                       |
-        | voice-class sip tenant 200                                            |
-        |                                                                       |
-        | dtmf-relay rtp-nte                                                    |
-        |                                                                       |
-        | srtp                                                                  |
-        |                                                                       |
-        | no vad                                                                |
-        |                                                                       |
-        | end                                                                   |
-        |                                                                       |
-        | !                                                                     |
-        |                                                                       |
-        | conf t                                                                |
-        |                                                                       |
-        | dial-peer voice 280 voip                                              |
-        |                                                                       |
-        | description Phone System REFER routing                                |
-        |                                                                       |
-        | destination-pattern +AAAT                                             |
-        |                                                                       |
-        | rtp payload-type comfort-noise 13                                     |
-        |                                                                       |
-        | session protocol sipv2                                                |
-        |                                                                       |
-        | session target sip-uri                                                |
-        |                                                                       |
-        | voice-class codec 1                                                   |
-        |                                                                       |
-        | voice-class sip profiles 280                                          |
-        |                                                                       |
-        | voice-class sip tenant 200                                            |
-        |                                                                       |
-        | voice-class sip requri-passing                                        |
-        |                                                                       |
-        | dtmf-relay rtp-nte                                                    |
-        |                                                                       |
-        | srtp                                                                  |
-        |                                                                       |
-        | no vad                                                                |
-        |                                                                       |
-        | end                                                                   |
-        |                                                                       |
-        | !                                                                     |
-        |                                                                       |
-        | conf t                                                                |
-        |                                                                       |
-        | dial-peer voice 100 voip                                              |
-        |                                                                       |
-        | description outbound to PSTN                                          |
-        |                                                                       |
-        | destination-pattern +1\[2-9\]..\[2-9\]\...\...\$                      |
-        |                                                                       |
-        | rtp payload-type comfort-noise 13                                     |
-        |                                                                       |
-        | session protocol sipv2                                                |
-        |                                                                       |
-        | session target ipv4:198.18.133.3                                      |
-        |                                                                       |
-        | voice-class codec 1                                                   |
-        |                                                                       |
-        | voice-class sip tenant 100                                            |
-        |                                                                       |
-        | dtmf-relay rtp-nte                                                    |
-        |                                                                       |
-        | no vad                                                                |
-        |                                                                       |
-        | end                                                                   |
-        |                                                                       |
-        | !                                                                     |
-        |                                                                       |
-        | conf t                                                                |
-        |                                                                       |
-        | dial-peer voice 190 voip                                              |
-        |                                                                       |
-        | description inbound from PSTN                                         |
-        |                                                                       |
-        | translation-profile incoming 100                                      |
-        |                                                                       |
-        | rtp payload-type comfort-noise 13                                     |
-        |                                                                       |
-        | session protocol sipv2                                                |
-        |                                                                       |
-        | incoming uri via 190                                                  |
-        |                                                                       |
-        | voice-class codec 1                                                   |
-        |                                                                       |
-        | voice-class sip tenant 100                                            |
-        |                                                                       |
-        | dtmf-relay rtp-nte                                                    |
-        |                                                                       |
-        | no vad                                                                |
-        |                                                                       |
-        | end                                                                   |
-        |                                                                       |
-        | !                                                                     |
-        |                                                                       |
-        | conf t                                                                |
-        |                                                                       |
-        | voice translation-rule 200                                            |
-        |                                                                       |
-        | rule 1 /\^\\+1\\(.\*\\)/ /\\1/                                        |
-        |                                                                       |
-        | end                                                                   |
-        |                                                                       |
-        | !                                                                     |
-        |                                                                       |
-        | conf t                                                                |
-        |                                                                       |
-        | voice translation-profile 200                                         |
-        |                                                                       |
-        | translate calling 200                                                 |
-        |                                                                       |
-        | translate called 200                                                  |
-        |                                                                       |
-        | end                                                                   |
-        |                                                                       |
-        | !                                                                     |
-        |                                                                       |
-        | conf t                                                                |
-        |                                                                       |
-        | voice translation-rule 100                                            |
-        |                                                                       |
-        | rule 1 /\^\\(\[2-9\]\...\...\...\\)/ /+1\\1/                          |
-        |                                                                       |
-        | end                                                                   |
-        |                                                                       |
-        | !                                                                     |
-        |                                                                       |
-        | conf t                                                                |
-        |                                                                       |
-        | voice translation-profile 100                                         |
-        |                                                                       |
-        | translate calling 100                                                 |
-        |                                                                       |
-        | translate called 100                                                  |
-        |                                                                       |
-        | end                                                                   |
-        |                                                                       |
-        | !                                                                     |
-        |                                                                       |
-        | config t                                                              |
-        |                                                                       |
-        | voice class e164-pattern-map 200                                      |
-        |                                                                       |
-        | e164 +6017                                                            |
-        |                                                                       |
-        | e164 +6018                                                            |
-        |                                                                       |
-        | end                                                                   |
-        +=======================================================================+
-        +-----------------------------------------------------------------------+
+        conf t
+
+            voice class codec 1
+
+                codec preference 1 ********
+
+            end
+
+        !
+
+        conf t
+
+            voice class e164-pattern-map 200
+
+                e164 6018
+
+            end
+
+        !
+
+        conf t
+
+            voice class uri 290 sip
+
+                host cube.cbXXX.dc-YY.com **!Replace cbXXX.dc-YY.com with your session domain**
+
+            end
+
+        !
+
+        conf t
+
+            voice class uri 190 sip
+
+                host ipv4:198.18.133.3
+
+            end
+
+        !
+
+        conf t
+
+            dial-peer voice 200 voip
+
+                description towards Phone System Proxy 1
+
+                preference 1
+
+                rtp payload-type comfort-noise 13
+
+                session protocol sipv2
+
+                session target dns:sip.pstnhub.microsoft.com
+
+                destination e164-pattern-map 200
+
+                voice-class codec 1
+
+                voice-class sip tenant 200
+
+                voice-class sip options-keepalive profile 200
+
+                dtmf-relay rtp-nte
+
+                srtp
+
+                fax protocol none
+
+                no vad
+
+            end
+
+        !
+
+        conf t
+
+            dial-peer voice 201 voip
+
+                description towards Phone System Proxy 2
+
+                preference 2
+
+                rtp payload-type comfort-noise 13
+
+                session protocol sipv2
+
+                session target dns:sip2.pstnhub.microsoft.com
+
+                destination e164-pattern-map 200
+
+                voice-class codec 1
+
+                voice-class sip tenant 200
+
+                voice-class sip options-keepalive profile 200
+
+                dtmf-relay rtp-nte
+
+                srtp
+
+                fax protocol none
+
+                no vad
+
+            end
+
+        !
+
+        conf t
+
+            dial-peer voice 202 voip
+
+                description towards Phone System Proxy 3
+
+                preference 3
+
+                rtp payload-type comfort-noise 13
+
+                session protocol sipv2
+
+                session target dns:sip3.pstnhub.microsoft.com
+
+                destination e164-pattern-map 200
+
+                voice-class codec 1
+
+                voice-class sip tenant 200
+
+                voice-class sip options-keepalive profile 200
+
+                dtmf-relay rtp-nte
+
+                srtp
+
+                fax protocol none
+
+                no vad
+
+            end
+
+        !
+
+        conf t
+
+            dial-peer voice 290 voip
+
+                description inbound from Microsoft Phone System
+
+                rtp payload-type comfort-noise 13
+
+                session protocol sipv2
+
+                incoming uri to 290
+
+                voice-class codec 1
+
+                voice-class sip tenant 200
+
+                dtmf-relay rtp-nte
+
+                srtp
+
+                no vad
+
+            end
+
+        !
+
+        conf t
+
+            dial-peer voice 280 voip
+
+                description Phone System REFER routing
+
+                destination-pattern +AAAT
+
+                rtp payload-type comfort-noise 13
+
+                session protocol sipv2
+
+                session target sip-uri
+
+                voice-class codec 1
+
+                voice-class sip profiles 280
+
+                voice-class sip tenant 200
+
+                voice-class sip requri-passing
+
+                dtmf-relay rtp-nte
+
+                srtp
+
+                no vad
+
+            end
+
+        !
+
+        conf t
+
+            dial-peer voice 100 voip
+
+                description outbound to PSTN
+
+                destination-pattern +1[2-9]..[2-9]......$
+
+                rtp payload-type comfort-noise 13
+
+                session protocol sipv2
+
+                session target ipv4:198.18.133.3
+
+                voice-class codec 1
+
+                voice-class sip tenant 100
+
+                dtmf-relay rtp-nte
+
+                no vad
+
+            end
+
+        !
+
+        conf t
+
+            dial-peer voice 190 voip
+
+                description inbound from PSTN
+
+                translation-profile incoming 100
+
+                rtp payload-type comfort-noise 13
+
+                session protocol sipv2
+
+                incoming uri via 190
+
+                voice-class codec 1
+
+                voice-class sip tenant 100
+
+                dtmf-relay rtp-nte
+
+                no vad
+
+            end
+
+        !
+
+        conf t
+
+            voice translation-rule 200
+
+                rule 1 /^\\+1\\(.*\\)/ /\\1/
+
+            end
+
+        !
+
+        conf t
+
+            voice translation-profile 200
+
+                translate calling 200
+
+                translate called 200
+
+            end
+
+        !
+
+        conf t
+
+            voice translation-rule 100
+
+                rule 1 /^(2-9)......../ /+1\\1/
+
+            end
+
+        !
+
+        conf t
+
+            voice translation-profile 100
+
+                translate calling 100
+
+                translate called 100
+
+            end
+
+        !
+
+        config t
+
+            voice class e164-pattern-map 200
+
+                e164 +6017
+
+                e164 +6018
+
+            end
 
 Now the CUBE configuration is complete. Here is an explanation of the
 commands used above:
@@ -1052,7 +1026,7 @@ generated](module_1a_media/media/image32.png)
 
 ### Module 1a.6: Testing the calls from Microsoft Teams for Direct Routing \[Approx 5 min\]
 
-> > **NOTE**: *If you have completed any of Modules 3 or 4 before
+>  **NOTE**: *If you have completed any of Modules 3 or 4 before
 > completing this module, you may have disabled Microsoft Native
 > dialing. If so, login to Microsoft Teams Admin Center and* go to
 > **Voice** \> **Calling policies**. On the Calling policies page select
@@ -1151,40 +1125,37 @@ calls to/from CUCM.
 2.  Add below voice class uri and an inbound dial-peer for accepting the
     inbound calls from CUCM (198.18.133.33)
 
-        +-----------------------------------------------------------------------+
-        | config t                                                              |
-        |                                                                       |
-        | voice class uri 390 sip                                               |
-        |                                                                       |
-        | host ipv4:198.18.133.33                                               |
-        |                                                                       |
-        | end                                                                   |
-        |                                                                       |
-        | !                                                                     |
-        |                                                                       |
-        | config t                                                              |
-        |                                                                       |
-        | dial-peer voice 390 voip                                              |
-        |                                                                       |
-        | description inbound dial-peer from Cisco UCM                          |
-        |                                                                       |
-        | session protocol sipv2                                                |
-        |                                                                       |
-        | incoming uri via 390                                                  |
-        |                                                                       |
-        | voice-class codec 1                                                   |
-        |                                                                       |
-        | voice-class sip tenant 100                                            |
-        |                                                                       |
-        | dtmf-relay rtp-nte                                                    |
-        |                                                                       |
-        | no vad                                                                |
-        |                                                                       |
-        | end                                                                   |
-        |                                                                       |
-        | !                                                                     |
-        +=======================================================================+
-        +-----------------------------------------------------------------------+
+        config t
+
+            voice class uri 390 sip
+
+                host ipv4:198.18.133.33
+
+            end
+
+        !
+
+        config t
+
+            dial-peer voice 390 voip
+
+                description inbound dial-peer from Cisco UCM
+
+                session protocol sipv2
+
+                incoming uri via 390
+
+                voice-class codec 1
+
+                voice-class sip tenant 100
+
+                dtmf-relay rtp-nte
+
+                no vad
+
+            end
+
+        !
 
     ![A screen shot of a computer code Description automatically
 generated](module_1b_media/media/image2.png)
@@ -1200,33 +1171,27 @@ generated](module_1b_media/media/image2.png)
     admin centre to not add +1 by default and you can generalize the
     dial-peer according to your organizational dial plan.*
 
-        +-----------------------------------------------------------------------+
-        | config t                                                              |
-        |                                                                       |
-        | dial-peer voice 300 voip                                              |
-        |                                                                       |
-        | description outbound to UCM                                           |
-        |                                                                       |
-        | destination-pattern +16017\$                                          |
-        |                                                                       |
-        | session protocol sipv2                                                |
-        |                                                                       |
-        | session target ipv4:198.18.133.33                                     |
-        |                                                                       |
-        | voice-class codec 1                                                   |
-        |                                                                       |
-        | voice-class sip tenant 100                                            |
-        |                                                                       |
-        | dtmf-relay rtp-nte                                                    |
-        |                                                                       |
-        | no vad                                                                |
-        |                                                                       |
-        | end                                                                   |
-        |                                                                       |
-        | !                                                                     |
-        +=======================================================================+
-        +-----------------------------------------------------------------------+
+        config t
 
+        dial-peer voice 300 voip
+
+            description outbound to UCM
+
+            destination-pattern +16017$
+
+            session protocol sipv2
+
+            session target ipv4:198.18.133.33
+
+            voice-class codec 1
+
+            voice-class sip tenant 100
+
+            dtmf-relay rtp-nte
+
+            no vad
+
+        end
 
     ![A screen shot of a computer code Description automatically
  generated](module_1b_media/media/image3.png)
