@@ -83,7 +83,7 @@ desktop.
     ```
     config t                                                              
 
-    ip domain name cbXXX.dc-YY.com **!Replace cbXXX.dc-YY.com with your session Domain**                                                      
+    ip domain name cbXXX.dc-YY.com !Replace cbXXX.dc-YY.com with your session Domain                                                  
 
     end
     ```
@@ -111,6 +111,7 @@ generated](module_1a_media/media/image7.png)
     ```
  
     crypto key import rsa CUBE_PEM exportable pem encryption terminal
+    
     dCloud123!
   
     ```
@@ -226,7 +227,7 @@ and <span style="color:blue">*CUBE_CA_CERT*</span>.
 
         crypto pki trustpoint CUBE_CA_CERT
 
-            enrollment pkcs12 **! might not need this command**
+            enrollment pkcs12 ! might not need this command
 
             revocation-check crl
 
@@ -328,7 +329,7 @@ generated](module_1a_media/media/image13.png)
 
             address-hiding
 
-            mode border-element **! ignore the warning about CSR reload**
+            mode border-element ! ignore the warning about CSR reload**
 
             media bulk-stats
 
@@ -496,7 +497,7 @@ generated](module_1a_media/media/image19.png)
 
                 srtp-crypto 1
 
-                localhost dns:cube.cbXXX.dc-YY.com **!Replace cbXXX.dc-YY.com with your session domain**
+                localhost dns:cube.cbXXX.dc-YY.com !Replace cbXXX.dc-YY.com with your session domain**
 
                 session transport tcp tls
 
@@ -566,7 +567,7 @@ Defines parameters for the trunk towards Phone System in a tenant.
 
             voice class codec 1
 
-                codec preference 1 ********
+                codec preference 1 g711ulaw
 
             end
 
@@ -586,7 +587,7 @@ Defines parameters for the trunk towards Phone System in a tenant.
 
             voice class uri 290 sip
 
-                host cube.cbXXX.dc-YY.com **!Replace cbXXX.dc-YY.com with your session domain**
+                host cube.cbXXX.dc-YY.com !Replace cbXXX.dc-YY.com with your session domain**
 
             end
 
