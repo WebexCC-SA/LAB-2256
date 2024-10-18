@@ -1,0 +1,1547 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="LAB-2256 Implementing Cisco Calling for Microsoft Teams">
+      
+      
+        <meta name="author" content="Sara Macias Salete">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../template_assets/webex75.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.41">
+    
+    
+      
+        <title>Module 2: Webex Calling Integration for Microsoft Teams [Approx 1 hr 40 min] - LAB-2256 Implementing Cisco Calling for Microsoft Teams</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-2-webex-calling-integration-for-microsoft-teams-approx-1-hr-40-min" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="LAB-2256 Implementing Cisco Calling for Microsoft Teams" class="md-header__button md-logo" aria-label="LAB-2256 Implementing Cisco Calling for Microsoft Teams" data-md-component="logo">
+      
+  <img src="../../template_assets/webexLogo91.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LAB-2256 Implementing Cisco Calling for Microsoft Teams
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module 2: Webex Calling Integration for Microsoft Teams [Approx 1 hr 40 min]
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../lab_access_and_tenant_config/Lab_access_and_tenant_config/" class="md-tabs__link">
+        
+  
+    
+  
+  Lab access and tenant configuration
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../module_1/module_1/" class="md-tabs__link">
+        
+  
+    
+  
+  Module 1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../module_2/module_2/" class="md-tabs__link">
+        
+  
+    
+  
+  Module 2
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../module_3/module_3/" class="md-tabs__link">
+        
+  
+    
+  
+  Module 3
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../appendix/appendix/" class="md-tabs__link">
+        
+  
+    
+  
+  Appendix
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LAB-2256 Implementing Cisco Calling for Microsoft Teams" class="md-nav__button md-logo" aria-label="LAB-2256 Implementing Cisco Calling for Microsoft Teams" data-md-component="logo">
+      
+  <img src="../../template_assets/webexLogo91.png" alt="logo">
+
+    </a>
+    LAB-2256 Implementing Cisco Calling for Microsoft Teams
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab_access_and_tenant_config/Lab_access_and_tenant_config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab access and tenant configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module_1/module_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Module 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module_2/module_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Module 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module_3/module_3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Module 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/appendix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="module-2-webex-calling-integration-for-microsoft-teams-approx-1-hr-40-min"><strong>Module 2: Webex Calling Integration for Microsoft Teams [Approx 1 hr 40 min]</strong></h1>
+<p>With Webex Calling for Microsoft Teams, the Microsoft Teams users can
+access the enterprise-grade Webex Calling experience directly in the
+Microsoft Teams app. With a single click from the Microsoft Teams
+interface, you can access a complete suite of Webex Calling features.
+The features include directory search, PSTN dialing, speed dial,
+voicemail, call history, and artificial intelligence-powered background
+noise removal.</p>
+<p>This integrated app works with the Cisco Unified Communications Manager
+(UCM) call-control solution, Webex Calling for cloud deployment or the
+Dedicated Instance offering.</p>
+<p>This would be the call flow diagram when using Webex Calling Multitenant as the call control:</p>
+<p><a class="glightbox" href="module_2_media/media/image1.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image1.png" /></a></p>
+<blockquote>
+<p><strong>NOTE: <em>Make sure you have added the domain (cbXXX.dc-YY.com) to
+    Microsoft tenant in Add cbXXX.dc-YY.com domain to Microsoft Trial tenant
+    section of the lab before you continue</em>.</strong></p>
+</blockquote>
+<h2 id="module-2a-configure-single-sign-on-sso-for-control-hub-approx-15-min">Module 2a: Configure Single Sign-On (SSO) for Control Hub [Approx 15 min]</h2>
+<p><strong>Microsoft tenant information for your lab:</strong></p>
+<p>If you have your own identity provider (IdP) in your organization, you
+can integrate it with Control Hub for single sign-on (SSO). SSO lets
+your users use a single, common set of credentials for Webex App
+applications and other applications in your organization.</p>
+<p>Cisco Webex supports a wide variety of IdPs for Single Sign-On
+configuration like Microsoft (both O365 and AD FS), Okta, PingFederate,
+Duo, etc.,</p>
+<p>In this lab, we will explore the SSO configuration with <strong>Microsoft
+O365</strong>.</p>
+<p>Integrating O365 with your Webex Control Hub you can also
+import/synchronize users and groups from Microsoft O365, Import Avatars
+(user profile pictures), define user attributes for mapping (like first
+name, email, etc.,) and configure SSO. In this lab, we will explore SSO
+configuration only.</p>
+<ol>
+<li>
+<p>Open RDP connection to workstation 5 at 198.18.135, using one of the
+    options mentioned in <strong>Accessing your Lab</strong> module. Use the
+    credentials <strong>dcloud\kmelby</strong> &amp; <strong>dCloud123!</strong></p>
+</li>
+<li>
+<p>Once connected to workstation, open the chrome browser from desktop
+    and from home page go to <strong>Cisco Webex Links</strong> &gt; <strong>Cisco Webex
+    Control Hub</strong> or you can directly go to <a href="https://admin.webex.com">https://admin.webex.com</a> &amp;
+    log in with <strong>cholland@cbXXX.dc-YY.com</strong> and <strong>dCloud<em>AAAA</em>!</strong></p>
+<blockquote>
+<p><strong>NOTE:</strong> You need to Replace XXX, YY <em>(in domain name) &amp; AAAA (in
+password) with your session-specific details. If you haven\'t already
+done as explained in Accessing your lab section, go to Lab_info.txt
+file located on your </em><em>workstation 1</em><em> and copy the domain and
+password</em>*. ***</p>
+</blockquote>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image2.png" /></p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>If you are asked for a PIN when signing to Control Hub or to
+the Webex App, you can get this pin by signing in to </em><em>Cloud Outlook Web
+Access</em><em> </em><em>using the Collaboration User Links</em><em> on your Chrome browser</em></p>
+</blockquote>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image3.jpeg" /></p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image4.png" /></p>
+<p><em>Insert </em><em>dCloud\cholland</em><em> as the username (for Charles Holland) and
+</em><em>dCloud123!</em><em> as your password.</em></p>
+<p><img alt="A login screen with blue text and blue letters Description
+automatically
+generated" src="module_2_media/media/image5.png" /></p>
+<p><em>You will find the PIN requested in your Inbox:</em></p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image6.png" /></p>
+</li>
+<li>
+<p>For security reasons, Webex Control Hub signs out every 20 minutes
+    (Idle timeout) by default. For this lab, let's make the idle time
+    out longer so the Control Hub does not sign you out often during
+    this lab. Go to <strong>MANAGEMENT &gt; Organization Settings &gt; Control
+    Hub's idle timeout.</strong> Drop down the option for <strong>Control Hub idle
+    timeout</strong> and select <strong>12 hours</strong> or <strong>no timeout</strong>. Click <strong>Save</strong>.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image7.png" /></p>
+</li>
+<li>
+<p>Continuing on <strong>Organization Settings</strong> page, scroll down to the
+    section <strong>Microsoft Azure Active Directory Wizard App</strong> and click
+    <strong>Set up.</strong></p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image8.png" /></p>
+</li>
+<li>
+<p>It will take you to the Microsoft authentication page. Log in with
+    the Microsoft credentials <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#104;&#111;&#108;&#108;&#97;&#110;&#100;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;">&#99;&#104;&#111;&#108;&#108;&#97;&#110;&#100;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;</a> &amp; dCloud123!
+    Click <strong>Login</strong>.</p>
+<blockquote>
+<p><strong>NOTE:</strong> <em>You need to replace XXX &amp; YY in domain name with with your
+session-specific details. If you haven\'t already done as explained in
+Accessing your lab section, go to Lab_info.txt file located on your
+workstation 1 and copy the domain and password</em><em>.</em>**</p>
+</blockquote>
+</li>
+<li>
+<p>On the following page, Microsoft login page will show you the
+    permissions required. Review the permissions. Check mark option for
+    <strong>Consent on behalf of your organization</strong>. Click <strong>Accept</strong>.</p>
+<p><img alt="A screenshot of a phone Description automatically
+generated" src="module_2_media/media/image9.png" /></p>
+</li>
+<li>
+<p>On the following it will show you all details about permissions that
+    are required for SSO configuration. <strong>Click Accept</strong>.</p>
+<p><img alt="A screenshot of a application Description automatically
+generated" src="module_2_media/media/image10.png" /></p>
+</li>
+<li>
+<p>You will be taken back to Webex Control Hub and a pop-up window will
+    be displayed. Keep the radio button selected for <strong>Sync defaults</strong>
+    and click <strong>Proceed</strong>.</p>
+<p><img alt="Graphical user interface, text, application, email Description
+automatically
+generated" src="module_2_media/media/image11.png" /></p>
+</li>
+<li>
+<p>It will create the instance/integration with Microsoft tenant. It
+    will take around 2 to 3 minutes for the process to complete.</p>
+</li>
+<li>
+<p>Once the integration process is completed, Job status will be
+    displayed <strong>NotRun</strong>.</p>
+<p><img alt="A screenshot of a phone Description automatically
+generated" src="module_2_media/media/image12.png" /></p>
+</li>
+<li>
+<p>Within few min the Job status would change to <strong>Active.</strong> Wait until
+    the job status is changed to <strong>Active</strong>. You need to refresh the
+    page to see the updated status. At this point all users from your
+    Microsoft tenant should be imported to Webex under <strong>MANAGEMENT</strong> &gt;
+    <strong>Users</strong>. Notice few users with status <strong>Verified</strong> indicating they
+    are imported from a trusted source (in this case the Microsoft
+    tenant that we are integrating with).</p>
+</li>
+<li>
+<p>Now go back to <strong>MANAGEMENT</strong> &gt; <strong>Organization Settings</strong> and
+    scroll down to the <strong>Microsoft Azure Active Directory Wizar App</strong>
+    section. Click the three dots on the right side and select <strong>Edit
+    Configuration</strong>.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image13.png" /></p>
+</li>
+<li>
+<p>It will bring up the Microsoft Azure AD integration page, go to the
+    <strong>More</strong> tab. Select the checkbox option for <strong>Activate single
+    sign-on</strong> and click <strong>Save</strong>.</p>
+<p><img alt="Graphical user interface Description automatically
+generated" src="module_2_media/media/image14.png" /></p>
+</li>
+<li>
+<p>You have now successfully enabled single sign-on for your Webex
+    tenant. From now on, all logins to this Webex tenant will be
+    redirected to Microsoft for authentication &amp; you will use
+    <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#104;&#111;&#108;&#108;&#97;&#110;&#100;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;">&#99;&#104;&#111;&#108;&#108;&#97;&#110;&#100;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;</a> &amp; dCloud123! for logging into Webex
+    Control Hub.</p>
+</li>
+<li>
+<p>This completes the SSO configuration!.</p>
+</li>
+</ol>
+<h2 id="module-2b-ordering-pstn-numbers-for-users-approx-10-min">Module 2b: Ordering PSTN Numbers for users [Approx 10 min]</h2>
+<p>For Webex Calling, the DID numbers and call control is controlled by
+Webex Cloud. We need to order 4 new DID numbers for calling scenarios in
+this module.</p>
+<ol>
+<li>
+<p>Continuing on workstation 5, go back to the browser where you logged
+    into <strong>Cisco Webex Control Hub</strong>. Login as
+    <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#104;&#111;&#108;&#108;&#97;&#110;&#100;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;">&#99;&#104;&#111;&#108;&#108;&#97;&#110;&#100;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;</a> &amp; dCloud123!, if the previous login is
+    timed out.</p>
+</li>
+<li>
+<p>Go to <strong>SERVICES</strong> &gt; <strong>Calling</strong>. Click <strong>+ Add Numbers</strong>.</p>
+<p><img alt="A screenshot of a call center Description automatically
+generated" src="module_2_media/media/image15.png" /></p>
+</li>
+<li>
+<p>On the <strong>Add Numbers</strong> page, drop down the option for Location and
+    choose <strong>dCloud.</strong> Since we are setting up this location for the
+    first time, first we need to select the PSTN Connection for this
+    location. Click <strong>Edit</strong> <strong>PSTN</strong>.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image16.png" /></p>
+</li>
+<li>
+<p>You will be taken to <strong>Edit PSTN connection for dCloud</strong> (Location)
+    and under the connection type choose <strong>Cisco Calling Plans</strong> and
+    click <strong>Next</strong>.</p>
+<blockquote>
+<p><strong>NOTE:</strong> <em>If you do not see the option Cisco Calling Plans, close the
+page and repeat steps 2 through</em></p>
+</blockquote>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image17.png" /></p>
+</li>
+<li>
+<p>Enter the following information &amp; leave rest of the fields blank and
+    click <strong>Next</strong>.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Parameter</strong></th>
+<th><strong>Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First Name</td>
+<td>Charles</td>
+</tr>
+<tr>
+<td>Last Name</td>
+<td>Holland</td>
+</tr>
+<tr>
+<td>Email Address &amp; Confirm Email Address</td>
+<td>cholland@cbXXX.dc-YY.com</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>NOTE:</strong> <em>You need replace domain with the domain assigned for your session (from Lab_info.txt file)</em></p>
+</blockquote>
+<p><a class="glightbox" href="module_2_media/media/image18.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a contact form Description automatically generated" data-desc-position="top"><img alt="A screenshot of a contact form Description automatically generated" src="module_2_media/media/image18.png" /></a></p>
+</li>
+<li>
+<p>On the pop up window click <strong>Yes, Change</strong>.</p>
+</li>
+<li>
+<p>Under the <strong>Emergency disclaimer</strong>, read &amp; scroll the disclaimer
+    information all the way down. Enter Authorized Contact as <strong>Charles
+    Holland</strong> and title as <strong>Engineer</strong> &amp; Click <strong>Agree and Continue</strong>.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image19.png" /></p>
+</li>
+<li>
+<p>Under <strong>Emergency Services Address</strong>, leave everything default and
+    click <strong>Save</strong>.</p>
+</li>
+<li>
+<p>It will save all the information for PSTN connection we entered and
+    take you summary page. On the following page, click <strong>Add numbers.</strong></p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image20.png" /></p>
+</li>
+<li>
+<p>On the <strong>Add Numbers</strong> page, make sure location is selected as
+    <strong>dCloud</strong> and the number type is selected as <strong>PSTN number</strong>. Keep
+    the option <strong>Order New Numbers</strong> is selected and click <strong>Next.</strong></p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image21.png" /></p>
+</li>
+<li>
+<p>On the <strong>Specify numbers you want to order page</strong>, drop down the
+    option for <strong>State/Province/Region</strong> and choose any of the available
+    states in United States (In this lab we support Cisco PSTN <strong>ONLY</strong>
+    for <strong>United States</strong>).</p>
+</li>
+<li>
+<p>Keep the search by option as <strong>Area Code</strong> and drop down the option
+    for <strong>Area Code</strong> &amp; choose any of area code of your choice. For
+    <strong>How may numbers do you want auto-selected for you?</strong> Enter <strong>5</strong>
+    and click <strong>Search.</strong></p>
+<p><a class="glightbox" href="module_2_media/media/image22.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_2_media/media/image22.png" /></a></p>
+</li>
+<li>
+<p>On the next page, it will show you list of available number in that
+    area code that you specified above. It will auto select four
+    numbers. If you like any specific number from list that is not auto
+    selected, you can unselect one of the auto selected number and
+    select that number you like. For now, just keep the auto selected
+    numbers as is and click <strong>Order</strong>.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image23.png" /></p>
+</li>
+<li>
+<p>Order will be submitted for these numbers. On the following page,
+    click <strong>View orders</strong>. The status will read <strong>Pending</strong> then change
+    to <strong>Provisioned</strong> in few seconds. You may need to refresh the page
+    to see the correct/accurate state.</p>
+</li>
+<li>
+<p>Click on the order you placed (Order ID) &gt; Phone Numbers to verify
+    all phone numbers are provisioned.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image24.png" /></p>
+<p>Webex will not let incoming or outgoing PSTN calls until a <strong>Main phone
+number</strong> is assigned to the location. So first we need to assign one of
+these number to the location.</p>
+</li>
+<li>
+<p>On <strong>Webex Control Hub page</strong> Navigate to <strong>MANAGEMENT</strong> &gt;
+    <strong>Locations</strong>.</p>
+</li>
+<li>
+<p>On the locations page select the existing location <strong>dCloud</strong></p>
+</li>
+<li>
+<p>On the <strong>dCloud</strong> location page, go to <strong>Calling</strong> tab</p>
+</li>
+<li>
+<p>Observe, under Main number drop down option, there is a warning
+    saying <strong>You will not be able to make or receive calls until this
+    number is added</strong>.</p>
+</li>
+<li>
+<p>Drop down the Mian number option and choose one of the numbers we
+    ordered above and click <strong>Save</strong>.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image25.png" /></p>
+</li>
+<li>
+<p>Observe that as soon as main number is assigned to location, the
+    warning will be gone. Indicating now you will be able to make and
+    receive calls from this location.</p>
+</li>
+</ol>
+<h2 id="module-2c-configure-users-for-microsoft-presence-sync-webex-calling-licenses-publish-the-webex-calling-app-on-microsoft-tenant-approx-15-min">Module 2c: Configure users for Microsoft Presence Sync, Webex Calling licenses &amp; Publish the Webex Calling app on Microsoft tenant. [Approx 15 min]</h2>
+<p>In this section of lab we will use <strong>Kellie Melby</strong> and <strong>Taylor Bard</strong>
+users. So, lets enable presence (with Microsoft) and assign Calling
+Licenses for both users on Webex Control Hub</p>
+<ol>
+<li>
+<p>Continuing on Workstation 5, go to the browser tab where you had the
+    <strong>Webex Control Hub</strong> open.</p>
+</li>
+<li>
+<p>We can enable <strong>Presence Sync</strong> either for whole organization or
+    individual users. In this section we will enable for whole
+    organization.</p>
+</li>
+<li>
+<p>On the Control Hub, go to <strong>SERVICES</strong> &gt; <strong>Calling</strong>. On the
+    Calling page to <strong>Client Settings</strong> tab.</p>
+</li>
+<li>
+<p>Scroll down on the Client Settings page to Microsoft Teams
+    Integration section and toggle the radio button <strong>Presence Sync</strong> &amp;
+    <strong>Hide Webex windows</strong>.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image26.png" /></p>
+</li>
+<li>
+<p>Now, let's assign Webex Calling license for users, go to
+    <strong>MANAGEMENT</strong> &gt; <strong>Users</strong> and choose <strong>Kellie Melby</strong> from the
+    list<strong>.</strong></p>
+</li>
+<li>
+<p>Scroll down on the summary page, click <strong>Edit Licenses</strong></p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image27.png" /></p>
+</li>
+<li>
+<p>On the <strong>Edit services for <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#107;&#109;&#101;&#108;&#98;&#121;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;">&#107;&#109;&#101;&#108;&#98;&#121;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;</a></strong> page, click
+    <strong>Edit Licenses</strong> again.</p>
+</li>
+<li>
+<p>On the next page go to <strong>Calling tab</strong>. Check mark both options for
+    <strong>Webex Calling</strong> &amp; <strong>Professional</strong>. Click <strong>Save</strong>.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image28.png" /></p>
+</li>
+<li>
+<p>On the next page, drop down the option for location and choose
+    <strong>dCloud</strong> &amp; drop down the option for <strong>Phone Number</strong> and choose
+    one of the available numbers (that we ordered in above section).
+    Make sure you select a number other than the number you assigned to
+    location <strong>Main Number</strong>. Click <strong>Save</strong>. Click <strong>Close</strong>.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image29.png" /></p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>Take note of the phone number being assigned to Kellie and
+Taylor, we will add this number to contact information on Microsoft in
+the following steps.</em></p>
+</blockquote>
+</li>
+<li>
+<p>Go back to <strong>MANAGEMENT</strong> &gt; <strong>Users</strong> again and on users page
+    choose <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#116;&#98;&#97;&#114;&#100;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;">&#116;&#98;&#97;&#114;&#100;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;</a> &amp; repeat steps 5 through 9.</p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>Once both users are assigned the licenses and phone
+numbers. Let's add these newly phone numbers to user contacts on
+Microsoft, users can use click to dial feature in Microsoft Teams.</em></p>
+</blockquote>
+</li>
+<li>
+<p>Continuing on Workstation 5, open a new browser tab and from home
+    page go to <strong>Collaboration Admin Links</strong> &gt; <strong>Microsoft Admin
+    Center</strong> or directly open Admin Center at
+    <a href="https://admin.microsoft.com">https://admin.microsoft.com</a>. Login with credentials
+    <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#104;&#111;&#108;&#108;&#97;&#110;&#100;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;">&#99;&#104;&#111;&#108;&#108;&#97;&#110;&#100;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;</a> &amp; dCloud123!</p>
+</li>
+<li>
+<p>Once logged in go to <strong>Users</strong> &gt; <strong>Active Users</strong> on left side pane</p>
+</li>
+<li>
+<p>On the active users page select <strong>Kellie Melby</strong>. It will bring up
+    fly-out window for user configuration window. On the fly-out window,
+    scroll a little down and click <strong>Manage contact information</strong>.</p>
+</li>
+<li>
+<p>On the <strong>Manage contact information</strong> page, scroll down and find
+    <strong>Office phone</strong> &amp; enter the same phone number you assigned to
+    Kellie on Webex. Enter the phone number in E.164 format, Example:
+    +19725556038. Click <strong>Save changes</strong>. Click <strong>Close</strong> [x] to close
+    out the fly-out window.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image30.png" /></p>
+</li>
+<li>
+<p>Similarly assign the number to <strong>Taylor Bard</strong> (same phone number
+    you assigned to Taylor on Webex, remember to enter the phone number
+    in E.164 format. Example +19725556023).</p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>Sometimes Microsoft takes long time to update contact
+information and would not be able to find on Microsoft teams. This is
+not limitation of the lab or Webex it's just Microsoft Cloud taking
+longer time to update contact information.</em></p>
+</blockquote>
+<p>Now let's publish and authorize the <strong>Webex Calling app</strong> for whole
+Microsoft Organization. So, each user is not prompted for authorization.
+Also, we will disable Microsoft Native calling option so users would not
+get confused between Microsoft Native calling and Webex Calling.</p>
+</li>
+<li>
+<p>Continuing on Microsoft admin center, on left side page, click
+    <strong>Show all</strong> to see all admin centers. Under <strong>Admin centers</strong>
+    select <strong>Teams</strong>.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image31.png" /></p>
+</li>
+<li>
+<p>It will open <strong>Microsoft Teams admin center</strong> in a new tab. Once the
+    Teams Admin center is opened go to <strong>Voice</strong> &gt; <strong>Calling
+    policies</strong>. On the Calling policies page select <strong>Global (Org-wide
+    default).</strong></p>
+</li>
+<li>
+<p>On the <strong>Global (Org-wide default)</strong> policy page toggle <strong>off</strong> the
+    option for <strong>Make private calls</strong> and click <strong>Save</strong>. Click
+    <strong>Confirm</strong> on the pop-up window.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image32.png" /></p>
+</li>
+<li>
+<p>Finally lets publish the Webex Calling app for organization so that
+    each user would not need to request admin authorization. Continuing
+    on Teams admin center, on left side page go to <strong>Teams apps</strong> &gt;
+    <strong>Manage apps</strong></p>
+</li>
+<li>
+<p>On the Manage apps page, towards right search for <strong>Webex Calling</strong>.
+    Select the <strong>Webex Calling</strong> app that is listed.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image33.png" /></p>
+</li>
+<li>
+<p>On the Webex Calling app page, go to <strong>Permissions tab</strong>. Under
+    permissions tab click <strong>Grant admin consent</strong>. It will bring up a
+    pop-up window to authorize as admin. Login as
+    <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#104;&#111;&#108;&#108;&#97;&#110;&#100;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;">&#99;&#104;&#111;&#108;&#108;&#97;&#110;&#100;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;</a> &amp; dCloud123!. It will prompt you to
+    accept some permissions. Click <strong>Accept</strong>.</p>
+<p><img alt="A screenshot of a webex calling application Description automatically
+generated" src="module_2_media/media/image34.png" /></p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image35.png" /></p>
+</li>
+<li>
+<p>Now any user in the organization can go to Apps on <strong>Microsoft
+    Teams</strong> and add <strong>Webex Calling</strong> app from store.</p>
+<blockquote>
+<p><strong>NOTE</strong>: As <em>Organization admin, you can also install/publish this
+app for all users. If you want to publish the app for all users, go to
+</em><em>Teams apps</em><em> &gt; </em><em>Setup policies</em><em> and update </em><em>Global (Org-wide
+default)</em><em> to have </em><em>Webex Calling</em><em> app</em>.</p>
+</blockquote>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image36.png" /></p>
+</li>
+<li>
+<p>Now Microsoft and Webex tenants &amp; users are ready for use.</p>
+</li>
+</ol>
+<h2 id="module-2d-testing-the-calls-for-microsoft-integration-with-webex-webex-calling-approx-60-min">Module 2d: Testing the calls for Microsoft Integration with Webex (Webex Calling) [Approx 60 min]</h2>
+<p>In this module we will make some test calls to internal, PSTN &amp; also
+configure multiple, watch list and Call Queues. This module consists of
+total 8 testing scenarios that are described below.</p>
+<h3 id="logging-into-clients-approx-10-min">Logging into Clients [Approx 10 min]</h3>
+<ol>
+<li>
+<p>Continuing on Workstation 5, open Webex on Desktop. Login as
+    <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#107;&#109;&#101;&#108;&#98;&#121;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;">&#107;&#109;&#101;&#108;&#98;&#121;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;</a> &amp; password dCloud123!. You will be
+    redirected to Microsoft website for authentication as SSO has been
+    configured.</p>
+</li>
+<li>
+<p>Once logged in, there would be a <strong>Webex Emergency Calling
+    Notification</strong>, click <strong>OK</strong>.</p>
+<p><img alt="A screenshot of a computer error Description automatically
+generated" src="module_2_media/media/image37.png" /></p>
+</li>
+<li>
+<p>By default Webex will be minimized, to bring it up go to bottom
+    right corner (where you see the time) and click Up Arrow and select
+    Webex from the available applications.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image38.png" /></p>
+</li>
+<li>
+<p>On the Webex bottom left corner click <strong>Call</strong> <strong>settings</strong> &gt;
+    <strong>Open Call Preferences.</strong> It will bring up Webex <strong>settings</strong> page
+    go to <strong>Phone Service</strong> &amp; make sure Phone service is connected.</p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>If you do not see </em><em>Call settings</em><em> option quit (Click on
+profile picture and select Exit) the Webex and relaunch.</em></p>
+</blockquote>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image39.png" /></p>
+</li>
+<li>
+<p>Now, open Microsoft Teams from desktop and login with same
+    credentials that you logged into Webex (<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#107;&#109;&#101;&#108;&#98;&#121;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;">&#107;&#109;&#101;&#108;&#98;&#121;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;</a> &amp;
+    dCloud123!). Click <strong>OK</strong>. Click <strong>Done</strong>.</p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>DO NOT click </em><em>No, sign into this app only</em><em>.</em></p>
+</blockquote>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image40.png" /></p>
+</li>
+<li>
+<p>Accept any information/warning messages while logging in. Once
+    logged in click eclipse icon (three dots) on the left side pane. On
+    the new fly-out window search for <strong>Webex Calling</strong>. It will list
+    the Webex Calling app. Click <strong>Add</strong>.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image41.png" /></p>
+</li>
+<li>
+<p>It will add <strong>Webex Calling app</strong> to Microsoft teams and take you to
+    login screen. Click <strong>Continue.</strong></p>
+<p><img alt="A screenshot of a phone call Description automatically
+generated" src="module_2_media/media/image42.png" /></p>
+</li>
+<li>
+<p>You will be signed into <strong>Webex Calling</strong> on Microsoft Teams.</p>
+</li>
+<li>
+<p>Finally right click on <strong>Webex Calling app</strong> on left side page and
+    click <strong>Pin</strong>. So it will be always visible for easier access. If
+    you have published Webex Calling app for entire organization under
+    setup policies on Microsoft Teams Admin center, you will see the
+    Webex Calling app pinned already.</p>
+<p><img alt="A screenshot of a phone call Description automatically
+generated" src="module_2_media/media/image43.png" /></p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>If you do not see the Webex Calling app on left side, click
+on the three dots on the left side pane again &amp; right click on the
+Webex Calling app and select </em><em>Pin</em><em> so the application always
+displays on left side pane for easier access.</em></p>
+</blockquote>
+<p><img alt="A screenshot of a chat Description automatically
+generated" src="module_2_media/media/image44.png" /></p>
+</li>
+<li>
+<p>Now both of your clients are on workstation 5 are ready for use.</p>
+</li>
+<li>
+<p>Open RDP connection to Workstation 6 using one of the methods
+    described in <strong>Accessing your Lab</strong> module above. Repeat the steps
+    above (1 through 11) on Workstation 6 and login to both clients
+    Webex &amp; Microsoft Teams. Use the credentials <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#116;&#98;&#97;&#114;&#100;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;">&#116;&#98;&#97;&#114;&#100;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;</a>
+    &amp; dCloud123!</p>
+</li>
+</ol>
+<h3 id="module-2d1-calling-scenarios-1-of-8-making-an-internal-call-approx-5-min">Module 2d.1: <strong>Calling Scenarios 1 of 8</strong> -- Making an internal call [Approx 5 min]</h3>
+<blockquote>
+<p><strong>NOTE</strong>: <em>Make sure you are logged in to both clients on both
+    workstations 5 and 6 before continuing</em>. Similarly you can dial any PSTN
+    number in E.164 format (+1AAABBBCCCC).</p>
+</blockquote>
+<ol>
+<li>
+<p>Continuing on workstation 5 as <strong>Kellie Melby</strong>, go to <strong>Webex
+    Calling app</strong> on Microsoft Teams (On left side pane) &amp; Search for
+    <strong>Taylor Bard</strong> (right above dial pad)</p>
+</li>
+<li>
+<p>It will search the directory for <strong>Taylor Bard</strong> and display options
+    to call (either phone number or email) using either <strong>Audio</strong> or
+    <strong>Video</strong>. Click on any of the options to place the call.</p>
+<p><img alt="A screenshot of a phone call Description automatically
+generated" src="module_2_media/media/image45.png" /></p>
+</li>
+<li>
+<p>Answer the call on workstation 6 (as <strong>Taylor Bard</strong>). Verify that
+    call gets connected. Wait for few seconds and hang up the call. Also
+    verify the call status reflects as shown below.</p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>You will not be able to hear audio in either direction as
+we are using virtual workstations and microphone is not available</em>.</p>
+<p><strong>NOTE</strong>: <em>If you do not see the correct status, try to bring the
+Microsoft Teams into foreground or initiate a chat conversation
+between </em><em>Kellie</em><em> and </em><em>Taylor</em><em>.</em></p>
+</blockquote>
+<p><img alt="A screenshot of a video chat Description automatically
+generated" src="module_2_media/media/image46.png" /></p>
+</li>
+<li>
+<p>As soon as the call is hung up, verify that Kellie's availability
+    status changes to <strong>Available</strong>.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image47.png" /></p>
+</li>
+<li>
+<p>You will see the up to date call history is synchronized/reflected
+    to Webex Calling app on Microsoft Teams. To verify the call history
+    go to <strong>Webex Calling app</strong> &gt; <strong>Recent Calls</strong> as shown below.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image48.png" /></p>
+</li>
+<li>
+<p>Similarly you can dial any PSTN number in E.164 format
+    (+1AAABBBCCCC). Or you can dial the Cisco support number
+    +<strong>18005532447</strong></p>
+</li>
+</ol>
+<h3 id="module-2d2-calling-scenarios-2-of-8-making-calls-from-microsoft-teams-chat-window-approx-5-min">Module 2d.2: <strong>Calling Scenarios 2 of 8</strong> -- making calls from Microsoft Teams chat window [Approx 5 min]</h3>
+<ol>
+<li>
+<p>Continuing on Workstation 5, go to <strong>Microsoft Teams app</strong> and go to
+    <strong>Chat</strong> on left side page. On the top search window search for
+    <strong>Taylor Bard</strong>.</p>
+<p><a class="glightbox" href="module_2_media/media/image49.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="top"><img alt="" src="module_2_media/media/image49.png" /></a></p>
+</li>
+<li>
+<p>Initiate a chat conversation with <strong>Taylor</strong> <strong>Bard</strong> and send few
+    messages back and forth.</p>
+</li>
+<li>
+<p>Click on the + sign towards right side of typing window for chat and
+    select Webex Calling from available options.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image50.png" /></p>
+</li>
+<li>
+<p>It will bring up available calling options for <strong>Taylor Bard</strong>.
+    Choose either Phone number or Email Address from the drop down
+    option. Then choose either <strong>Audio</strong> or <strong>Video</strong> option to make the
+    call.</p>
+<p><img alt="A screenshot of a phone call Description automatically
+generated" src="module_2_media/media/image51.png" /></p>
+</li>
+<li>
+<p>Answer the call on Workstation 6, verify that call is connected and
+    presence status is updated to show that Taylor (and Kellie) <strong>In a
+    call</strong>. Hang up the call after few seconds.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image52.png" /></p>
+</li>
+</ol>
+<h3 id="module-2d3-calling-scenarios-3-of-8-pushing-do-not-disturb-dnd-status-from-microsoft-approx-5-min">Module 2d.3: <strong>Calling Scenarios 3 of 8</strong> - Pushing Do Not Disturb (DND) status from Microsoft [Approx 5 min]</h3>
+<p>Presence sync is supported between Microsoft Teams and Webex for the
+following status:</p>
+<p><a class="glightbox" href="module_2_media/media/image53.png" data-type="image" data-width="100%" data-height="auto" data-title="A diagram of a call Description automatically generated" data-desc-position="top"><img alt="A diagram of a call Description automatically generated" src="module_2_media/media/image53.png" /></a></p>
+<p>When being on DND on <strong>Microsoft Teams</strong>, we want to avoid receiving
+calls. As these calls come on Webex, it is important to push the DND
+status from <strong>Microsoft Teams</strong> to <strong>Webex</strong>.</p>
+<p>When you enable/set <strong>Do Not Disturb</strong> status on <strong>Microsoft Teams</strong> the
+status is automatically synchronized to <strong>Webex</strong>. Please note that the
+first time you configure the integration, Microsoft might take up to 40
+minutes to sync the presence status to Webex.</p>
+<ol>
+<li>
+<p>Continuing on Workstation 5, go to <strong>Microsoft Teams</strong>. Click on the
+    profile picture &amp; drop down option for availability and choose <strong>Do
+    not disturb</strong>.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image54.png" /></p>
+</li>
+<li>
+<p>Verify that user status on <strong>Webex</strong> is also updated to <strong>Do Not
+    Disturb</strong>.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image55.png" /></p>
+</li>
+<li>
+<p>To clear the status, go to Microsoft Teams &amp; click on the profile
+    picture again and choose <strong>Reset status</strong>.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image56.png" /></p>
+</li>
+</ol>
+<h3 id="module-2d4-calling-scenarios-4-of-8-multi-line-approx-5-min">Module 2d.4: <strong>Calling Scenarios 4 of 8</strong> -- Multi-Line [Approx 5 min]</h3>
+<p>You can set up a profile with multiple lines with different phone
+numbers for calling. You can switch lines if you need to make outgoing
+calls from different lines, such as a front desk line, support team
+line, or an individual line with a different caller ID.</p>
+<ol>
+<li>
+<p>Continuing on Workstation 5, go back to the browser tab where you
+    logged into to <strong>Webex Control Hub</strong> go to <strong>SERVICES</strong> &gt;
+    <strong>Calling</strong> &amp; on the Calling page go to <strong>Virtual Lines.</strong> Click
+    <strong>Create</strong>.</p>
+<p><img alt="A screenshot of a virtual line Description automatically
+generated" src="module_2_media/media/image57.png" /></p>
+</li>
+<li>
+<p>On the <strong>Add virtual line</strong> page, populate the following and click
+    <strong>Add</strong>.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Parameter Name</strong></th>
+<th><strong>Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First name</td>
+<td>Kellie</td>
+</tr>
+<tr>
+<td>Last name</td>
+<td>Melby</td>
+</tr>
+<tr>
+<td>Display Name</td>
+<td>Kellie Melby -- Personal</td>
+</tr>
+<tr>
+<td>Location</td>
+<td>Drop down and choose <strong>dCloud</strong></td>
+</tr>
+<tr>
+<td>Phone Number</td>
+<td>Drop down and choose the number other than what we assigned to Main number and users Kellie and Taylor.</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image58.png" /></p>
+</li>
+<li>
+<p>It will add the Virtual Line and take you to next page with couple
+    of options. We need to assign this line to <strong>Kellie</strong>, so on the
+    next page choose <strong>Assign</strong>.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image59.png" /></p>
+</li>
+<li>
+<p>It will take you to available devices, drop down the option for
+    <strong>Assign device</strong> &amp; again drop down option for <strong>Select device</strong> and
+    from the available options choose <strong>Kellie, Melby. Webex
+    App.dCloud.+1XXXXX</strong> as shown below. Click <strong>Assign</strong></p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image60.png" /></p>
+</li>
+<li>
+<p>On the next page, for <strong>Line Label</strong> give a name like <strong>Personal
+    Line</strong> or something descriptive of your choice. Click <strong>Save</strong>.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image61.png" /></p>
+</li>
+<li>
+<p>Now Webex will have two lines configured. If you do not see the
+    second line yet, just quit (Click on Profile picture &amp; select <strong>Exit
+    Webex</strong>) &amp; reopen Webex from desktop.</p>
+</li>
+<li>
+<p>Once you bring up Webex (it may be minimized by default, click up
+    arrow on bottom right corner and choose Webex app), you will now
+    have two Lines configured. On the Webex go to left bottom corner and
+    select the <strong>secondary line</strong> (Personal Line that you added above)
+    to make out bound calls.</p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>If you see an additional window (Calling dock) just press
+</em><em>Ctrl + Shift + x</em><em> to close it. We will explore Calling dock in
+later sections.</em></p>
+</blockquote>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image62.png" /></p>
+</li>
+<li>
+<p>Now, go to <strong>Microsoft teams</strong> &gt; <strong>Webex Calling app</strong>. Call
+    <strong>Taylor Bard</strong> either using phone number or email address. Answer
+    the Call on workstation 6. Verify that call gets connected. Also on
+    workstation 5, observe that the call is made from Line 2 (<strong>Personal
+    Line</strong>) of Kellie Melby.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image63.png" /></p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>Call Presence status is currently not supported on secondary
+line.</em></p>
+</blockquote>
+</li>
+<li>
+<p>Hangup the call after few seconds. On workstation 5, go to Webex and
+    click on lines (towards bottom left corner) and choose the <strong>primary
+    line</strong> (L1 Kellie, Melby) .</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image64.png" /></p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>Make sure you switch to primary line before continuing to
+next module.</em></p>
+</blockquote>
+</li>
+</ol>
+<h3 id="module-2d5-calling-scenarios-5-of-8-calling-dockmulti-call-window-approx-5-min">Module 2d.5: <strong>Calling Scenarios 5 of 8</strong> -- Calling Dock/Multi Call Window [Approx 5 min]</h3>
+<p>The Webex Calling Dock (formerly multi call window) is a user enabled
+setting to maximize calls for multiple lines and manage calls
+effectively. It can act as a companion app for Microsoft Teams. Also
+helps to hide the Webex app during calls.</p>
+<p><img alt="A screenshot of a phone Description automatically
+generated" src="module_2_media/media/image65.png" /></p>
+<ol>
+<li>
+<p>Continuing on Workstation 5, on Microsoft Teams go to <strong>Webex
+    Calling</strong> app on left side pane. On the Webex Calling window click
+    <strong>Call settings</strong> (towards top right corner of the app)<strong>.</strong></p>
+</li>
+<li>
+<p>It will bring up <strong>Settings</strong> pop-up window. On the <strong>Settings</strong>
+    pop-up window go to <strong>Calling</strong> &gt; <strong>Calling dock</strong>. Check mark for
+    both options <strong>Turn on Calling dock</strong> &amp; Use <strong>Ctrl+Shift+X</strong> <strong>to to
+    toggle Calling dock on or off</strong>. <strong>Uncheck</strong> the option for <strong>Keep
+    Calling dock in front</strong>. Click <strong>Save</strong>.</p>
+<p><img alt="A screenshot of a computer Description automatically
+generated" src="module_2_media/media/image66.png" /></p>
+</li>
+<li>
+<p>Notice that Webex will bring a small call window (called as Calling Dock) as shown below. You can close the main call window &amp; use this Calling dock for any calling functions like, making call, answering call, recent calls, dial pad and accessing voicemail etc.,</p>
+<p><a class="glightbox" href="module_2_media/media/image67.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image67.png" /></a></p>
+</li>
+<li>
+<p>Drag and drop the Calling Dock to the right side of the screen to notice it minimizes itself (docking feature).</p>
+<p><a class="glightbox" href="module_2_media/media/image68.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image68.png" /></a></p>
+</li>
+<li>
+<p>Hover your mouse over the new dock icon on the right to see the Calling Dock without keeping it open. Click on the dock to maximize the Calling Dock again.</p>
+<p><a class="glightbox" href="module_2_media/media/image69.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image69.png" /></a></p>
+<p>These are the current supported features:</p>
+<p><a class="glightbox" href="module_2_media/media/image70.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image70.png" /></a></p>
+</li>
+<li>
+<p>On Workstation 5, Go to <strong>Microsoft Teams</strong> &gt; <strong>Webex Calling app</strong> and call <strong>Taylor Bard</strong> either using phone number or email address<strong>.</strong> Answer the call on workstation 6 (as <strong>Taylor</strong>). Verify that call is connected.</p>
+</li>
+<li>
+<p>Switch back to workstation 5 and observe that the Calling Dock reflects the current call, its status, option for dial pad, transfer, hold etc., Also, observe that presence status is reflected correctly (<strong>In a call</strong>) with the Webex Calling Dock. Hang up the call after few seconds.</p>
+<p><a class="glightbox" href="module_2_media/media/image71.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image71.png" /></a></p>
+</li>
+</ol>
+<h3 id="module-2d6-calling-scenarios-6-of-8-set-microsoft-teams-as-default-app-from-webex-calling-dock-approx-5-min">Module 2d.6: <strong>Calling Scenarios 6 of 8</strong> - Set Microsoft Teams as default app from Webex Calling Dock [Approx 5 min]</h3>
+<p><strong>Microsoft Teams as the default App for Calling Dock</strong></p>
+<p>The Webex Calling Dock is normally linked to the Webex App. This means that, when clicking on "Call History" or "Voicemail" notifications, they will take us to the Webex App. There is an option to make Microsoft Teams the default App for the Calling Dock. When enabling this, if we click on "Call History" on the Calling Dock it will take us now to the Microsoft Teams client where Call History for Webex Calling is located.</p>
+<ol>
+<li>
+<p>Continuing on Workstation 5, go back to browser tab where you logged into <strong>Webex Control Hub</strong>. On the Control Hub, go to <strong>MANAGEMENT</strong> &gt; <strong>Users</strong>, choose user <strong>Kellie Melby.</strong> On user page, go to <strong>Calling</strong> tab. On the calling tab, scroll down to <strong>User call experience</strong> &gt; <strong>Microsoft Teams integration</strong></p>
+<p><a class="glightbox" href="module_2_media/media/image72.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image72.png" /></a></p>
+</li>
+<li>
+<p>On the calling page, under <strong>MS Teams Integration</strong>, toggle <strong>ON</strong> the option for <strong>Set Microsoft Teams as the default app for multi-call window</strong> (on Control Hub it is still called "Multi call window" instead of "Calling Dock"). Click <strong>Save</strong></p>
+<p><a class="glightbox" href="module_2_media/media/image73.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image73.png" /></a></p>
+</li>
+</ol>
+<blockquote>
+<p><strong>NOTE</strong>: <em>You can also toggle this option for entire organization by going to </em><em>SERVICES</em><em> &gt; </em><em>Calling</em><em> &gt; </em><em>Client Settings</em><em> &amp; Microsoft Teams Integration</em>.</p>
+</blockquote>
+<ol>
+<li>
+<p>Now go to the Webex Calling Dock and click on Call history (clock/history) icon &amp; notice that it will take you to call history on the Microsoft teams.</p>
+<p><a class="glightbox" href="module_2_media/media/image74.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image74.png" /></a></p>
+</li>
+<li>
+<p>Similarly you can click on voice mail icon on the Calling Dock and it will you to the voicemails on Microsoft teams. FYI, voicemail is not part of this lab.</p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>Sometimes it might take few minutes for the change to take effect and until then you will be still redirected to Webex.</em></p>
+</blockquote>
+</li>
+</ol>
+<h3 id="module-2d7-calling-scenarios-7-of-8-create-a-call-queue-assign-usersagents-to-call-queue-approx-10-min">Module 2d.7: <strong>Calling Scenarios 7 of 8</strong> - Create a Call Queue &amp; Assign Users/Agents to Call Queue [Approx 10 min]</h3>
+<p>We can create a call queue and assign users (agents) to it. Those users will have visibility of the Call Queues they have been assigned to on the Calling Dock. They can sign in/out of the queue and set their status.</p>
+<ol>
+<li>
+<p>Continuing on Workstation 5, go back to browser tab where you logged into <strong>Webex Control Hub</strong>. On the Control Hub, go to <strong>SERVICES</strong> &gt; <strong>Calling</strong>, and click on the tab <strong>Features</strong>. Then, click on the tab <strong>Call Queue</strong>.</p>
+</li>
+<li>
+<p>On the bottom, click on <strong>Create Call  Queue</strong></p>
+<p><a class="glightbox" href="module_2_media/media/image75.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image75.png" /></a></p>
+</li>
+<li>
+<p>Assign the location <strong>dCloud</strong> and name the call queue as <strong>dCloud Call Queue.</strong></p>
+</li>
+<li>
+<p>Drop down the option for Phone Number and choose one of the available PSTN numbers. Make sure to select the number other than the number assigned to <strong>Main Number</strong>. You can add last 4 digits of the DID number for extension field or you can choose to ignore that field.</p>
+<p><a class="glightbox" href="module_2_media/media/image76.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image76.png" /></a></p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>Make a note of the phone number assigned to the Queue here, we will need this number to dial later</em>.</p>
+</blockquote>
+</li>
+<li>
+<p>Scroll down a little and for the <strong>Caller ID</strong>, select <strong>Direct Line</strong> under <strong>External caller ID phone number</strong>. Click <strong>Next.</strong></p>
+<p><a class="glightbox" href="module_2_media/media/image77.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image77.png" /></a></p>
+</li>
+<li>
+<p>Keep defaults and click <strong>Next</strong> for the three next steps</p>
+<ul>
+<li>
+<p>Call Routing type: <strong>Circular</strong></p>
+</li>
+<li>
+<p>Overflow Settings: <strong>Perform busy treatment</strong></p>
+</li>
+<li>
+<p>Announcements: <strong>Welcome Message</strong> (checked) and <strong>Comfort Message</strong> (checked)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>On the <strong>Select Users to Add to the Call Queue</strong>: Drop down the option <strong>Add user, workspace, or virtual line</strong> and select <strong>Kelly Melby</strong> (with primary line) and <strong>Taylor Bard</strong>. Check the option <strong>Allow agents to join or unjoin the queue.</strong> Click on <strong>Next.</strong></p>
+<p><a class="glightbox" href="module_2_media/media/image78.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image78.png" /></a></p>
+</li>
+<li>
+<p>Review the options selected and click on <strong>Create.</strong> Click on <strong>Done</strong> on the next screen.</p>
+<p><a class="glightbox" href="module_2_media/media/image79.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image79.png" /></a></p>
+</li>
+<li>
+<p>You will be taken back to <strong>Calling</strong> &gt; <strong>Features</strong> &gt; <strong>Call Queue</strong> &amp; will see newly created Call Queue.</p>
+<p><a class="glightbox" href="module_2_media/media/image80.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image80.png" /></a></p>
+</li>
+<li>
+<p>Now go to the Webex Calling Dock for Kelly Melby (Workstation 5). You will find there a new icon: "<strong>Queues: Available"</strong></p>
+<p><a class="glightbox" href="module_2_media/media/image81.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image81.png" /></a></p>
+</li>
+</ol>
+<p><strong>NOTE</strong>: <em>If you do not see Queue Available status, quit the Webex (Profile Picture &gt; Exit) &amp; Relaunch Webex App.</em></p>
+<ol>
+<li>
+<p>Click on the Queues icon to explore the available options</p>
+<p><a class="glightbox" href="module_2_media/media/image82.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image82.png" /></a></p>
+</li>
+<li>
+<p>Dial the DID number that is assigned to the <strong>Call Queue</strong> number from your personal phone or ask one of the proctors to make the call for you. Notice the <strong>incoming</strong> call for <strong>Kelly Melby. Decline</strong> the Call for Kellie on Workstation 5.</p>
+<p><a class="glightbox" href="module_2_media/media/image83.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image83.png" /></a></p>
+</li>
+<li>
+<p>Switch to Workstation 6 (as Taylor) &amp; notice the incoming call for Taylor Bard.</p>
+<p><a class="glightbox" href="module_2_media/media/image84.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image84.png" /></a></p>
+</li>
+<li>
+<p>Either Answer the call on Workstation 6 (as Taylor) or decline. If you choose decline the call again, it will go back to <strong>Kelly Melby</strong>, as the <strong>Queue behaviour</strong> is configured as <strong>Circular</strong>. Hang up the call from your personal/proctor phone or workstation that you answered it on.</p>
+</li>
+</ol>
+<h3 id="module-2d8-calling-scenarios-8-of-8-enable-watchlist-approx-10-min">Module 2d.8: <strong>Calling Scenarios 8 of 8</strong> - Enable Watchlist [Approx 10 min]</h3>
+<p><strong>Watchlist</strong></p>
+<p>Users can have a list of monitored users (<strong>Busy Lamp Field</strong> -- BLF). They will see the presence status of the monitored users and they can pick up their calls from the Calling Dock.</p>
+<p>You must ensure that members have been added to your <strong>Busy Lamp Field</strong> (BLF) list to monitor.</p>
+<p>In the Watchlist you'll see a list of people in your BLF list and can monitor their availability. If someone in your list has an incoming call, you have the option to pickup the call on their behalf. You can check if someone is available before you transfer a call to them.</p>
+<ol>
+<li>
+<p>Continuing on Workstation 5, go back to browser tab where you logged into <strong>Webex Control Hub</strong>. On the Control Hub, go to <strong>MANAGEMENT</strong> &gt; <strong>Users</strong>, choose user <strong>Kellie Melby.</strong> On user page, go to <strong>Calling</strong> tab. On the calling tab, scroll down to <strong>Between-user permissions</strong> &gt; <strong>Monitoring.</strong></p>
+<p><a class="glightbox" href="module_2_media/media/image85.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image85.png" /></a></p>
+</li>
+<li>
+<p>Drop down the option <strong>Add Monitored Line</strong> and choose <strong>Taylor Bard</strong> from available list</p>
+<p><a class="glightbox" href="module_2_media/media/image86.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image86.png" /></a></p>
+</li>
+<li>
+<p>You will see now <strong>Taylor Bard</strong> as part of the Monitoring List for <strong>Kellie Melby</strong>. Click on <strong>Save</strong></p>
+<p><a class="glightbox" href="module_2_media/media/image87.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image87.png" /></a></p>
+</li>
+<li>
+<p>Now go to the <strong>Webex Calling Dock</strong> for <strong>Kellie Melby</strong> (Workstation 5) and click on the <strong>Call Settings</strong> (the wheel icon). This will open the <strong>Call Settings</strong> for the Webex App for <strong>Kelly Melby</strong>.</p>
+<p><a class="glightbox" href="module_2_media/media/image81.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image81.png" /></a></p>
+</li>
+<li>
+<p>Click on the menu <strong>Notifications</strong> and then, on <strong>Calls</strong>. Under <strong>Call Pickup</strong>, uncheck the option <strong>Mute</strong>. This will allow you to do Call Pickup from your monitored users. Click on <strong>Save</strong> and close the Call Settings window.</p>
+<p><a class="glightbox" href="module_2_media/media/image88.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image88.png" /></a></p>
+</li>
+<li>
+<p>Go back to the Calling Dock for <strong>Kelly Melby</strong> and notice that <strong>Taylor Bard</strong> is now part of the <strong>Watchlist</strong></p>
+<p><a class="glightbox" href="module_2_media/media/image89.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image89.png" /></a></p>
+</li>
+<li>
+<p>Make a phone call to <strong>Taylor Bard's phone number</strong> (check the phone number on Control Hub) from your personal phone or ask one of the proctors to make the call for you. <strong>Don't answer this call as Taylor (Workstation 6).</strong></p>
+</li>
+<li>
+<p>Switch to Workstation 5. Wait few seconds and notice the <strong>Call Pick-up</strong> coming to <strong>Kellie Melby</strong></p>
+<p><a class="glightbox" href="module_2_media/media/image90.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image90.png" /></a></p>
+</li>
+<li>
+<p>Click on <strong>Pick-up</strong> to pick-up the incoming call. Notice the call has been established with <strong>Kellie Melby</strong></p>
+<p><a class="glightbox" href="module_2_media/media/image91.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a webex cloud Description automatically generated" data-desc-position="top"><img alt="A screenshot of a webex cloud Description automatically generated" src="module_2_media/media/image91.png" /></a></p>
+</li>
+</ol>
+<p>This Completes entire module 2 -- <strong><em>Webex Calling Integration for Microsoft Teams</em></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Cisco
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.instant", "navigation.top", "navigation.footer", "search.suggest", "content.code.copy", "toc.integrate"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
