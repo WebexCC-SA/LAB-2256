@@ -33,7 +33,7 @@ CCUC can also help to perform automated device firmware migration from Enterpris
 
     ![A screenshot of a computer Description automatically generated](module_3_media/media/image3.png)
 
-    > **NOTE:** *If you have completed module 3, you may have already configured SSO with Microsoft, in that case the password for* <cholland@cbXXX.dc-YY.com> *would be **dCloud123!***
+    > **NOTE:** *If you have completed module 3, you may have already configured SSO with Microsoft, in that case the password for <cholland@cbXXX.dc-YY.com> would be **dCloud123!***
 
 4.  For security reasons, Webex Control Hub signs out every 20 minutes (Idle timeout) by default. For this lab, let's make the idle time out longer so the Control Hub does not sign you out often during this lab. Go to **MANAGEMENT \> Organization Settings \> Control Hub's idle timeout.** Drop down the option for **Control Hub idle timeout** and select **12 hours** or **no timeout**. Click **Save**.
 
@@ -58,7 +58,7 @@ CCUC can also help to perform automated device firmware migration from Enterpris
 4.  Once logged in, at the admin prompt, execute the below command, to start onboarding **Cisco UCM** with Webex.
 
     ```
-    utils ucmgmt organization **organization_id**
+    utils ucmgmt organization organization_id
     ```
 
     > **NOTE:** *Replace **organization_id** with the Organization ID you copied in above module Step 4.*

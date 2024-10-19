@@ -22,11 +22,11 @@ In this lab, we will explore the SSO configuration with **Microsoft O365**.
 
 Integrating O365 with your Webex Control Hub you can also import/synchronize users and groups from Microsoft O365, Import Avatars (user profile pictures), define user attributes for mapping (like first name, email, etc.,) and configure SSO. In this lab, we will explore SSO configuration only.
 
-1.  Open RDP connection to workstation 5 at 198.18.135, using one of the options mentioned in **Accessing your Lab** module. Use the credentials **dcloud\\kmelby** & **dCloud123!**
+1.  Open RDP connection to workstation 5 at 198.18.1.35, using one of the options mentioned in **Accessing your Lab** module. Use the credentials **dcloud\\kmelby** & **dCloud123!**
 
 2.  Once connected to workstation, open the chrome browser from desktop and from home page go to **Cisco Webex Links** \> **Cisco Webex Control Hub** or you can directly go to <https://admin.webex.com> & log in with **cholland@cbXXX.dc-YY.com** and **dCloud*AAAA*!**
 
-    > **NOTE:** You need to Replace XXX, YY *(in domain name) & AAAA (in password) with your session-specific details. If you haven\'t already done as explained in Accessing your lab section, go to Lab_info.txt file located on your **workstation 1** and copy the domain and password**. ***
+    > **NOTE:** You need to Replace XXX, YY *(in domain name) & AAAA (in password) with your session-specific details. If you haven't already done as explained in Accessing your lab section, go to Lab_info.txt file located on your **workstation 1** and copy the domain and password.*
 
     ![A screenshot of a computer Description automatically generated](module_2_media/media/image2.png)
 
@@ -54,7 +54,7 @@ Integrating O365 with your Webex Control Hub you can also import/synchronize use
 
 5.  It will take you to the Microsoft authentication page. Log in with the Microsoft credentials <cholland@cbXXX.dc-YY.com> & dCloud123! Click **Login**.
 
-    > **NOTE:** *You need to replace XXX & YY in domain name with with your session-specific details. If you haven\'t already done as explained in Accessing your lab section, go to Lab_info.txt file located on your workstation 1 and copy the domain and password**.***
+    > **NOTE:** *You need to replace XXX & YY in domain name with with your session-specific details. If you haven't already done as explained in Accessing your lab section, go to Lab_info.txt file located on your workstation 1 and copy the domain and password*
 
 6.  On the following page, Microsoft login page will show you the permissions required. Review the permissions. Check mark option for **Consent on behalf of your organization**. Click **Accept**.
 
@@ -293,8 +293,6 @@ In this module we will make some test calls to internal, PSTN & also configure m
     ![A screenshot of a phone call Description automatically generated](module_2_media/media/image43.png)
 
     > **NOTE**: *If you do not see the Webex Calling app on left side, click on the three dots on the left side pane again & right click on the Webex Calling app and select **Pin** so the application always displays on left side pane for easier access.*
-
-    ![A screenshot of a phone call Description automatically generated](module_2_media/media/image44.png)
 
 10. Now both of your clients are on workstation 5 are ready for use.
 

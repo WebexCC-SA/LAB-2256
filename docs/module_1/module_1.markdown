@@ -110,9 +110,7 @@ generated](module_1a_media/media/image7.png)
 
     ```
  
-    crypto key import rsa CUBE_PEM exportable pem encryption terminal
-    
-    dCloud123!
+    crypto key import rsa CUBE_PEM exportable pem encryption terminal dCloud123!
   
     ```
 
@@ -329,7 +327,7 @@ generated](module_1a_media/media/image13.png)
 
             address-hiding
 
-            mode border-element ! ignore the warning about CSR reload**
+            mode border-element ! ignore the warning about CSR reload
 
             media bulk-stats
 
@@ -497,7 +495,7 @@ generated](module_1a_media/media/image19.png)
 
                 srtp-crypto 1
 
-                localhost dns:cube.cbXXX.dc-YY.com !Replace cbXXX.dc-YY.com with your session domain**
+                localhost dns:cube.cbXXX.dc-YY.com !Replace cbXXX.dc-YY.com with your session domain
 
                 session transport tcp tls
 
@@ -587,7 +585,7 @@ Defines parameters for the trunk towards Phone System in a tenant.
 
             voice class uri 290 sip
 
-                host cube.cbXXX.dc-YY.com !Replace cbXXX.dc-YY.com with your session domain**
+                host cube.cbXXX.dc-YY.com !Replace cbXXX.dc-YY.com with your session domain
 
             end
 
@@ -907,9 +905,7 @@ Border Controller (SBC)*
     side pane, go to **Voice** \> **Direct Routing**. On the Direct
     Routing page click **Add** to add a new SBC (CUBE).
 
-3.  On the **Add SBC** page, name the SBC as **cube.cbXXX.dc-YY.com**
-    (the FQDN of the CUBE), and toggle ON the option for **Enabled,**
-    and set SIP signaling port to 5061. Scroll down and click **Save**.
+3. On the **Add SBC** page, name the SBC as **cube.cbXXX.dc-YY.com** (the FQDN of the CUBE), and toggle ON the option for **Enabled,** and set SIP signaling port to 5061. Scroll down and click **Save**.
 
     ![A screenshot of a computer Description automatically
 generated](module_1a_media/media/image21.png)
@@ -967,8 +963,8 @@ generated](module_1a_media/media/image26.png)
     |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
     | **Name**           | PSTN-DR                                                                                                                                     |
     | **Priority**       | 2                                                                                                                                           |
-    | **\+1***             | \+1.*                                                                                                                                     |
-    | **SBCs enrolled**  | Click **Add SBCs** and on the fly-out window, checkmark the available SBC (`cbXXX.dc-YY.com`) and click **Apply**.                          |
+    | **\+1.***             | \+1.*                                                                                                                                     |
+    | **SBCs enrolled**  | Click **Add SBCs** and on the fly-out window, drop down and select the available SBC (`cbXXX.dc-YY.com`) and click **Apply**.                          |
     | **PSTN usage records** | Click **Add PSTN usage records** and on the fly-out window, checkmark the available PSTN usage record (`PSTNUR`) and click **Apply**. |
 
     ![A screenshot of a computer Description automatically
