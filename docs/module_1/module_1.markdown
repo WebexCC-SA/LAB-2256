@@ -963,7 +963,7 @@ generated](module_1a_media/media/image26.png)
     |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
     | **Name**           | PSTN-DR                                                                                                                                     |
     | **Priority**       | 2                                                                                                                                           |
-    | **\+1.***             | \+1.*                                                                                                                                     |
+    | **Dialed number pattern**             | \\+1.*                                                                                                                                     |
     | **SBCs enrolled**  | Click **Add SBCs** and on the fly-out window, drop down and select the available SBC (`cbXXX.dc-YY.com`) and click **Apply**.                          |
     | **PSTN usage records** | Click **Add PSTN usage records** and on the fly-out window, checkmark the available PSTN usage record (`PSTNUR`) and click **Apply**. |
 
@@ -1218,27 +1218,17 @@ generated](module_1b_media/media/image4.png)
 
 4. On the **Trunk Configuration** page populate the following information and click **Save** to save the configuration. You will need to scroll down to see the **Inbound Calls** and **SIP Information** sections on the Trunk Configuration page.
 
-    ```
-    -----------------------------------------------------------------------
-    Parameter Name                             Parameter Value
-    ------------------------------------------ ----------------------------
-    Device Name                                Direct-Routing-Trunk
 
-    Device Pool                                dCloud_DP
+    | Parameter Name                              | Parameter Value                     |
+    |---------------------------------------------|-------------------------------------|
+    | Device Name                                 | Direct-Routing-Trunk                |
+    | Device Pool                                 | dCloud_DP                           |
+    | Inbound Calls \ Significant Digits          | 4                                   |
+    | Inbound Calls \ Calling Search Space        | Call_Everyone                       |
+    | SIP Information \ Destination \ Destination Address | 198.18.133.231                |
+    | SIP Information \ SIP Trunk Security Profile | Non Secure SIP Trunk Profile       |
+    | SIP Information \ SIP Profile               | dCloud Standard SIP Profile         |
 
-    Inbound Calls \ Significant Digits         4
-
-    Inbound Calls \ Calling Search Space       Call_Everyone
-
-    SIP Information \ Destination \            198.18.133.231
-    Destination Address                        
-
-    SIP Information \ SIP Trunk Security       Non Secure SIP Trunk Profile
-    Profile                                    
-
-    SIP Information \ SIP Profile              dCloud Standard SIP Profile
-    -----------------------------------------------------------------------
-    ```
 
     ![A screenshot of a computer Description automatically generated](module_1b_media/media/image5.png)
     
