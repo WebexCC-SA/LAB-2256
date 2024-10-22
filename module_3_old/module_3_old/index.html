@@ -1,0 +1,819 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="LAB-2256 Implementing Cisco Calling for Microsoft Teams">
+      
+      
+        <meta name="author" content="Sara Macias Salete">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../template_assets/webex75.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>Module 3: Webex Calling (UCM Calling) Integration with Microsoft Teams [Approx 1 hour 45 min] - LAB-2256 Implementing Cisco Calling for Microsoft Teams</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-3-webex-calling-ucm-calling-integration-with-microsoft-teams-approx-1-hour-45-min" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="LAB-2256 Implementing Cisco Calling for Microsoft Teams" class="md-header__button md-logo" aria-label="LAB-2256 Implementing Cisco Calling for Microsoft Teams" data-md-component="logo">
+      
+  <img src="../../template_assets/webexLogo91.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LAB-2256 Implementing Cisco Calling for Microsoft Teams
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module 3: Webex Calling (UCM Calling) Integration with Microsoft Teams [Approx 1 hour 45 min]
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../lab_access_and_tenant_config/Lab_access_and_tenant_config/" class="md-tabs__link">
+        
+  
+    
+  
+  Lab access and tenant configuration
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../module_1/module_1/" class="md-tabs__link">
+        
+  
+    
+  
+  Module 1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../module_2/module_2/" class="md-tabs__link">
+        
+  
+    
+  
+  Module 2
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../module_3/module_3/" class="md-tabs__link">
+        
+  
+    
+  
+  Module 3
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../appendix/appendix/" class="md-tabs__link">
+        
+  
+    
+  
+  Appendix
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LAB-2256 Implementing Cisco Calling for Microsoft Teams" class="md-nav__button md-logo" aria-label="LAB-2256 Implementing Cisco Calling for Microsoft Teams" data-md-component="logo">
+      
+  <img src="../../template_assets/webexLogo91.png" alt="logo">
+
+    </a>
+    LAB-2256 Implementing Cisco Calling for Microsoft Teams
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab_access_and_tenant_config/Lab_access_and_tenant_config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab access and tenant configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module_1/module_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Module 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module_2/module_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Module 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module_3/module_3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Module 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/appendix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="module-3-webex-calling-ucm-calling-integration-with-microsoft-teams-approx-1-hour-45-min"><strong>Module 3: Webex Calling (UCM Calling) Integration with Microsoft Teams</strong> [Approx 1 hour 45 min]</h1>
+<p>With Webex Calling for Microsoft Teams, the Microsoft Teams users can access the enterprise-grade Webex Calling experience directly in the Microsoft Teams app. With a single click from the Microsoft Teams interface, you can access a complete suite of Webex Calling features. The features include directory search, PSTN dialing, speed dial, voicemail, call history, and artificial intelligence-powered background noise removal.</p>
+<p>This integrated app works with the Cisco Unified Communications Manager (CUCM) call-control solution, Webex Calling for cloud deployment or the Dedicated Instance offering.</p>
+<p>This would be the call flow diagram when using CUCM as the call control:</p>
+<p><a class="glightbox" href="module_3_media/media/image1.png" data-type="image" data-width="100%" data-height="auto" data-title="A diagram of a telephone call Description automatically generated" data-desc-position="top"><img alt="A diagram of a telephone call Description automatically generated" src="module_3_media/media/image1.png" /></a></p>
+<blockquote>
+<p><strong>IMPORTANT NOTE:</strong> Make sure you have added the domain (cbXXX.dc-YY.com) to Microsoft tenant in <strong>Add cbXXX.dc-YY.com domain to Microsoft Trial tenant</strong> section of the lab before you are continuing.</p>
+</blockquote>
+<p><strong>Webex Cloud-Connected UC (CCUC) Overview [Approx 5 min Read]:</strong></p>
+<p><a class="glightbox" href="module_3_media/media/image2.jpeg" data-type="image" data-width="100%" data-height="auto" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3_media/media/image2.jpeg" /></a></p>
+<p>Webex Cloud-Connected UC (CCUC) is a suite of Webex cloud services with a single global view to manage on-premises UC and Unified CM cloud services. CCUC is an efficient, cloud-based managed services product for an on-premises Unified CM deployment. It provides a centralized cloud-based tool for analytics and troubleshooting. It allows customers to leverage the benefits of the Webex cloud while keeping critical calling workloads on premises.</p>
+<p>Customers can subscribe to the UC management services on Control Hub. Customers can access the Control Hub to get a single global view and host the entire on-premises Unified CM network from a single operation control panel that supports the Cisco cloud services. Cloud-Connected UC helps manage multiple clusters, for both Unified CM and Unified CM Cloud deployments. Cloud-Connected UC achieves this with plugins that are installed on individual Unified CM applications that send telemetry data to the Webex cloud. Plugins register with the Webex cloud during onboarding and are authenticated to the cloud using the Webex Common Identity framework. Subsequent updates to these plugins are automatically managed through the cloud.</p>
+<p>CCUC can also help to perform automated device firmware migration from Enterprise Firmware to MPP Firmware. The MPP firmware can run on certain models of the Cisco IP Phone 6800, 7800, and 8800 series. However, only the Cisco IP Phone 7800 and 8800 series can run either MPP firmware or Enterprise firmware. When an appropriate license is applied to the IP Phone, you can migrate between MPP and Enterprise firmware on the Cisco IP 7800 and 8800 series phones.</p>
+<h2 id="module-3a-get-the-organization-id-from-webex-control-hub-approx-5-min">Module 3a: Get the Organization ID from Webex Control Hub [Approx 5 min]</h2>
+<ol>
+<li>
+<p>Open RDP connection to Workstation 3 at 198.18.1.39, using one of the options mentioned in <strong>Accessing your Lab</strong> module. Use the credentials <strong>dcloud\amckenzie</strong> and <strong>dCloud123!</strong></p>
+</li>
+<li>
+<p>Open Chrome Browser from the taskbar or Desktop</p>
+</li>
+<li>
+<p>From Home Page, select <strong>Cisco Webex Links</strong> &gt; <strong>Cisco Webex Control Hub</strong>. Log in
+    with <strong>cholland@cbXXX.dc-YY.com</strong> and <strong>dCloud<em>AAAA</em>!</strong></p>
+<blockquote>
+<p><strong>NOTE:</strong> You need to Replace <strong>XXX</strong> and <strong>YY</strong> <em>with your session-specific details. If you haven\'t already done as explained in </em><em>Accessing your lab</em><em> section, go to </em><em>Lab_info.txt</em><em> file located oyour workstation 1 and copy the domain.</em></p>
+</blockquote>
+<p><a class="glightbox" href="module_3_media/media/image3.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image3.png" /></a></p>
+<blockquote>
+<p><strong>NOTE:</strong> <em>If you have completed module 3, you may have already configured SSO with Microsoft, in that case the password for</em> <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#104;&#111;&#108;&#108;&#97;&#110;&#100;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;">&#99;&#104;&#111;&#108;&#108;&#97;&#110;&#100;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;</a> <em>would be </em><em>dCloud123!</em>**</p>
+</blockquote>
+</li>
+<li>
+<p>For security reasons, Webex Control Hub signs out every 20 minutes (Idle timeout) by default. For this lab, let's make the idle time out longer so the Control Hub does not sign you out often during this lab. Go to <strong>MANAGEMENT &gt; Organization Settings &gt; Control Hub's idle timeout.</strong> Drop down the option for <strong>Control Hub idle timeout</strong> and select <strong>12 hours</strong> or <strong>no timeout</strong>. Click <strong>Save</strong>.</p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>If you have completed module 3, you may have already set the idle time out as part of that module. If so, you can skip step 4.</em></p>
+</blockquote>
+<p><a class="glightbox" href="module_3_media/media/image4.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image4.png" /></a></p>
+</li>
+<li>
+<p>Now, go to <strong>MANAGEMENT</strong> &gt; <strong>Account</strong> and copy the <strong>Organization ID</strong> to a notepad on the Workstation 3 Desktop.</p>
+<p><a class="glightbox" href="module_3_media/media/image5.png" data-type="image" data-width="100%" data-height="auto" data-title="Graphical user interface, application Description automatically generated" data-desc-position="top"><img alt="Graphical user interface, application Description automatically generated" src="module_3_media/media/image5.png" /></a></p>
+</li>
+</ol>
+<h2 id="module-3b-onboard-a-uc-nodes-ucm-cuc-using-the-administrator-cli-approx-5-min-review-only">Module 3b: Onboard a UC Nodes (UCM &amp; CUC) using the Administrator CLI [Approx 5 min -- Review Only]</h2>
+<blockquote>
+<p><strong><span style="color: red;">IMPORTANT NOTE:</span></strong> <em>When you onboard a on-prem Unified Communications device (like Cisco UCM or Cisco Unity Connection) with Webex Cloud, it takes around 30 to 45 min for the cloud to see it. Instead of making attendess to onboard and wait for 45 min to sync up during the lab, we have pre-onboarded Cisco UCM and Unity Connection for this Lab. </em><strong>Below steps are your reference purpose only, you <span style="color: red; font-weight: bold; font-style: italic;">DO NOT</span> need to execute any steps.</strong><em> After reviewing below setps you can directly</em> <strong>move to next module 3c</strong></p>
+</blockquote>
+<ol>
+<li>
+<p>Continuing on Workstation 3, open the <strong>Putty</strong> application located on the Desktop.</p>
+</li>
+<li>
+<p>Open SSH connection to Cisco Unified Communications Manager at <strong>198.18.133.33.</strong> Accept any security warnings, if prompted.</p>
+</li>
+<li>
+<p>Log in as <strong>administrator</strong> and <strong>dCloud123!</strong> when prompted, and accept any security warnings<strong>.</strong></p>
+</li>
+<li>
+<p>Once logged in, at the admin prompt, execute the below command, to start onboarding <strong>Cisco UCM</strong> with Webex.</p>
+<div class="highlight"><pre><span></span><code>utils ucmgmt organization organization_id
+</code></pre></div>
+<blockquote>
+<p><strong>NOTE:</strong> <em>Replace </em><em>organization_id</em><em> with the Organization ID you copied in above module Step 4.</em></p>
+</blockquote>
+</li>
+<li>
+<p>Now run the following command to enable the CCUC agent.</p>
+<div class="highlight"><pre><span></span><code>utils ucmgmt agent enable
+</code></pre></div>
+<p><a class="glightbox" href="module_3_media/media/image6.png" data-type="image" data-width="100%" data-height="auto" data-title="Text Description automatically generated" data-desc-position="top"><img alt="Text Description automatically generated" src="module_3_media/media/image6.png" /></a></p>
+</li>
+<li>
+<p>Run the following command to verify that the CCUC agent is <strong>running</strong>. The Agent process should show the status to be <strong>running.</strong></p>
+<div class="highlight"><pre><span></span><code>utils ucmgmt agent status
+</code></pre></div>
+<p><a class="glightbox" href="module_3_media/media/image7.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image7.png" /></a></p>
+</li>
+<li>
+<p>If the agent process is <strong>not running</strong>, run the following command to kick-start or restart the agent process.
+        utils ucmgmt agent restart</p>
+<p><a class="glightbox" href="module_3_media/media/image8.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a computer Description automatically generated with medium confidence" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated with medium confidence" src="module_3_media/media/image8.png" /></a></p>
+<p><a class="glightbox" href="module_3_media/media/image9.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image9.png" /></a></p>
+</li>
+<li>
+<p>Check the agent status again with the command, to make sure the agent process status is <strong>running</strong></p>
+<div class="highlight"><pre><span></span><code>utils ucmgmt agent status
+</code></pre></div>
+</li>
+<li>
+<p>When you see agent process status is <strong>running,</strong> you have initiated the onboarding process successfully. <strong>Make a note of the time that the process moved to the running state, you may need to reference it later.</strong></p>
+</li>
+<li>
+<p>Now, lets onboard <strong>Cisco Unity Connection</strong> (CUC) node. Open new <strong>Putty</strong> session/window and open SSH connection to <strong>198.18.133.5</strong>, accept any security warnings.</p>
+</li>
+<li>
+<p>Login as <strong>administrator</strong> and <strong>dCloud123!</strong></p>
+</li>
+<li>
+<p>Repeat setps 4 through 9 for <strong>Cisco Unity Connection</strong> node.</p>
+<p><a class="glightbox" href="module_3_media/media/image10.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a computer screen Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer screen Description automatically generated" src="module_3_media/media/image10.png" /></a></p>
+</li>
+<li>
+<p>Go back to browser tba where you had <strong>Webex Control Hub</strong> opened. Go to <strong>SERVICES</strong> &gt; <strong>Connected UC</strong> and click <strong>Enable Connected UC</strong></p>
+<p><a class="glightbox" href="module_3_media/media/image11.png" data-type="image" data-width="100%" data-height="auto" data-title="Graphical user interface, application Description automatically generated" data-desc-position="top"><img alt="Graphical user interface, application Description automatically generated" src="module_3_media/media/image11.png" /></a></p>
+</li>
+<li>
+<p>Once Enabled, click <strong>Get Started</strong> on the <strong>UC Management</strong> tab</p>
+<p><a class="glightbox" href="module_3_media/media/image12.png" data-type="image" data-width="100%" data-height="auto" data-title="Graphical user interface, application, website Description automatically generated" data-desc-position="top"><img alt="Graphical user interface, application, website Description automatically generated" src="module_3_media/media/image12.png" /></a></p>
+</li>
+<li>
+<p>It will pop-up the <strong>Getting Started</strong> window, which will walk you through creating an agent file for Cisco On-Premises devices.</p>
+</li>
+<li>
+<p>Click <strong>Next</strong> on the <strong>Getting Started</strong> Page.</p>
+</li>
+<li>
+<p>Give the "CCUC-Agent" name in File Name. You can see in this page that if in your real live scenario you have a proxy you can define here the information of that proxy.</p>
+</li>
+<li>
+<p>Click <strong>Save</strong>. You have to wait a couple of minutes while the file agent is created.</p>
+<blockquote>
+<p><strong>NOTE:</strong> <em>This Agent file does not need to be downloaded in this lab as it\'s already bundled with this version of Cisco UCM (14.0 SU3) but we will create it to get familiar with the process.</em></p>
+</blockquote>
+</li>
+<li>
+<p>Click <strong>Next</strong>.</p>
+</li>
+<li>
+<p>We need to create a new cluster group for Cisco UCM.</p>
+</li>
+<li>
+<p>Give the Cluster Group a <strong>Name</strong> and a <strong>Group Description</strong> of your choice. Example: <strong>dCloud-UCM</strong> and <strong>UCM Group</strong>.</p>
+<p><a class="glightbox" href="module_3_media/media/image13.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image13.png" /></a></p>
+</li>
+<li>
+<p>Click <strong>Next</strong> and then click <strong>Finish</strong>.</p>
+</li>
+<li>
+<p>Go to Inventory under UC Management &amp; Click <strong>Add Cluster  Group</strong> again and give Cluster Group Name &amp; Group Description for CUC. Example: <strong>dCloud-CUC</strong> &amp; <strong>CUC Group</strong>. Click <strong>Save</strong>.</p>
+<p><a class="glightbox" href="module_3_media/media/image14.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image14.png" /></a></p>
+</li>
+</ol>
+<h2 id="module-3c-verify-the-onboarded-ucm-cuc-nodes-on-webex-control-hub-approx-10-min">Module 3c: Verify the onboarded UCM &amp; CUC nodes on Webex Control Hub [Approx 10 min]</h2>
+<ol>
+<li>
+<p>Continuing on Workstation 3, go back to the browser tab where <strong>Webex Control Hub</strong> was opened and refresh the browser page. Go to <strong>SERVICES</strong> &gt; <strong>Connected UC</strong>.</p>
+</li>
+<li>
+<p>On the Connected UC page click <strong>Inventory</strong> under <strong>UC Management.</strong></p>
+</li>
+<li>
+<p>You will see there are two <strong>Unassigned</strong> nodes/clusters that needs assignment to a cluster group.</p>
+</li>
+<li>
+<p>Click <strong>Resolve</strong>.</p>
+<p><a class="glightbox" href="module_3_media/media/image15.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image15.png" /></a></p>
+</li>
+<li>
+<p>On the next page, click <strong>Verify</strong> for cucm1.dcloud<strong>.</strong>cisco.com</p>
+<p><a class="glightbox" href="module_3_media/media/image16.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="top"><img alt="" src="module_3_media/media/image16.png" /></a></p>
+</li>
+<li>
+<p>It will bring up a new pop-up window for the node. Drop down the option for <strong>Change Cluster Group</strong> and choose <strong>dCloud-CUCM.</strong> Now check mark (towards right side of the node list) option for the product CUCM to confirm Verification and Click Save and Click <strong>Save</strong>.</p>
+<p><a class="glightbox" href="module_3_media/media/image17.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image17.png" /></a></p>
+</li>
+<li>
+<p>You will be taken back to Unverified Cluster Group. Now, click Verify for cuc1.dcloud.cisco.com. Drop down the option for <strong>Change Cluster Group</strong> and choose <strong>dCloud-CUC.</strong> Now click the check mark for the product CUCM to confirm Verification and Click Save and Click <strong>Save</strong>.</p>
+<p><a class="glightbox" href="module_3_media/media/image18.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image18.png" /></a></p>
+</li>
+<li>
+<p>Lastly, on the Control Hub, go to <strong>SERVICES</strong> &gt; <strong>Connected UC</strong> &gt; <strong>Inventory</strong> &amp; choose <strong>Details</strong> for dCloud-CUCM. Click <strong>Details</strong> (again). Click on the eclipse icon (three dots) in the top right corner and choose <strong>Service Management</strong>.</p>
+<p><a class="glightbox" href="module_3_media/media/image19.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a computer Description automatically generated with low confidence" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated with low confidence" src="module_3_media/media/image19.png" /></a></p>
+</li>
+<li>
+<p>Toggle all the settings under Service Management and select the option for <strong>Yes, I agree</strong> and click <strong>Submit</strong>.</p>
+<p><a class="glightbox" href="module_3_media/media/image20.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image20.png" /></a></p>
+</li>
+<li>
+<p>Repeat steps 8 &amp; 9 for dCloud-CUC cluster.</p>
+<p><a class="glightbox" href="module_3_media/media/image21.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a service management Description automatically generated" data-desc-position="top"><img alt="A screenshot of a service management Description automatically generated" src="module_3_media/media/image21.png" /></a></p>
+</li>
+<li>
+<p>Now the Cisco UCM &amp; CUC servers are successfully onboarded with Cisco Webex Cloud. This completes the <strong>Onboard a UC Node using the Administrator CLI</strong> section.</p>
+</li>
+</ol>
+<h2 id="module-3d-configure-single-sign-on-sso-for-control-hub-approx-15-min">Module 3d: Configure Single Sign-On (SSO) for Control Hub [Approx 15 min]</h2>
+<blockquote>
+<p><strong>NOTE:</strong> <em>If you have completed module 3, you would have configured the SSO already as part of that module. So, you can skip this module and go to next module. If you have not run through module 3 yet, you can continue to configure SSO.</em></p>
+</blockquote>
+<p>If you have your own identity provider (IdP) in your organization, you can integrate it with Control Hub for single sign-on (SSO). SSO lets your users use a single, common set of credentials for Webex App applications and other applications in your organization.</p>
+<p>Cisco Webex supports a wide variety of IdPs for Single Sign-On configuration like Microsoft (both O365 and AD FS), Okta, PingFederate, Duo, etc.,</p>
+<p>In this lab, we will explore the SSO configuration with <strong>Microsoft O365</strong>.</p>
+<p>Integrating O365 with your Webex Control Hub you can also import/synchronize users and groups from Microsoft O365, Import Avatars (user profile pictures), define user attributes for mapping (like first name, email, etc.,) and configure SSO. In this lab, we will explore SSO configuration only.</p>
+<ol>
+<li>
+<p>Continuing on Workstation 3 and go to the browser tab where you had the <strong>Webex Control hub</strong> open.</p>
+</li>
+<li>
+<p>On the <strong>Webex Control Hub</strong> page go <strong>MANAGEMENT</strong> &gt; <strong>Organization Settings</strong> and scroll down to the section <strong>Microsoft Azure Active Directory Wizard App</strong> and click <strong>Set up.</strong></p>
+<p><a class="glightbox" href="module_3_media/media/image22.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image22.png" /></a></p>
+</li>
+<li>
+<p>It will take you to the Microsoft authentication page. Log in with the Microsoft credentials <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#104;&#111;&#108;&#108;&#97;&#110;&#100;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;">&#99;&#104;&#111;&#108;&#108;&#97;&#110;&#100;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;</a> &amp; dCloud123! Click <strong>Login</strong>.</p>
+<blockquote>
+<p><strong>NOTE:</strong> <strong><em>You need to Replace XXX and YY with your session-specific details. If you haven\'t already done as explained in Accessing  your lab section, go to Lab_info.txt file located oyour workstation 1 and copy the domain.</em></strong></p>
+</blockquote>
+<p><a class="glightbox" href="module_3_media/media/image3.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image3.png" /></a></p>
+</li>
+<li>
+<p>On the following page, Microsoft login page will show you the permissions required. Review the permissions. Check mark option for <strong>Consent on behalf of your organization</strong>. Click <strong>Accept</strong>.</p>
+<p><a class="glightbox" href="module_3_media/media/image23.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a phone Description automatically generated" data-desc-position="top"><img alt="A screenshot of a phone Description automatically generated" src="module_3_media/media/image23.png" /></a></p>
+</li>
+<li>
+<p>On the following it will show you all details about permissions that are required for SSO configuration. <strong>Click Accept</strong>.</p>
+<p><a class="glightbox" href="module_3_media/media/image24.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a application Description automatically generated" data-desc-position="top"><img alt="A screenshot of a application Description automatically generated" src="module_3_media/media/image24.png" /></a></p>
+</li>
+<li>
+<p>You will be taken back to Webex Control Hub and a pop-up window will be displayed. Keep the radio button selected for <strong>Sync defaults</strong> and click <strong>Proceed</strong>.</p>
+<p><a class="glightbox" href="module_3_media/media/image25.png" data-type="image" data-width="100%" data-height="auto" data-title="Graphical user interface, text, application, email Description automatically generated" data-desc-position="top"><img alt="Graphical user interface, text, application, email Description automatically generated" src="module_3_media/media/image25.png" /></a></p>
+</li>
+<li>
+<p>It will create the instance/integration with Microsoft tenant. It will take around 2 to 3 minutes for the process to complete.</p>
+</li>
+<li>
+<p>Once the integration process is completed, Job status will be displayed <strong>NotRun</strong>.</p>
+<p><a class="glightbox" href="module_3_media/media/image26.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a phone Description automatically generated" data-desc-position="top"><img alt="A screenshot of a phone Description automatically generated" src="module_3_media/media/image26.png" /></a></p>
+</li>
+<li>
+<p>Within few min the Job status would change to <strong>Active.</strong> Wait until the job status is changed to <strong>Active</strong>. You need to refresh the page to see the updated status. At this point all users from your Microsoft tenant should be imported to Webex under <strong>MANAGEMENT</strong> &gt; <strong>Users</strong>. Notice few users with status <strong>Verified</strong> indicating they are imported from a trusted source (in this case the Microsoft tenant that we are integrating with).</p>
+</li>
+<li>
+<p>Now go back to <strong>MANAGEMENT</strong> &gt; <strong>Organization Settings</strong> and scroll down to the <strong>Microsoft Azure Active Directory Wizar App</strong> section. Click the three dots on the right side and select <strong>Edit Configuration</strong>.</p>
+<p><a class="glightbox" href="module_3_media/media/image27.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image27.png" /></a></p>
+<p>It will bring up the Microsoft Azure AD integration page, go to the <strong>More</strong> tab. Select the checkbox option for <strong>Activate single sign-on</strong> and click <strong>Save</strong>.</p>
+<p><a class="glightbox" href="module_3_media/media/image28.png" data-type="image" data-width="100%" data-height="auto" data-title="Graphical user interface Description automatically generated" data-desc-position="top"><img alt="Graphical user interface Description automatically generated" src="module_3_media/media/image28.png" /></a></p>
+</li>
+<li>
+<p>You have now successfully enabled single sign-on for your Webex tenant. From now on, all logins to this Webex tenant will be redirected to Microsoft for authentication &amp; you will use <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#104;&#111;&#108;&#108;&#97;&#110;&#100;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;">&#99;&#104;&#111;&#108;&#108;&#97;&#110;&#100;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;</a> &amp; dCloud123! for logging into Webex Control Hub.</p>
+</li>
+<li>
+<p>This completes the SSO configuration and verification.</p>
+</li>
+</ol>
+<h2 id="module-3e-assign-licenses-configure-users-for-microsoft-presence-sync-approx-5-min">Module 3e: Assign Licenses &amp; configure users for Microsoft Presence Sync [Approx 5 min]</h2>
+<p>In this section of lab we will use <strong>Adam Mckenzie</strong> and <strong>Monica Cheng</strong> users. So, lets configure Microsoft &amp; Webex integration parameters for presence &amp; assign Calling Licenses to both these users.</p>
+<ol>
+<li>
+<p>Continuing on Workstation 3, go to the browser tab where you had the <strong>Webex Control Hub</strong> open.</p>
+</li>
+<li>
+<p>On the Control Hub, go to <strong>SERVICES</strong> &gt; <strong>Calling</strong>. On the Calling page to Client Settings</p>
+</li>
+<li>
+<p>On the <strong>Client Settings</strong> page scroll down to Microsoft Teams Integration section and toggle the radio button <strong>Presence sync</strong> &amp; <strong>Hide Webex windows.</strong></p>
+<blockquote>
+<p><strong>NOTE:</strong> <em>If you have completed module 4, you may have already toggled on the Presnece Sync and Hide Webex Widnows option.</em></p>
+</blockquote>
+<p><a class="glightbox" href="module_3_media/media/image29.png" data-type="image" data-width="100%" data-height="auto" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image29.png" /></a></p>
+</li>
+<li>
+<p>Now, let's assign Webex Calling licenses for users, go to <strong>MANAGEMENT</strong> &gt; <strong>Users</strong> and choose <strong>Adam McKenzie</strong> (amckenzie@cbXXX.dc-YY.com)<strong>.</strong></p>
+</li>
+<li>
+<p>Scroll down on the summary page, click <strong>Edit Licenses</strong></p>
+</li>
+<li>
+<p>On the Edit services for <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#109;&#99;&#107;&#101;&#110;&#122;&#105;&#101;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;">&#97;&#109;&#99;&#107;&#101;&#110;&#122;&#105;&#101;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;</a> page, click <strong>Edit Licenses</strong> again.</p>
+</li>
+<li>
+<p>On the next page go to <strong>Calling</strong> tab. Check mark option for <strong>Register to Unified Communications Manager (UCM)</strong> &amp; click <strong>Save</strong>. Click <strong>Close</strong></p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Cisco
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.instant", "navigation.top", "navigation.footer", "search.suggest", "content.code.copy", "toc.integrate"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
