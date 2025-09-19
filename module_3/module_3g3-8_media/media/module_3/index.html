@@ -1,0 +1,1390 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Implementing Cisco Calling for Microsoft Teams">
+      
+      
+        <meta name="author" content="Sara Macias Salete">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../template_assets/webex75.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Module 2: Cisco Call for Microsoft Teams (UCM Calling) [Approx 1 hour 45 min] - LAB-2256: Implementing Cisco Calling for Microsoft Teams</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.e53b48f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-2-cisco-call-for-microsoft-teams-ucm-calling-approx-1-hour-45-min" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="LAB-2256: Implementing Cisco Calling for Microsoft Teams" class="md-header__button md-logo" aria-label="LAB-2256: Implementing Cisco Calling for Microsoft Teams" data-md-component="logo">
+      
+  <img src="../../../../template_assets/webexLogo91.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LAB-2256: Implementing Cisco Calling for Microsoft Teams
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module 2: Cisco Call for Microsoft Teams (UCM Calling) [Approx 1 hour 45 min]
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../lab_access/Lab_access/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lab access
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../module_1/module_1/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../module_2/module_2/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 2
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../module_3/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 3
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../appendix/appendix.markdown" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Appendix
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="LAB-2256: Implementing Cisco Calling for Microsoft Teams" class="md-nav__button md-logo" aria-label="LAB-2256: Implementing Cisco Calling for Microsoft Teams" data-md-component="logo">
+      
+  <img src="../../../../template_assets/webexLogo91.png" alt="logo">
+
+    </a>
+    LAB-2256: Implementing Cisco Calling for Microsoft Teams
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../lab_access/Lab_access/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab access
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../module_1/module_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../module_2/module_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../module_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../appendix/appendix.markdown" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="module-2-cisco-call-for-microsoft-teams-ucm-calling-approx-1-hour-45-min"><strong>Module 2: Cisco Call for Microsoft Teams (UCM Calling)</strong> [Approx 1 hour 45 min]</h1>
+<p>With Cisco Call for Microsoft Teams for CUCM deployments, the Microsoft Teams users can access the enterprise-grade CUCM experience directly in the Microsoft Teams app. With a single click from the Microsoft Teams interface, you can access a complete suite of CUCM features. The features include directory search, PSTN dialing, speed dial, voicemail, call history, and artificial intelligence-powered background noise removal.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image1.png" data-title="A screenshot of a phone call AI-generated content may be incorrect." data-desc-position="top"><img alt="A screenshot of a phone call AI-generated content may be incorrect." src="module_3_media/media/image1.png"></a></p>
+<p>This integrated app works with the Cisco Unified Communications Manager (CUCM) call-control solution, Webex Calling for cloud deployment or the Dedicated Instance offering.</p>
+<p>This would be the call flow diagram when using CUCM as the call control:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image2.png" data-title="A diagram of a telephone call Description automatically generated" data-desc-position="top"><img alt="A diagram of a telephone call Description automatically generated" src="module_3_media/media/image2.png"></a></p>
+<p><strong>Webex Cloud-Connected UC (CCUC) Overview [Approx 5 min Read]:</strong></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image3.jpeg" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3_media/media/image3.jpeg"></a></p>
+<p>Webex Cloud-Connected UC (CCUC) is a suite of Webex cloud services with a single global view to manage on-premises UC and Unified CM cloud services. CCUC is an efficient, cloud-based managed services product for an on-premises Unified CM deployment. It provides a centralized cloud-based tool for analytics and troubleshooting. It allows customers to leverage the benefits of the Webex cloud while keeping critical calling workloads on premises.</p>
+<p>Customers can subscribe to the UC management services on Control Hub. Customers can access the Control Hub to get a single global view and host the entire on-premises Unified CM network from a single operation control panel that supports the Cisco cloud services. Cloud-Connected UC helps manage multiple clusters, for both Unified CM and Unified CM Cloud deployments. Cloud-Connected UC achieves this with plugins that are installed on individual Unified CM applications that send telemetry data to the Webex cloud. Plugins register with the Webex cloud during onboarding and are authenticated to the cloud using the Webex Common Identity framework. Subsequent updates to these plugins are automatically managed through the cloud.</p>
+<p>CCUC can also help to perform automated device firmware migration from Enterprise Firmware to MPP Firmware. The MPP firmware can run on certain models of the Cisco IP Phone 6800, 7800, and 8800 series. However, only the Cisco IP Phone 7800 and 8800 series can run either MPP firmware or Enterprise firmware. When an appropriate license is applied to the IP Phone, you can migrate between MPP and Enterprise firmware on the Cisco IP 7800 and 8800 series phones.</p>
+<h2 id="module-2a-get-webex-org-id-from-control-hub-approx-5-min">Module 2a: Get Webex Org ID from Control Hub [Approx 5 min]</h2>
+<ol>
+<li>
+<p>Open RDP connection to Workstation 3 at 198.18.1.39, using one of the options mentioned in <strong>Accessing your Lab</strong> module. Use the credentials <strong>dcloud\amckenzie</strong> and <strong>dCloud123!</strong></p>
+</li>
+<li>
+<p>Open Chrome Browser from the taskbar or Desktop</p>
+</li>
+<li>
+<p>From Home Page, select <strong>Cisco Webex Links</strong> &gt; <strong>Cisco Webex Control Hub</strong>. Log in with <strong>cholland@cbXXX.dc-YY.com</strong> and <strong>dCloud<em>AAAA</em>!</strong></p>
+<blockquote>
+<p><strong>NOTE:</strong> You need to Replace <strong>XXX</strong> and <strong>YY</strong> <em>with your session-specific details. If you haven\'t already done as explained in </em><em>Accessing your lab</em><em> section, go to </em><em>Lab_info.txt</em><em> file located in your workstation 1 and copy the domain.</em></p>
+</blockquote>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image4.png" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image4.png"></a></p>
+<blockquote>
+<p><strong>NOTE:</strong> <em>If you have completed module 1 you may have already configured SSO with Microsoft, in that case the password for <a href="mailto:cholland@cbXXX.dc-YY.com">cholland@cbXXX.dc-YY.com</a> would be </em><em>dCloud123!</em>**</p>
+</blockquote>
+<!-- **NOTE:** *If you have completed module 1 you may have already configured SSO with Microsoft, in that case the password for <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#104;&#111;&#108;&#108;&#97;&#110;&#100;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;">&#99;&#104;&#111;&#108;&#108;&#97;&#110;&#100;&#64;&#99;&#98;&#88;&#88;&#88;&#46;&#100;&#99;&#45;&#89;&#89;&#46;&#99;&#111;&#109;</a> would be **dCloud123!***-->
+</li>
+<li>
+<p>For security reasons, Webex Control Hub signs out every 20 minutes (Idle timeout) by default. For this lab, let's make the idle time out longer so the Control Hub does not sign you out often during this lab. Go to <strong>MANAGEMENT &gt; Organization Settings &gt; Control Hub's idle timeout.</strong> Drop down the option for <strong>Control Hub idle timeout</strong> and select <strong>12 hours</strong> or <strong>no timeout</strong>. Click <strong>Save</strong>.</p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>If you have completed module 1 you may have already set the idle time out as part of that module. If so, you can skip step 5.</em></p>
+</blockquote>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image5.png" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image5.png"></a></p>
+</li>
+<li>
+<p>Now, go to <strong>MANAGEMENT</strong> &gt; <strong>Account</strong> and copy the <strong>Organization ID</strong> to a notepad on the Workstation 3 Desktop.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image6.png" data-title="Graphical user interface, application Description automatically generated" data-desc-position="top"><img alt="Graphical user interface, application Description automatically generated" src="module_3_media/media/image6.png"></a></p>
+</li>
+</ol>
+<h2 id="module-2b-onboard-a-uc-nodes-ucm-cuc-using-the-administrator-cli-approx-10-min-review-only">Module 2b: Onboard a UC Nodes (UCM &amp; CUC) using the Administrator CLI [Approx 10 min -- <span style="color:red;"><strong><em>Review Only</em></strong></span>]</h2>
+<blockquote>
+<p><span style="color:red;"><strong>IMPORTANT NOTE:</strong></span> When you onboard an on-prem Unified Communications device (like Cisco UCM or Cisco Unity Connection) with Webex Cloud, it takes around 30 to 45 min for the cloud to see it. Instead of making attendees onboard and wait for 45 min to sync up during the lab, we have pre-onboarded Cisco UCM and Unity Connection for this Lab. <strong>Below steps are your reference purpose only</strong>, you <span style="color:red;"><strong>DO NOT need to execute any steps</strong></span>. After reviewing below steps you can directly move to next Module 2c.</p>
+</blockquote>
+<ol>
+<li>
+<p>Continuing on Workstation 3, open the <strong>Putty</strong> application located on the Desktop.</p>
+</li>
+<li>
+<p>Open SSH connection to Cisco Unified Communications Manager at <strong>198.18.133.33.</strong> Accept any security warnings, if prompted.</p>
+</li>
+<li>
+<p>Log in as <strong>administrator</strong> and <strong>dCloud123!</strong> when prompted and accept any security warnings.</p>
+</li>
+<li>
+<p>Once logged in, at the admin prompt, execute the below command, to start onboarding <strong>Cisco UCM</strong> with Webex.</p>
+<div class="highlight"><pre><span></span><code>utils ucmgmt organization **organization_id**
+</code></pre></div>
+<p><strong>NOTE:</strong> <em>Replace </em><em>organization_id</em><em> with the Organization ID you copied in above module Step 4.</em></p>
+</li>
+<li>
+<p>Now run the following command to enable the CCUC agent.</p>
+<div class="highlight"><pre><span></span><code>utils ucmgmt agent enable
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image7.png" data-title="Text Description automatically generated" data-desc-position="top"><img alt="Text Description automatically generated" src="module_3_media/media/image7.png"></a></p>
+</li>
+<li>
+<p>Run the following command to verify that the CCUC agent is <strong>running</strong>. The Agent process should show the status to be <strong>running.</strong></p>
+<div class="highlight"><pre><span></span><code>utils ucmgmt agent status
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image8.png" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image8.png"></a></p>
+</li>
+<li>
+<p>If the agent process is <strong>not running</strong>, run the following command to kick-start or restart the agent process.</p>
+<div class="highlight"><pre><span></span><code>utils ucmgmt agent restart
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image9.png" data-title="A screenshot of a computer Description automatically generated with medium confidence" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated with medium confidence" src="module_3_media/media/image9.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image10.png" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image10.png"></a></p>
+</li>
+<li>
+<p>Check the agent status again with the command, to make sure the agent process status is <strong>running</strong></p>
+<div class="highlight"><pre><span></span><code>utils ucmgmt agent status
+</code></pre></div>
+</li>
+<li>
+<p>When you see agent process status is <strong>running,</strong> you have initiated the onboarding process successfully. <strong>Make a note of the time that the process moved to the running state, you may need to reference it later.</strong></p>
+</li>
+<li>
+<p>Now, let's onboard <strong>Cisco Unity Connection</strong> (CUC) node. Open new <strong>Putty</strong> session/window and open SSH connection to <strong>198.18.133.5</strong>, accept any security warnings.</p>
+</li>
+<li>
+<p>Login as <strong>administrator</strong> and <strong>dCloud123!</strong></p>
+</li>
+<li>
+<p>Repeat steps 4 through 9 for <strong>Cisco Unity Connection</strong> node.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image11.png" data-title="A screenshot of a computer screen Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer screen Description automatically generated" src="module_3_media/media/image11.png"></a></p>
+</li>
+<li>
+<p>Go back to browser tab where you had <strong>Webex Control Hub</strong> opened. Go to <strong>SERVICES</strong> &gt; <strong>Connected UC</strong> and click <strong>Enable Connected UC</strong></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image12.png" data-title="Graphical user interface, application Description automatically generated" data-desc-position="top"><img alt="Graphical user interface, application Description automatically generated" src="module_3_media/media/image12.png"></a></p>
+</li>
+<li>
+<p>Once Enabled, click <strong>Get Started</strong> on the <strong>UC Management</strong> tab</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image13.png" data-title="Graphical user interface, application, website Description automatically generated" data-desc-position="top"><img alt="Graphical user interface, application, website Description automatically generated" src="module_3_media/media/image13.png"></a></p>
+</li>
+<li>
+<p>It will pop-up the <strong>Getting Started</strong> window, which will walk you through creating an agent file for Cisco On-Premises devices.</p>
+</li>
+<li>
+<p>Click <strong>Next</strong> on the <strong>Getting Started</strong> Page.</p>
+</li>
+<li>
+<p>Give the "CCUC-Agent" name in File Name. You can see in this page that if in your real live scenario you have a proxy you can define here the information of that proxy.</p>
+</li>
+<li>
+<p>Click <strong>Save</strong>. You have to wait a couple of minutes while the file agent is created.</p>
+<p><strong>NOTE</strong>: This Agent file does not need to be downloaded in this lab as it\'s already bundled with this version of Cisco UCM (14.0 SU3) but we will create it to get familiar with the process.</p>
+</li>
+<li>
+<p>Click <strong>Next</strong>.</p>
+</li>
+<li>
+<p>We need to create a new cluster group for Cisco UCM.</p>
+</li>
+<li>
+<p>Give the Cluster Group a <strong>Name</strong> and a <strong>Group Description</strong> of your choice. Example: <strong>dCloud-UCM</strong> and <strong>UCM Group</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image14.png" data-title="A screenshot of a computer Description  automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description  automatically generated" src="module_3_media/media/image14.png"></a></p>
+</li>
+<li>
+<p>Click <strong>Next</strong> and then click <strong>Finish</strong>.</p>
+</li>
+<li>
+<p>Go to Inventory under UC Management &amp; Click <strong>Add Cluster Group</strong> again and give Cluster Group Name &amp; Group Description for CUC. Example: <strong>dCloud-CUC</strong> &amp; <strong>CUC Group</strong>. Click <strong>Save</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image15.png" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image15.png"></a></p>
+</li>
+<li>
+<p>This completes onboarding of On-Prem Cisco UC applications.</p>
+</li>
+</ol>
+<h2 id="module-2c-verify-the-onboarded-ucm-cuc-nodes-on-webex-control-hub-approx-10-min">Module 2c: Verify the onboarded UCM &amp; CUC nodes on Webex Control Hub [Approx 10 min]</h2>
+<ol>
+<li>
+<p>Continuing on Workstation 3, go back to the browser tab where <strong>Webex Control Hub</strong> was opened. Or if you have not yet logged in, go to <a href="https://admin.webex.com">https://admin.webex.com</a> &amp; log in with <strong>cholland@cbXXX.dc-YY.com</strong> and <strong>dCloud<em>AAAA</em>!</strong> Or <strong>dCloud123!</strong> (if you have configured SSO as part of module 1)</p>
+<blockquote>
+<p><strong>NOTE:</strong> You need to Replace <strong>XXX</strong> and <strong>YY</strong> <em>with your session-specific details. If you haven\'t already done as explained in </em><em>Accessing your lab</em><em> section, go to </em><em>Lab_info.txt</em><em> file located your workstation 1 and copy the domain. AAAA is the last 4 digits of your session ID on dCloud</em></p>
+</blockquote>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image4.png" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image4.png"></a></p>
+</li>
+<li>
+<p>Once logged in, go to <strong>SERVICES</strong> &gt; <strong>Connected UC</strong>.</p>
+</li>
+<li>
+<p>On the Connected UC page click <strong>Inventory</strong> under <strong>UC Management.</strong> If you do not see inventory option, refresh the page.</p>
+</li>
+<li>
+<p>You will see there are two <strong>Unassigned</strong> nodes/clusters that needs assignment to a cluster group.</p>
+</li>
+<li>
+<p>Click <strong>Resolve</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image16.png" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image16.png"></a></p>
+</li>
+<li>
+<p>On the next page, click <strong>Verify</strong> for cucm1.dcloud<strong>.</strong>cisco.com</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image17.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3_media/media/image17.png"></a></p>
+</li>
+<li>
+<p>It will bring up a new pop-up window for the node. Drop down the option for <strong>Change Cluster Group</strong> and choose <strong>dCloud-CUCM.</strong> Now check mark (towards right side of the node list) option for the product CUCM to confirm Verification and Click Save and Click <strong>Save</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image18.png" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image18.png"></a></p>
+</li>
+<li>
+<p>You will be taken back to Unverified Cluster Group. Now, click Verify for cuc1.dcloud.cisco.com. Drop down the option for <strong>Change Cluster Group</strong> and choose <strong>dCloud-CUC.</strong> Now click the check mark for the product CUCM to confirm Verification and Click Save and Click <strong>Save</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image19.png" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image19.png"></a></p>
+</li>
+<li>
+<p>Lastly, on the Control Hub, go to <strong>SERVICES</strong> &gt; <strong>Connected UC</strong> &gt; <strong>Inventory</strong> &amp; choose <strong>Details</strong> for dCloud-CUCM. Click <strong>Details</strong> (again). Click on the eclipse icon (three dots) in the top right corner and choose <strong>Service Management</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image20.png" data-title="A screenshot of a computer Description automatically generated with low confidence" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated with low confidence" src="module_3_media/media/image20.png"></a></p>
+</li>
+<li>
+<p>Toggle all the settings under Service Management and select the option for <strong>Yes, I agree</strong> and click <strong>Submit</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image21.png" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image21.png"></a></p>
+</li>
+<li>
+<p>Repeat steps 9 &amp; 10 for dCloud-CUC cluster.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image22.png" data-title="A screenshot of a service management Description automatically generated" data-desc-position="top"><img alt="A screenshot of a service management Description automatically generated" src="module_3_media/media/image22.png"></a></p>
+</li>
+<li>
+<p>Now the Cisco UCM &amp; CUC servers are successfully onboarded with Cisco Webex Cloud. This completes the <strong>Onboard a UC Node using the Administrator CLI</strong> section.</p>
+</li>
+</ol>
+<h2 id="module-2d-configure-single-sign-on-sso-for-control-hub-approx-15-min">Module 2d: Configure Single Sign-On (SSO) for Control Hub [Approx 15 min]</h2>
+<blockquote>
+<p><strong>NOTE</strong>: <em>If you have completed module 1, you would have configured the SSO already as part of that module. So, you can skip this section and go to next section. If you have not run through module 1 yet, you can continue to configure SSO</em>.</p>
+</blockquote>
+<p>If you have your own identity provider (IdP) in your organization, you can integrate it with Control Hub for single sign-on (SSO). SSO lets your users use a single, common set of credentials for Webex App applications and other applications in your organization.</p>
+<p>Cisco Webex supports a wide variety of IdPs for Single Sign-On configuration like Microsoft (both O365 and AD FS), Okta, PingFederate, Duo, etc.,</p>
+<p>In this lab, we will explore the SSO configuration with <strong>Microsoft O365</strong>.</p>
+<p>Integrating O365 with your Webex Control Hub you can also import/synchronize users and groups from Microsoft O365, Import Avatars (user profile pictures), define user attributes for mapping (like first name, email, etc.,) and configure SSO. In this lab, we will explore SSO configuration only.</p>
+<ol>
+<li>
+<p>Continuing on Workstation 3 and go to the browser tab where you had the <strong>Webex Control hub</strong> open.</p>
+</li>
+<li>
+<p>On the <strong>Webex Control Hub</strong> page go <strong>MANAGEMENT</strong> &gt; <strong>Organization Settings</strong> and scroll down to the section <strong>Microsoft Azure Active Directory Wizard App</strong> and click <strong>Set up.</strong></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image23.png" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image23.png"></a></p>
+</li>
+<li>
+<p>It will take you to the Microsoft authentication page. Log in with the Microsoft credentials <a href="mailto:cholland@cbXXX.dc-YY.com">cholland@cbXXX.dc-YY.com</a> &amp; <strong>dCloud123!</strong> Click <strong>Login</strong>.</p>
+<blockquote>
+<p><strong>NOTE</strong>: <strong><em>You need to Replace XXX and YY with your session-specific details. If you haven\'t already done as explained in Accessing your lab section, go to Lab_info.txt file located on your </em>*workstation 1</strong> and copy the domain.***</p>
+</blockquote>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image4.png" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image4.png"></a></p>
+</li>
+<li>
+<p>On the following page, Microsoft login page will show you the permissions required. Review the permissions. Check mark option for <strong>Consent on behalf of your organization</strong>. Click <strong>Accept</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image24.png" data-title="A screenshot of a phone Description automatically generated" data-desc-position="top"><img alt="A screenshot of a phone Description automatically generated" src="module_3_media/media/image24.png"></a></p>
+</li>
+<li>
+<p>On the following it will prompt you for admin credenatils. Choose cholland@cbXXX.dc-YY.com from available logins &amp; then it will show you all details about permissions that are required for SSO configuration. Click <strong>Accept</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image25.png" data-title="A screenshot of a application Description automatically generated" data-desc-position="top"><img alt="A screenshot of a application Description automatically generated" src="module_3_media/media/image25.png"></a></p>
+</li>
+<li>
+<p>You will be taken back to Webex Control Hub and a pop-up window will be displayed. Keep the radio button selected for <strong>Sync defaults</strong> and click <strong>Proceed</strong>.</p>
+<blockquote>
+<p><strong>NOTE:</strong> <em>If Sync defaults is not prompted, scroll down to Azure App section on Organizations settings page.</em></p>
+</blockquote>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image26.png" data-title="Graphical user interface, text, application, email Description automatically generated" data-desc-position="top"><img alt="Graphical user interface, text, application, email Description automatically generated" src="module_3_media/media/image26.png"></a></p>
+</li>
+<li>
+<p>It will create the instance/integration with Microsoft tenant. It will take around 2 to 3 minutes for the process to complete.</p>
+</li>
+<li>
+<p>Once the integration process is completed, Job status will be displayed <strong>NotRun</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image27.png" data-title="A screenshot of a phone Description automatically generated" data-desc-position="top"><img alt="A screenshot of a phone Description automatically generated" src="module_3_media/media/image27.png"></a></p>
+</li>
+<li>
+<p>Within few min the Job status would change to <strong>Active.</strong> Wait until the job status is changed to <strong>Active</strong>. You need to refresh the page to see the updated status. At this point all users from your Microsoft tenant should be imported to Webex under <strong>MANAGEMENT</strong> &gt; <strong>Users</strong>. Notice few users with status <strong>Verified</strong> indicating they are imported from a trusted source (in this case the Microsoft tenant that we are integrating with).</p>
+</li>
+<li>
+<p>Now go back to <strong>MANAGEMENT</strong> &gt; <strong>Organization Settings</strong> and scroll down to the <strong>Microsoft Azure Active Directory Wizard App</strong> section. Click the three dots on the right side and select <strong>Edit Configuration</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image28.png" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="module_3_media/media/image28.png"></a></p>
+</li>
+<li>
+<p>It will bring up the Microsoft Azure AD integration page, under <strong>Attributes</strong> tab drop down the field <strong>phoneNumbers[type eq "work"].value</strong> &amp; choose <strong>telephoneNumber</strong> from the drop down list.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image29.png" data-title="A screenshot of a computer AI-generated content may be incorrect." data-desc-position="top"><img alt="A screenshot of a computer AI-generated content may be incorrect." src="module_3_media/media/image29.png"></a></p>
+</li>
+<li>
+<p>Now, go to <strong>More</strong> tab and select the checkbox option for <strong>Activate single sign-on</strong> and click <strong>Save</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image30.png" data-title="A screenshot of a computer AI-generated content may be incorrect." data-desc-position="top"><img alt="A screenshot of a computer AI-generated content may be incorrect." src="module_3_media/media/image30.png"></a></p>
+</li>
+<li>
+<p>You have now successfully enabled single sign-on for your Webex tenant. From now on, all logins to this Webex tenant will be redirected to Microsoft for authentication &amp; you will use <a href="mailto:cholland@cbXXX.dc-YY.com">cholland@cbXXX.dc-YY.com</a> &amp; dCloud123! for logging into Webex Control Hub.</p>
+</li>
+<li>
+<p>This completes the SSO configuration and verification.</p>
+</li>
+</ol>
+<h2 id="module-2e-assign-licenses-configure-users-for-microsoft-presence-sync-approx-5-min">Module 2e: Assign Licenses &amp; Configure Users for Microsoft Presence Sync [Approx 5 min]</h2>
+<p>In this section of the lab, we will use <strong>Adam McKenzie</strong> and <strong>Monica Cheng</strong> users. Let’s configure Microsoft &amp; Webex integration parameters for presence and assign Calling Licenses to both these users.</p>
+<ol>
+<li>
+<p>Continuing on <strong>Workstation 3</strong>, go to the browser tab where you had the <strong>Webex Control Hub</strong> open. If you need to log in to Webex Control Hub, use the credentials <code>&lt;cholland@cbXXX.dc-YY.com&gt;</code> and <strong>dCloud123!</strong>.</p>
+</li>
+<li>
+<p>On the Control Hub, go to <strong>SERVICES</strong> &gt; <strong>Calling</strong>. On the Calling page, go to <strong>Client Settings</strong>.</p>
+</li>
+<li>
+<p>On the <strong>Client Settings</strong> page, scroll down to the Microsoft Teams Integration section and toggle the radio button <strong>Presence Sync</strong> &amp; <strong>Hide Webex windows.</strong> If the option <strong>Set Microsoft Teams as the default app for calling dock</strong> is toggled ON, untoggle it for now. We will explore this option later.</p>
+<blockquote>
+<p><strong>NOTE:</strong> <em>If you have completed module 1, you may have already toggled on the Presence Sync and Hide Webex Windows options.</em></p>
+</blockquote>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3e3f_media/media/image1.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3e3f_media/media/image1.png"></a></p>
+</li>
+<li>
+<p>Now, let's assign UCM licenses for users. Go to <strong>MANAGEMENT</strong> &gt; <strong>Users</strong> and choose <strong>Adam McKenzie</strong> (<code>amckenzie@cbXXX.dc-YY.com</code>).</p>
+</li>
+<li>
+<p>Scroll down on the summary page, and click <strong>Edit Licenses</strong>.</p>
+</li>
+<li>
+<p>On the <strong>Edit services for amckenzie@cbXXX.dc-YY.com</strong> page, click <strong>Edit Licenses</strong> again.</p>
+</li>
+<li>
+<p>On the next page, go to the <strong>Calling</strong> tab. Checkmark <strong>Register to Unified Communication Manager (UCM)</strong>. Also, <strong>uncheck</strong> options for <strong>Messaging</strong> and <strong>Meeting</strong> to deploy phone-only services for this user. Click <strong>Save</strong>. Click <strong>Close</strong> for edit services for <a href="mailto:amckenzie@cbXXX.dc-YY.com">amckenzie@cbXXX.dc-YY.com</a>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3e3f_media/media/image2.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3e3f_media/media/image2.png"></a></p>
+</li>
+<li>
+<p>Go back to <strong>MANAGEMENT</strong> &gt; <strong>Users</strong> again, and on the users' page, choose <strong>Monica Cheng</strong> (<code>mcheng@cbXXX.dc-YY.com</code>) and repeat steps 4 through 7 to assign the <strong>Register to Unified Communications Manager (UCM)</strong> License for calling.</p>
+</li>
+</ol>
+<hr>
+<h2 id="module-2f-update-user-contacts-publish-cisco-call-app-and-disable-microsoft-native-calling-approx-5-min">Module 2f: Update User Contacts, publish Cisco Call app and disable Microsoft Native Calling [Approx 5 min]</h2>
+<p>Now let's update contact phone numbers for users <strong>Adam McKenzie</strong> and <strong>Monica Cheng</strong> on the Microsoft trial tenant so users will be able to call with the click-to-call feature from Teams. Also, as we are using Webex Calling (UCM Calling) for calling services, let’s disable the native Microsoft calling option so users are not confused between both calling options.</p>
+<ol>
+<li>
+<p>Continuing on <strong>Workstation 3</strong>, open a new browser tab and from the home page, go to <strong>Collab Admin Links</strong> &gt; <strong>Microsoft Admin Center</strong> or directly go to <a href="https://admin.microsoft.com">https://admin.microsoft.com</a>. Log in with the credentials <code>&lt;cholland@cbXXX.dc-YY.com&gt;</code> and <strong>dCloud123!</strong> if prompted.</p>
+</li>
+<li>
+<p>Once logged in, go to <strong>Users</strong> &gt; <strong>Active Users</strong> on the left-side pane.</p>
+</li>
+<li>
+<p>On the Active Users page, select <strong>Adam McKenzie</strong>. This will bring up a fly-out window for the user configuration. Scroll down a little and click <strong>Manage contact information</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3e3f_media/media/image3.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3e3f_media/media/image3.png"></a></p>
+</li>
+<li>
+<p>On the <strong>Manage contact information</strong> page, scroll down and find <strong>Office phone</strong>. Enter <strong>6016</strong>. Click <strong>Save changes</strong>. Click <strong>Close</strong> to close the fly-out window.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3e3f_media/media/image4.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3e3f_media/media/image4.png"></a></p>
+</li>
+<li>
+<p>Similarly, repeat steps 3 and 4 for <strong>Monica Cheng</strong> and update the office phone number with extension <strong>6020</strong>.</p>
+<blockquote>
+<p><strong>NOTE:</strong> <em>Sometimes Microsoft takes a long time to update contact information, and it may not immediately reflect on Microsoft Teams. This is not a limitation of the lab or Webex, but rather Microsoft Cloud taking longer to update contact information.</em></p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<div class="highlight"><pre><span></span><code>Now let’s publish and authorize the **Cisco Calling app** for the entire Microsoft Organization so that each user is not prompted for authorization. Additionally, we will disable the native Microsoft calling option so users are not confused between Microsoft Native Calling and Cisco Call.
+</code></pre></div>
+<ol>
+<li>
+<p>First, we are going to hide the Teams-to-Teams Calling button. Go back to where you have logged into <strong>Microsoft Admin Center</strong>. On the left-side page, click <strong>Show all</strong> to see all admin centers. Under <strong>Admin Centers</strong>, select <strong>Teams</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3e3f_media/media/image5.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3e3f_media/media/image5.png"></a></p>
+</li>
+<li>
+<p>It will open the <strong>Microsoft Teams Admin Center</strong> in a new tab. Once the Teams Admin Center is opened, go to <strong>Voice</strong> &gt; <strong>Calling policies</strong>. On the Calling Policies page, select the radio button for <strong>Disallow Calling</strong> and click on <strong>Manage Users/Assign users.</strong></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3e3f_media/media/image6.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3e3f_media/media/image6.png"></a></p>
+</li>
+<li>
+<p>It will bring up fly-window to assign users. Search and add the users <strong>Adam McKenzie</strong> and <strong>Monica Cheng</strong>, and click on <strong>Apply</strong>. Click <strong>Confirm</strong> in the pop-up window.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3e3f_media/media/image7.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3e3f_media/media/image7.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3e3f_media/media/image8.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3e3f_media/media/image8.png"></a></p>
+<blockquote>
+<p><strong>NOTE:</strong> <em>If you have completed module 1, you may have already published the </em><em>Cisco Call</em><em> app. If so, you can skip the remaining steps (4 through 9) and proceed to Module 2g.</em></p>
+</blockquote>
+</li>
+<li>
+<p>Now, let’s publish the Cisco Call app for the organization so that each user does not need to request admin authorization. Continuing in the <strong>Teams Admin Center</strong>, on the left-side page, go to <strong>Teams apps</strong> &gt; <strong>Manage apps.</strong></p>
+</li>
+<li>
+<p>On the Manage Apps page, search for <strong>Cisco Call</strong> on the right. Select the <strong>Cisco Call</strong> app that is listed.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3e3f_media/media/image9.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3e3f_media/media/image9.png"></a></p>
+</li>
+<li>
+<p>On the Cisco Call app page, go to the <strong>Permissions</strong> tab. Under the Permissions tab, click <strong>Grant admin consent.</strong> It will bring up a pop-up window to authorize as admin. Log in as <code>&lt;cholland@cbXXX.dc-YY.com&gt;</code> and <strong>dCloud123!</strong>. It will prompt you to accept some permissions. Click <strong>Accept.</strong></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3e3f_media/media/image10.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3e3f_media/media/image10.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3e3f_media/media/image11.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3e3f_media/media/image11.png"></a></p>
+<blockquote>
+<p><strong>NOTE:</strong> <em>Some permissions are considered delegated level, and others are application level. Below is a description of the permissions used by Cisco Call for Microsoft Teams, and what changes are coming in June 2025.</em></p>
+</blockquote>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3e3f_media/media/image12.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3e3f_media/media/image12.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3e3f_media/media/image13.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3e3f_media/media/image13.png"></a></p>
+</li>
+<li>
+<p>Now any user in the organization can go to Apps in <strong>Microsoft Teams</strong> and add the <strong>Cisco Call</strong> app from the store.</p>
+<blockquote>
+<p><strong>NOTE:</strong> <em>As an Organization Admin, you can also install/publish this app for all users. To publish the app for all users, go to </em><em>Teams apps</em><em> &gt; </em><em>Setup policies</em><em> and update </em><em>Global (Org-wide default)</em><em> to include the </em><em>Cisco Call</em><em> app.</em></p>
+</blockquote>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3e3f_media/media/image14.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3e3f_media/media/image14.png"></a></p>
+</li>
+<li>
+<p>At this point, Microsoft and Webex tenants &amp; users are ready for use.</p>
+</li>
+</ol>
+<p>This completes <strong>Update User Contacts, publish Cisco Call app and disable Microsoft Native Calling</strong>.</p>
+<h2 id="module-2g-testing-the-calls-for-microsoft-integration-with-webex-ucm-calling-approx-60-min">Module 2g: Testing the Calls for Microsoft Integration with Webex (UCM Calling) [Approx 60 min]</h2>
+<p>In this module, we will make some test calls to internal, PSTN &amp; also configure multiple features and Hunt groups. This module consists of a total of 10 testing scenarios that are described below.</p>
+<hr>
+<h4 id="logging-into-clients-approx-10-min">Logging into Clients [Approx 10 min]</h4>
+<blockquote>
+<p><strong>NOTE</strong>: <em>You can continue using Teams Classic or choose to update to the version being prompted. Pleas be aware we do not control Microsoft updates.</em></p>
+</blockquote>
+<ol>
+<li>
+<p>Continuing on <strong>Workstation 3</strong>, open Microsoft Teams and log in as <code>&lt;amckenzie@cbXXX.dc-YY.com&gt;</code> with password <strong>dCloud123!</strong>. Click <strong>OK</strong>. Click <strong>Done</strong>.</p>
+<blockquote>
+<p><strong>NOTE:</strong> <em>DO </em><em>NOT</em><em> click </em><em>No, this app only</em><em>.</em></p>
+</blockquote>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g_media/media/image1.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g_media/media/image1.png"></a></p>
+</li>
+<li>
+<p><strong>Accept</strong> any information/warning messages while logging in. If you have added Cisco Call as an admin in module 1c, jump to step 3. If not, once logged in, click the eclipse icon (three dots) on the left side pane. On the new fly-out window, search for <strong>Cisco Call</strong>. It will list the Cisco Call app. Click <strong>Add</strong>. It will add the <strong>Cisco Call app</strong> to Microsoft Teams and take you to the login screen.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g_media/media/image2.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g_media/media/image2.png"></a></p>
+</li>
+<li>
+<p>Open the Cisco Call App and click <strong>Continue</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g_media/media/image3.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g_media/media/image3.png"></a></p>
+</li>
+<li>
+<p>This will use the same email address used to log in to Microsoft Teams. As we have an active session, you will be signed into <strong>Cisco Call</strong> on Microsoft Teams.</p>
+</li>
+<li>
+<p>At this point, the Webex App will pop up for you to log in. Log in as <code>&lt;amckenzie@cbXXX.dc-YY.com&gt;</code> with password <strong>dCloud123!</strong> If you close the Webex login page, you can access it from the System Tray.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g_media/media/image4.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g_media/media/image4.png"></a></p>
+</li>
+<li>
+<p>As we chose to hide the Webex windows, once the user logs in, the Webex App window will disappear. You will be prompted with a pop-up window to sign in to UCM services. Log in as <strong>amckenzie</strong> with <strong>dCloud123!</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g_media/media/image5.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g_media/media/image5.png"></a></p>
+</li>
+<li>
+<p>You will be prompted with a notification about Emergency Calling. Click <strong>OK</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g_media/media/image6.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g_media/media/image6.png"></a></p>
+</li>
+<li>
+<p>You might get a pop-up window guiding you through the new features of the Cisco Call app. Click on <strong>Next</strong>. Then, click on <strong>Later</strong> when it asks you to use the Calling Dock, as we will explore this feature later.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g_media/media/image7.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g_media/media/image7.png"></a></p>
+</li>
+<li>
+<p>Finally, right-click on the <strong>Cisco Call app</strong> on the left-side pane and click <strong>Pin</strong>. This ensures it is always visible for easier access. If you have published the <strong>Cisco Call app</strong> for the entire organization under setup policies on the <strong>Microsoft Teams Admin Center</strong>, you will see the <strong>Cisco Call app</strong> pinned already.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g_media/media/image8.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g_media/media/image8.png"></a></p>
+<blockquote>
+<p><strong>NOTE:</strong> <em>If you do not see the </em><em>Cisco Call</em><em> app on the left side, click on the three dots on the left-side pane again, right-click on the </em><em>Cisco Call app</em><em>, and select </em><em>Pin</em><em> so the application always displays on the left-side pane for easier access.</em></p>
+</blockquote>
+</li>
+<li>
+<p>Now both of your clients on <strong>Workstation 3</strong> are ready for use.</p>
+</li>
+<li>
+<p>Open an RDP connection to <strong>Workstation 4</strong> using one of the methods described in the <strong>Accessing Your Lab</strong> module above. Repeat the steps above (1 through 9) on Workstation 4 using the credentials <code>&lt;mcheng@cbXXX.dc-YY.com&gt;</code> with password <strong>dCloud123!</strong>.</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>NOTE</strong>: <em>Make sure you are logged in to both clients on both workstations 3 and 4 before continuing</em>.</p>
+</blockquote>
+<hr>
+<h3 id="module-2g1-calling-scenarios-1-of-10-making-calls-approx-5-min">Module 2g.1: <strong>Calling Scenarios 1 of 10</strong> -- Making calls [Approx 5 min]</h3>
+<p>After configuring Cloud Connected UC, we should have Presence sync, Call History and Voicemail populated on our landing page. However, please notice these settings take up to 8 hours to apply, so you might not see this working.</p>
+<p>Optional reading: reason why this process takes 8 hours explained in the following diagram:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image48.png" data-title="A diagram of a web page Description automatically generated with medium confidence" data-desc-position="top"><img alt="A diagram of a web page Description automatically generated with medium confidence" src="module_3_media/media/image48.png"></a></p>
+<ol>
+<li>
+<p>Make sure you are logged in to both clients on both workstations 3 and 4 before continuing. From workstation 3 as <strong>Adam McKenzie</strong>, go to <strong>Cisco Call</strong> app on Microsoft Teams (On left side pane) &amp; Search for <strong>Monica Cheng</strong> (right above dial pad). <strong>OR</strong> you can dial extension number 6020.</p>
+</li>
+<li>
+<p>It will search the directory for <strong>Monica Cheng</strong> and display options to call, click on either Audio or Video. It will display all available contact methods for Monica, like Phone number Email etc., Click on any of the options to place the call.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image49.png" data-title="A screenshot of a phone call AI-generated content may be incorrect." data-desc-position="top"><img alt="A screenshot of a phone call AI-generated content may be incorrect." src="module_3_media/media/image49.png"></a></p>
+</li>
+<li>
+<p>Answer the call on workstation 4. Verify that call gets connected. Wait for few seconds and hang up the call.</p>
+<p><strong>Once the 8 hour has been passed after onboarding UCM cluster</strong>:</p>
+</li>
+<li>
+<p>Once the 8 hours has been passed after onboarding UCM Cluster, you will see the call presence status on Microsoft Teams as <strong>In a call</strong>, as shown below.</p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>If you do not see the correct status, try to bring the Microsoft Teams into foreground or initiate a chat conversation between Adam and Monica.</em></p>
+</blockquote>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image50.png" data-title="A screenshot of a video chat Description automatically generated" data-desc-position="top"><img alt="A screenshot of a video chat Description automatically generated" src="module_3_media/media/image50.png"></a></p>
+</li>
+<li>
+<p>As soon as the call is hung up, you will see that Adam's status changes to <strong>Available</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image51.png" data-title="A screenshot of a computer Description  automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description  automatically generated" src="module_3_media/media/image51.png"></a></p>
+</li>
+<li>
+<p>Similarly you can dial any PSTN number in E.164 format (+1AAABBBCCCC). Or you can dial the Cisco support number +<strong>18005532447</strong>. You can also make inbound calls to Adam McKenzie DID number (you can find it in session details or in the file lab_info.txt) from your mobile. If you cannot dial US phone numbers from your mobile, reach out to one of your proctors.</p>
+</li>
+<li>
+<p>Also, Once the 8 hours has been passed after onboarding UCM Cluster, you will be able to observe that up to date call history is synchronized/reflected to <strong>Cisco Call</strong> app on Microsoft Teams. To verify the call history go to <strong>Cisco Call app</strong> &gt; <strong>Recent Calls</strong> as shown below.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image52.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3_media/media/image52.png"></a></p>
+</li>
+</ol>
+<h3 id="module-2g2-calling-scenarios-2-of-10-making-calls-from-microsoft-teams-chat-window-approx-5-min">Module 2g.2: <strong>Calling Scenarios 2 of 10</strong> - Making calls from Microsoft Teams chat Window [Approx 5 min]</h3>
+<ol>
+<li>
+<p>Continuing on Workstation 3, go to Microsoft Teams app and go to <strong>Chat</strong> on left side pane. On the top search window search for <strong>Monica Cheng</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image53.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3_media/media/image53.png"></a></p>
+</li>
+<li>
+<p>Initiate a chat conversation with Monica and send few messages back and forth.</p>
+</li>
+<li>
+<p>Click on the + sign towards right side of typing window for chat and select <strong>Cisco Call</strong> from available options.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image54.png" data-title="A screenshot of a computer AI-generated content may be incorrect." data-desc-position="top"><img alt="A screenshot of a computer AI-generated content may be incorrect." src="module_3_media/media/image54.png"></a></p>
+</li>
+<li>
+<p>It will bring up available calling options for <strong>Monica Cheng</strong>. Choose either <strong>Phone number</strong> or <strong>Email Id</strong> from the drop down option. Then choose either <strong>Audio</strong> or <strong>Video</strong> option to make the call.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image55.png" data-title="A screenshot of a phone call Description automatically generated" data-desc-position="top"><img alt="A screenshot of a phone call Description automatically generated" src="module_3_media/media/image55.png"></a></p>
+</li>
+<li>
+<p>Answer the call on Workstation 4 and verify that call is connected. Hang up the call after few seconds.</p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>As explained before once the 8 hours for the initial sync has passed, you will see the presence status updated to show that Adam (and Monica) </em><em>In a call</em><em>.</em></p>
+</blockquote>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3_media/media/image56.png" data-title="A screenshot of a chat Description automatically generated" data-desc-position="top"><img alt="A screenshot of a chat Description automatically generated" src="module_3_media/media/image56.png"></a></p>
+</li>
+</ol>
+<h3 id="module-2g3-calling-scenarios-3-of-10-optimize-webex-app-for-microsoft-teams-experience-approx-3-min">Module 2g.3: <strong>Calling Scenarios 3 of 10</strong> - Optimize Webex App for Microsoft Teams Experience [Approx 3 min]</h3>
+<p>We are going to enable a feature on Control Hub that makes the Webex App optimized for being used with Microsoft Teams. This option enables:</p>
+<ul>
+<li>Webex branding removal</li>
+<li>Linking Calling Dock to MS Teams (shortcut to Call History, Voicemail, and Simplified Call Settings)</li>
+<li>Ability to mute Webex calls when on Teams meetings</li>
+</ul>
+<hr>
+<ol>
+<li>
+<p>Continuing on Workstation 3, go back to the browser tab where you logged into <strong>Webex Control Hub</strong>. On Control Hub, go to <strong>MANAGEMENT</strong> &gt; <strong>Users</strong>, choose user <strong>Adam McKenzie.</strong> On the user page, go to the <strong>Calling</strong> tab. On the calling tab, scroll down to <strong>Call Settings</strong> &gt; <strong>Microsoft Teams Integration</strong>. On the Microsoft Teams integration page, toggle on for option <strong>Optimize Webex App for Microsoft Teams Experience.</strong> Click on <strong>Save.</strong></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image1.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image1.png"></a></p>
+</li>
+<li>
+<p>Restart the Webex App to apply the changes by clicking on <strong>Exit</strong> from the System tray (right-click + Exit).</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image52.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image52.png"></a></p>
+</li>
+<li>
+<p>You will see a new banner on the Cisco Call App (we will explore it latter). Click on <strong>Sign in</strong> on the banner that shows the Cisco Call tab to re-open the Webex App.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image53.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image53.png"></a></p>
+</li>
+</ol>
+<hr>
+<h3 id="module-2g4-new-calling-scenarios-4-of-10-making-a-call-with-the-optimized-experience">Module 2g.4 (NEW): <strong>Calling Scenarios 4 of 10</strong> - Making a Call with the Optimized Experience</h3>
+<blockquote>
+<p><strong>NOTE:</strong> <em>Make sure you are logged in to both clients on both Workstations 3 and 4 before continuing.</em></p>
+</blockquote>
+<ol>
+<li>
+<p>Continuing on Workstation 3 as <strong>Adam McKenzie</strong>, go to the <strong>Cisco Call</strong> app on Microsoft Teams and make another call to <strong>Monica Cheng</strong>.</p>
+</li>
+<li>
+<p>Notice the Webex logo is not shown within the in-call window anymore, as the option <strong>Optimize Webex App for Microsoft Teams Experience</strong> is enabled for this user.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image2.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image2.png"></a></p>
+</li>
+<li>
+<p>Hang up the call.</p>
+</li>
+</ol>
+<hr>
+<h3 id="module-2g5-new-calling-scenarios-5-of-10-presence-sync-mute-webex-app-calls-when-on-teams-meetings-approx-10-min">Module 2g.5 (NEW): <strong>Calling Scenarios 5 of 10</strong> - Presence Sync: Mute Webex App Calls When on Teams Meetings [Approx 10 min]</h3>
+<blockquote>
+<p><strong>NOTE:</strong> <em>This scenario will only work after 8 hours from configuring CCUC have passed.</em></p>
+</blockquote>
+<p>Presence sync is supported between Microsoft Teams and Webex for the following statuses:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image3.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image3.png"></a></p>
+<p>When on a <strong>Microsoft Teams meeting or call</strong>, users might want to decide if they want to receive or decline calls. The status when on a Teams Meeting or a call will show as <strong>"In a call"</strong> in Microsoft Teams, and as <strong>"On a call"</strong> in the Webex App.</p>
+<p>However, this presence status itself doesn't mean incoming calls will be muted, but two settings are required for this to happen:</p>
+<ul>
+<li><strong>Organizational setting</strong>: <strong>Optimize Webex App for Microsoft Teams Experience</strong> must be enabled for the user, group, or organization.</li>
+<li>
+<p><strong>User setting</strong>: Under <strong>Call Settings</strong>, Call Notifications can be set to <strong>Always mute</strong> or to <strong>Only mute notifications when I'm in a meeting or on a call</strong>. These settings apply to either Webex calls or meetings, and also to Microsoft Calls and Meetings if the option <strong>"Optimize Webex App for Microsoft Teams Experience"</strong> is enabled for that user.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image4.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image4.png"></a></p>
+</li>
+</ul>
+<h4 id="lets-explore-the-option-only-mute-notifications-when-im-in-a-meeting-or-on-a-call">Let's explore the option <strong>Only mute notifications when I'm in a meeting or on a call.</strong></h4>
+<ol>
+<li>
+<p>Continuing on Workstation 3, go to <strong>Microsoft Teams</strong>. Go to the <strong>Meet</strong> tab and click on <strong>Meet now</strong>. Then click on <strong>Start a meeting</strong> to start a Microsoft Teams meeting. </p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image5.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image5.png"></a></p>
+</li>
+<li>
+<p>Select any audio option and click on <strong>Join now</strong>. Click close for option <strong>Invite people to join you</strong> pop-up window</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image6.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image6.png"></a></p>
+</li>
+<li>
+<p>Leave the meeting open and go back to the <strong>Cisco Call</strong> tab within Microsoft Teams. Notice Adam's status has changed to "In a call."</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image7.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image7.png"></a></p>
+</li>
+<li>
+<p>Open <strong>Call Settings</strong> within the Cisco Call tab. It will bring up settings for the Webex App. Notice that Call Settings are now simplified in comparison to the default Call Settings from the Webex App (<strong>Simplified Call Settings</strong>).</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g_media/media/image14.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g_media/media/image14.png"></a></p>
+</li>
+<li>
+<p>On the settings, go to <strong>Notifications</strong>. Under Notifications, click on <strong>Calls</strong>. Ensure the option <strong>Don't mute</strong> is selected. Click <strong>Save.</strong></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image8.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image8.png"></a></p>
+</li>
+<li>
+<p>Now, navigate to <strong>Workstation 4</strong> and open Microsoft Teams (as Monica Cheng). From the Cisco Call tab, make a call to Adam McKenzie's work number.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image9.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image9.png"></a></p>
+</li>
+<li>
+<p>On Workstation 3, notice Adam McKenzie gets the call notification toast. Decline the call on Workstation 3 and/or hang up the call on Workstation 4.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image10.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image10.png"></a></p>
+</li>
+<li>
+<p>Now, on Workstation 3, open <strong>Call Settings</strong> within the Cisco Call tab and go to <strong>Notifications</strong>. Under Notifications, click on <strong>Calls</strong>. Select the option <strong>Only mute notifications when I'm in a meeting or on a call</strong>. Click on <strong>Save.</strong></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image11.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image11.png"></a></p>
+</li>
+<li>
+<p>Repeat the call from Monica Cheng to Adam McKenzie: Navigate to <strong>Workstation 4</strong> and open Microsoft Teams (as Monica Cheng). From the Cisco Call tab, make a call to Adam's work number.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image12.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image12.png"></a></p>
+</li>
+<li>
+<p>Notice Monica Cheng can make the call, but Adam McKenzie doesn't receive any notification toast while the call is happening. Hang up the call from <strong>Workstation 4</strong>, as Monica Cheng.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image13.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image13.png"></a></p>
+</li>
+<li>
+<p>Adam will get a missed call.</p>
+</li>
+<li>
+<p>Still on Workstation 3, open the Microsoft meeting window and finish the Microsoft Teams meeting.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image14.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image14.png"></a></p>
+</li>
+<li>
+<p>Open again <strong>Call Settings</strong> from the Cisco Call tab within Microsoft Teams and change the <strong>Call Notifications</strong> settings back to <strong>Don't Mute</strong>. Click on <strong>Save.</strong></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image15.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image15.png"></a></p>
+</li>
+</ol>
+<hr>
+<h3 id="module-2g6-calling-scenarios-6-of-10-calling-dock-approx-5-min">Module 2g.6: <strong>Calling Scenarios 6 of 10</strong> - Calling Dock [Approx 5 min]</h3>
+<p>The Webex Calling Dock (formerly multi-call window) is a user-enabled setting to maximize calls for multiple lines and manage calls effectively. It can act as a companion app for Microsoft Teams. It also helps to hide the Webex app during calls.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image16.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image16.png"></a></p>
+<ol>
+<li>
+<p>Continuing on Workstation 3, on Microsoft Teams go to the <strong>Cisco Call</strong> app on the left-side pane. Click on the ellipsis menu on the right-hand side (next to Call Settings) and toggle on the Calling Dock to enable it.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image17.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image17.png"></a></p>
+</li>
+<li>
+<p>Notice that Webex will bring a small call window (called as Calling Dock) as shown above. You can use this <strong>Calling Dock</strong> for any calling functions, like making calls, answering calls, recent calls, using the dial pad, and accessing voicemail.</p>
+</li>
+<li>
+<p>Drag and drop the Calling Dock to the right side of the screen to notice it minimizes itself (docking feature).</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image18.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image18.png"></a></p>
+</li>
+<li>
+<p>Hover your mouse over the new dock icon on the right to see the <strong>Calling Dock</strong> without keeping it open. Click on the dock to maximize the <strong>Calling Dock</strong> again.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image19.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image19.png"></a></p>
+</li>
+</ol>
+<hr>
+<h3 id="module-2g7-calling-scenarios-7-of-10-multi-line-approx-10-min">Module 2g.7: <strong>Calling Scenarios 7 of 10</strong> - Multi-Line [Approx 10 min]</h3>
+<p>You can set up a profile with multiple lines with different phone numbers for calling. You can switch lines if you need to make outgoing calls from different lines, such as a front desk line, support team line, or an individual line with a different caller ID.</p>
+<p>Let's add a multi-line (secondary line) to <strong>Adam McKenzie</strong>.</p>
+<ol>
+<li>
+<p>Continuing on <strong>Workstation 3</strong>, open a new browser tab &amp; from the home page go to <strong>Collaboration Admin Links</strong> &gt; <strong>Cisco Unified Communications Manager</strong>. Log in as <strong>administrator/dCloud123!</strong>.</p>
+</li>
+<li>
+<p>Once logged in, go to <strong>Device</strong> &gt; <strong>Phone</strong>. On the Find and List Phones page, drop down the option for <strong>Find Phone where</strong> to <strong>Description</strong>, <strong>contains</strong>, and in the search field type <strong>mckenzie</strong> (Adam's last name) and click <strong>Find</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image23.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image23.png"></a></p>
+</li>
+<li>
+<p>From the search results, choose/click the device <strong>CSFAMCKENZIE</strong>.</p>
+</li>
+<li>
+<p>On the phone page, click on <strong>Line [2] -- add a new DN</strong> (towards the top-left corner).</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image24.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image24.png"></a></p>
+</li>
+<li>
+<p>It will take you to the new <strong>Directory Number Configuration</strong> page. On the page populate the following details and click <strong>Save</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter Name</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Directory Number</td>
+<td>7016</td>
+</tr>
+<tr>
+<td>Route Partition</td>
+<td>Base_PT</td>
+</tr>
+<tr>
+<td>Voice Mail Profile</td>
+<td>Default</td>
+</tr>
+<tr>
+<td>Calling Search Space</td>
+<td>Call_Everyone</td>
+</tr>
+<tr>
+<td>Display (Caller ID)</td>
+<td>Adam McKenzie - x7016</td>
+</tr>
+<tr>
+<td>ASCII Display (Caller ID)</td>
+<td>Adam McKenzie - x7016</td>
+</tr>
+<tr>
+<td>Line Text Label</td>
+<td>Adam McKenzie - x7016</td>
+</tr>
+<tr>
+<td>Options</td>
+<td>Caller Name &amp; Dialed Number</td>
+</tr>
+</tbody>
+</table>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image25.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image25.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image26.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image26.png"></a></p>
+</li>
+<li>
+<p>Once saved, scroll down all the way to the bottom of the directory number page. You will see the option called <strong>Users Associated with Line</strong>. Click on <strong>Associate End Users</strong>. It will bring up the Find and List Users page. In the search field, enter <strong>Adam</strong> and click <strong>Find</strong>. It will list the user ID <strong>amckenzie</strong>. Checkmark the user and click <strong>Add Selected</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image27.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image27.png"></a></p>
+</li>
+<li>
+<p>It will associate the user and take you back to the <strong>Directory Number Configuration</strong> page. Click <strong>Save</strong>. Click <strong>Apply Config</strong>. Click <strong>OK</strong> on the pop-up window.</p>
+</li>
+<li>
+<p>Now go to the Calling Dock, and you will have two lines configured. If you do not see the second line yet, just quit (from the system tray, right-click on the Webex icon and Exit Webex) &amp; Connect Phone services on the Cisco Call app within Microsoft Teams.</p>
+</li>
+<li>
+<p>Observe on the Calling Dock you now have two lines configured.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image28.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image28.png"></a></p>
+</li>
+<li>
+<p>Go to Microsoft teams &amp; Cisco Call app.  Click on <strong>Call Settings</strong>.  It will bring up Settings pop-up window for Webex. Uncheck the option for <strong>Answer calls with my video on</strong> under Calling tab.  Click <strong>Save</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image28_2.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image28_2.png"></a></p>
+</li>
+<li>
+<p>Go to Workstation 4 (as <strong>Monica Cheng</strong>). On Microsoft Teams, go to the <strong>Cisco Call</strong> app and dial <strong>7016</strong> (the <strong>secondary line</strong> that we configured). Answer the call on Workstation 3. Verify that the call is connected, wait for a few seconds, and hang up the call.</p>
+</li>
+<li>
+<p>As explained before, once the 8 hours for the initial sync has passed, you will see the presence status updated to show that Adam is <strong>"In a call"</strong> when the second line is in use, just like the primary line.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image29.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image29.png"></a></p>
+</li>
+</ol>
+<hr>
+<h3 id="module-2g8-calling-scenarios-8-of-10-voicemail-approx-5-min">Module 2g.8: <strong>Calling Scenarios 8 of 10</strong> - Voicemail [Approx 5 min]</h3>
+<ol>
+<li>
+<p>If you can dial US numbers from your mobile phone, dial the DID number you noted for <strong>Adam McKenzie</strong> (from Session Details) in the Accessing the Lab module. If you cannot dial US numbers, you can contact one of your proctors to make the call for you.</p>
+<blockquote>
+<p><strong>NOTE:</strong> <em>If you have not noted the DID number at the beginning of the lab, you can find the DID number by going to your </em><em>dCloud Lab</em><em> &gt; </em><em>Session Details</em><em> and noting the DID number associated with extension number </em><em>6016</em><em> (it will be labeled as </em><em>Adam McKenzie</em><em>).</em></p>
+</blockquote>
+</li>
+<li>
+<p>Do not answer the call on Workstation 3 &amp; let it go to voicemail (or decline the call). Leave a voice message for a few seconds and hang up the call.</p>
+</li>
+<li>
+<p>As explained before, once 8 hours have passed since the CCUC is onboarded, you can go to <strong>Microsoft Teams</strong> &gt; <strong>Cisco Call</strong> app and go to the Voicemail tab. Observe that you have a new voicemail. Click <strong>Play</strong> to listen to the voicemail. Make sure you can listen to the voicemail.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image30.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image30.png"></a></p>
+</li>
+</ol>
+<hr>
+<h3 id="module-2g9-new-calling-scenarios-9-of-10-phone-disconnection-banner-approx-3-min">Module 2g.9 (NEW): <strong>Calling Scenarios 9 of 10</strong> - Phone Disconnection Banner [Approx 3 min]</h3>
+<!-- **NOTE:** *If you have completed module 1, skip to the next Calling scenario.*-->
+<blockquote>
+<p><strong>NOTE:</strong> <em>If you have completed Module 1, skip to the next Calling scenario.</em></p>
+</blockquote>
+<p>When phone services are disconnected (for example, when the Webex App is logged out), there will be a banner showing that in the Cisco Call App. It also appears when it detects the Webex App is not running (when you exit from it), as we have seen before. Let's test the experience when signing out from the Webex App.</p>
+<ol>
+<li>
+<p>Continuing on <strong>Workstation 3</strong> as <strong>Adam McKenzie</strong>, go to the taskbar to find the Webex App. Click on the icon to open it.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g_media/media/image9.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g_media/media/image9.png"></a></p>
+</li>
+<li>
+<p>Click on Adam’s avatar and on <strong>Sign Out</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g_media/media/image10.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g_media/media/image10.png"></a></p>
+</li>
+<li>
+<p>A new banner will appear on the Cisco Call App advising you about your phone services being disconnected.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g_media/media/image11.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g_media/media/image11.png"></a></p>
+</li>
+<li>
+<p>Click on <strong>Sign in</strong> to connect them again. If this banner is there because you are logged out from the Webex App, it will ask you to log in to the Webex App by bringing in the Webex App sign-in page.</p>
+</li>
+<li>
+<p>Notice the status of the banner is now "Connecting." Sign in as <strong>Adam McKenzie</strong> to the Webex App and the UCM services.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g_media/media/image12.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g_media/media/image12.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g_media/media/image5.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g_media/media/image5.png"></a></p>
+</li>
+<li>
+<p>Once you log in, the banner will show that services are reconnected.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g_media/media/image13.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g_media/media/image13.png"></a></p>
+</li>
+</ol>
+<h3 id="module-2g10-optional-calling-scenarios-10-of-10-create-a-hunt-group-and-assign-users-to-it-approx-10-min">Module 2g.10 (OPTIONAL): <strong>Calling Scenarios 10 of 10</strong> - Create a Hunt Group and Assign Users to It [Approx 10 min]</h3>
+<ol>
+<li>
+<p>Continuing on Workstation 3, go back to the browser page where you are signed into Cisco Unified Communications Manager. Log back in as <strong>administrator/dCloud123!</strong> if the previous login has timed out.</p>
+</li>
+<li>
+<p>Once logged in, go to <strong>Call Routing</strong> &gt; <strong>Route/Hunt</strong> &gt; <strong>Line Group</strong>. Click on <strong>Add new</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image31.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image31.png"></a></p>
+</li>
+<li>
+<p>Name the Line Group as <strong>dCloud Line Group</strong>. Select extension <strong>6016/Base_PT</strong> (Adam McKenzie) and click <strong>Add to Line Group</strong>. Similarly, select extension <strong>6020/Base_PT</strong> (Monica Cheng) and click <strong>Add to Line Group</strong>. Click <strong>Save</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image32.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image32.png"></a></p>
+</li>
+<li>
+<p>Now, let's add this Line Group to a <strong>Hunt List</strong>. Go to <strong>Call Routing</strong> &gt; <strong>Route/Hunt</strong> &gt; <strong>Hunt List</strong>. Click on <strong>Add new</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image33.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image33.png"></a></p>
+</li>
+<li>
+<p>Assign the name <strong>dCloud Hunt List</strong>. Select <strong>dCloud_CMGroup</strong> under Cisco Unified Communications Manager Group. Checkmark <strong>Enable this Hunt List</strong>. Click <strong>Save.</strong></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image34.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image34.png"></a></p>
+</li>
+<li>
+<p>Once the page reloads, click on <strong>Add Line Group</strong> on the newly created Hunt List page. Drop down the option <strong>Line Group</strong> and select the Line Group you just created (<strong>dCloud Line Group</strong>). Click on <strong>Save.</strong> Click <strong>OK</strong> on the prompt message that will appear.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image35.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image35.png"></a></p>
+</li>
+<li>
+<p>Once the Line Group is added, click <strong>Save</strong> on the Hunt List Configuration. Click <strong>OK</strong>.</p>
+</li>
+<li>
+<p>Now we are going to create the <strong>Hunt Pilot</strong>. Go to <strong>Call Routing</strong> &gt; <strong>Route/Hunt</strong> &gt; <strong>Hunt Pilot</strong>. Click on <strong>Add new</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image38.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image38.png"></a></p>
+</li>
+<li>
+<p>Enter the directory number <strong>7800</strong> for the <strong>Hunt Pilot</strong>. Select the <strong>Route Partition</strong> as <strong>Base_PT.</strong> Drop down the option for <strong>Hunt List</strong> and choose the Hunt List we just created: <strong>dCloud Hunt List.</strong> Leave the rest of the fields as defaults. Click <strong>Save.</strong></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image39.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image39.png"></a></p>
+</li>
+<li>
+<p>Now go to the <strong>Webex Calling Dock</strong> and notice that the Hunt Group is enabled. You can click on it, and it will be disabled (<strong>Off</strong>). Click <strong>OK</strong> on the pop-up window. Click on the icon again to log in (<strong>On</strong>) to the Hunt Group.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image40.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image40.png"></a></p>
+</li>
+<li>
+<p>Go to your dCloud Session <strong>Info</strong> &gt; <strong>Phone Numbers</strong>. Drop down the phone numbers and find the DID number associated with the extension <strong>7800</strong> (the one we assigned to the Hunt Group). This number will be different for each lab.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image42.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image42.png"></a></p>
+</li>
+<li>
+<p>Dial the DID number from your personal phone or ask one of the proctors to make the call for you. Notice the incoming call for <strong>Adam McKenzie</strong> (Workstation 3). Do not answer the call on Workstation 3.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image43.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image43.png"></a></p>
+</li>
+<li>
+<p>Wait a few tones and notice the call moving to <strong>Monica Cheng</strong> (Workstation 4). Hang up the call from your phone or the proctor's phone.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="module_3g3-8_media/media/image44.png" data-title="Image" data-desc-position="top"><img alt="Image" src="module_3g3-8_media/media/image44.png"></a></p>
+</li>
+</ol>
+<hr>
+<p>This completes the entire <strong>Module 2: Cisco Call (UCM Calling) Integration with Microsoft Teams.</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2025 Cisco
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.instant", "navigation.top", "navigation.footer", "search.suggest", "content.code.copy", "toc.integrate"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../../../template_assets/js/newLoad.js"></script>
+      
+        <script src="../../../../template_assets/js/setInfo.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
