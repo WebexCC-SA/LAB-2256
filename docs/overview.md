@@ -23,4 +23,4 @@ Venky Yechuri – Technical Projects Systems Engineer
 
 The 3 independent modules of this lab can be done in any order.
 You must start in "Lab access" and then continue with one of the modules.
-A completion of 2 modules is required to complete the lab.
+A completion of 2 modules is required to complete the lab.    
