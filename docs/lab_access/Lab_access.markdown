@@ -10,7 +10,7 @@
 
 3.  Once logged in, open a new browser tab and paste the **event URL**
     for your lab. The **event URL** is
-    [https://dcloud2-sjc.cisco.com/event/397145/access](https://dcloud2-sjc.cisco.com/event/397145/access).
+    [https://dcloud2-sjc.cisco.com/event/397710/access](https://dcloud2-sjc.cisco.com/event/397710/access).
 
 4.  You will be automatically assigned to a lab session and will be
     taken to the lab topology page as shown below.

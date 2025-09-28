@@ -50,7 +50,7 @@ Integrating O365 with your Webex Control Hub you can also import/synchronize use
 
     ![A screenshot of a computer Description automatically generated](module_2_media/media/image8.png)
 
-4.  Continuing on **Organization Settings** page, scroll down to the section **Microsoft Azure Active Directory Wizard App** and click **Set up.**
+4.  Continuing on **Organization Settings** page, scroll down to the section **Microsoft Entra ID Wizard App** and click **Set up.**
 
     ![A screenshot of a computer Description automatically generated](module_2_media/media/image9.png)
 
@@ -66,33 +66,37 @@ Integrating O365 with your Webex Control Hub you can also import/synchronize use
 
     ![A screenshot of a application Description automatically generated](module_2_media/media/image11.png)
 
-8.  You will be taken back to Webex Control Hub and a pop-up window will be displayed. Keep the radio button selected for **Sync defaults** and click **Proceed**.
+8.  You will be taken back to Webex Control Hub and a pop-up window will be displayed. You might be asked if you want to create a new app ir migrate an existing one. If that's the case, select "Create new app". If not, go to the next step.
+
+    ![A screenshot of a application Description automatically generated](module_2_media/media/image11b.png)
+
+9. Then, you will be prompted with another pop-up window. Keep the radio button selected for **Sync defaults** and click **Proceed**.
 
     ![Graphical user interface, text, application, email Description automatically generated](module_2_media/media/image12.png)
 
-9.  It will create the instance/integration with Microsoft tenant. It will take around 2 to 3 minutes for the process to complete.
+10.  It will create the instance/integration with Microsoft tenant. It will take around 2 to 3 minutes for the process to complete.
 
-10. Once the integration process is completed, Job status will be displayed **NotRun**.
+11. Once the integration process is completed, Job status will be displayed **NotRun**.
 
     ![A screenshot of a phone Description automatically generated](module_2_media/media/image13.png)
 
-11. Within few min the Job status would change to **Active.** Wait until the job status is changed to **Active**. You may need to refresh the page, after 2 to 3 minutes, to see the updated status. At this point all users from your Microsoft tenant should be imported to Webex under **MANAGEMENT** \> **Users**. Notice few users with status **Verified** indicating they are imported from a trusted source (in this case the Microsoft tenant that we are integrating with).
+12. Within few min the Job status would change to **Active.** Wait until the job status is changed to **Active**. You may need to refresh the page, after 2 to 3 minutes, to see the updated status. At this point all users from your Microsoft tenant should be imported to Webex under **MANAGEMENT** \> **Users**. Notice few users with status **Verified** indicating they are imported from a trusted source (in this case the Microsoft tenant that we are integrating with).
 
-12. Now go back to **MANAGEMENT** \> **Organization Settings** and scroll down to the **Microsoft Azure Active Directory Wizard App** section. Click the three dots on the right side and select **Edit Configuration**.
+13. Now go back to **MANAGEMENT** \> **Organization Settings** and scroll down to the **Microsoft Azure Active Directory Wizard App** section. Click the three dots on the right side and select **Edit Configuration**.
 
     ![A screenshot of a computer Description automatically generated](module_2_media/media/image14.png)
 
-13. It will bring up the Microsoft Azure AD integration page, under **Attributes** tab drop down the field **phoneNumbers\[type eq "work"\].value** & choose **telephoneNumber** from the drop down list.
+14. It will bring up the Microsoft Azure AD integration page, under **Attributes** tab drop down the field **phoneNumbers\[type eq "work"\].value** & choose **telephoneNumber** from the drop down list.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](module_2_media/media/image15.png)
 
-14. Now, go to **More** tab and select the checkbox option for **Activate single sign-on** and click **Save**.
+15. Now, go to **More** tab and select the checkbox option for **Activate single sign-on** and click **Save**.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](module_2_media/media/image16.png)
 
-15. You have now successfully enabled single sign-on for your Webex tenant. From now on, all logins to this Webex tenant will be redirected to Microsoft for authentication & you will use <cholland@cbXXX.dc-YY.com> & dCloud123! for logging into Webex Control Hub.
+16. You have now successfully enabled single sign-on for your Webex tenant. From now on, all logins to this Webex tenant will be redirected to Microsoft for authentication & you will use <cholland@cbXXX.dc-YY.com> & dCloud123! for logging into Webex Control Hub.
 
-16. This completes the SSO configuration!.
+17. This completes the SSO configuration!.
 
 ## Module 2b: Ordering PSTN Numbers for users \[Approx 10 min\]
 
@@ -101,7 +105,7 @@ For Webex Calling, the DID numbers and call control is controlled by Webex Cloud
 1.  Continuing on workstation 5, go back to the browser where you logged into **Cisco Webex Control Hub**. or go to [https://admin.webex.com](https://admin.webex.com) & Login as cholland@cbXXX.dc-YY.com & dCloud123!, if the previous login is timed out.
 
 
-2.  Go to **SERVICES** \> **Calling**. Click **+ Add Numbers**.
+2.  Go to **SERVICES** \> **PSTN & Routing**. Click **+ Add Numbers**.
 
     ![A screenshot of a call center Description  automatically generated](module_2_media/media/image17.png)
 
@@ -172,7 +176,7 @@ For Webex Calling, the DID numbers and call control is controlled by Webex Cloud
 
 17. On the locations page select the existing location **dCloud**
 
-18. On the **dCloud** location page, go to **Calling** tab
+18. On the **dCloud** location page, go to **PSTN** tab
 
 19. Observe, under Main number drop down option, there is a warning saying **You will not be able to make or receive calls until this number is added**.
 
@@ -191,9 +195,9 @@ In this section of the lab, we will use **Kellie Melby** and **Taylor Bard** use
 
 2. We can enable **Presence Sync** for the whole organization. It is not possible to enable it for individual users only, although this can later be managed through delegated Microsoft Graph API permissions.
 
-3. On the Control Hub, go to **SERVICES** > **Calling**. On the Calling page, go to the **Client Settings** tab.
+3. On the Control Hub, go to **SERVICES** > **Calling**. 
 
-4. Scroll down on the **Client Settings** page to the Microsoft Teams Integration section and toggle the radio button **Presence Sync** & **Hide Webex windows**. If the option **Optimize Webex app for Microsoft Teams experience** is toggled **ON**, untoggle it for now. We will explore this option later.
+4. Scroll down to the Microsoft Teams Integration section and toggle the radio button **Presence Sync** & **Hide Webex windows**. If the option **Optimize Webex app for Microsoft Teams experience** is toggled **ON**, untoggle it for now. We will explore this option later.
 
     > **NOTE:** *If you have completed module 3, you may have already completed enabling Presence Sync & Hide Webex Windows. You can skip steps 3 and 4 above.*
 
@@ -420,7 +424,7 @@ For Cisco Call for Microsoft Teams, notifications are shown in two manners:
 
 ---
 
-1. Continuing on **Workstation 5**, go back to the browser tab where you logged into **Webex Control Hub**. On Control Hub, go to **MANAGEMENT** > **Users**, choose user **Kellie Melby.** On the user page, go to the **Calling** tab. On the calling tab, scroll down to **Call Settings** > **Microsoft Teams Integration**. On the Microsoft Teams integration page, toggle on for option **Optimize Webex App for Microsoft Teams Experience.** Click on **Save.**
+1. Continuing on **Workstation 5**, go back to the browser tab where you logged into **Webex Control Hub**. On Control Hub, go to **MANAGEMENT** > **Users**, choose user **Kellie Melby.** On the user page, go to the **Calling** tab. On the calling tab, scroll down to **User call experience** > **Microsoft Teams Integration**. On the Microsoft Teams integration page, toggle on for option **Optimize Webex App for Microsoft Teams Experience.** Click on **Save.**
 
     ![Image](module_2e_media/media/image25.png)
 
@@ -725,7 +729,7 @@ In the Watchlist, you will see a list of people in your BLF list and can monitor
 
     ![Image](module_2e_media/media/image75.png)
 
-7. Make a phone call to **Taylor Bard's phone number** (check the phone number on the Cisco Call app within Microsoft Teams on **Workstation 6** or on Control Hub). You can make the call from your personal phone or ask one of the proctors to make the call for you. **Don't answer this call as Taylor (Workstation 6).**
+7. Make a phone call from your personal phone to **Taylor Bard's phone number** (check the phone number on the Cisco Call app within Microsoft Teams on **Workstation 6** or on Control Hub). If you cannot make the call from your personal phone, ask one of the proctors to make the call for you. **Don't answer this call as Taylor (Workstation 6).**
 
 8. Switch to **Workstation 5**. Wait a few seconds and notice the **Call Pick-up** notification coming to **Kellie Melby.**
 

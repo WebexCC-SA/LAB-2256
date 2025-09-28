@@ -196,7 +196,7 @@ Integrating O365 with your Webex Control Hub you can also import/synchronize use
 
 1.  Continuing on Workstation 3 and go to the browser tab where you had the **Webex Control hub** open.
 
-2.  On the **Webex Control Hub** page go **MANAGEMENT** \> **Organization Settings** and scroll down to the section **Microsoft Azure Active Directory Wizard App** and click **Set up.**
+2.  On the **Webex Control Hub** page go **MANAGEMENT** \> **Organization Settings** and scroll down to the section **Microsoft Entra ID Wizard App** and click **Set up.**
 
     ![A screenshot of a computer Description automatically generated](module_3_media/media/image23.png)
 
@@ -214,35 +214,39 @@ Integrating O365 with your Webex Control Hub you can also import/synchronize use
 
     ![A screenshot of a application Description automatically generated](module_3_media/media/image25.png)
 
-6.  You will be taken back to Webex Control Hub and a pop-up window will be displayed. Keep the radio button selected for **Sync defaults** and click **Proceed**.
+6.  You will be taken back to Webex Control Hub and a pop-up window will be displayed. You might be asked if you want to create a new app ir migrate an existing one. If that's the case, select "Create new app". If not, go to the next step.
 
-    > **NOTE:** *If Sync defaults is not prompted, scroll down to Azure App section on Organizations settings page.*
+    ![A screenshot of a application Description automatically generated](module_2_media/media/image11b.png)
+
+7. Then, you will be prompted with another pop-up window. Keep the radio button selected for **Sync defaults** and click **Proceed**.
+
+    > **NOTE:** *If Sync defaults is not prompted, scroll down to Entra ID App section on Organizations settings page.*
 
     ![Graphical user interface, text, application, email Description automatically generated](module_3_media/media/image26.png)
 
-7.  It will create the instance/integration with Microsoft tenant. It will take around 2 to 3 minutes for the process to complete.
+8.  It will create the instance/integration with Microsoft tenant. It will take around 2 to 3 minutes for the process to complete.
 
-8.  Once the integration process is completed, Job status will be displayed **NotRun**.
+9.  Once the integration process is completed, Job status will be displayed **NotRun**.
 
     ![A screenshot of a phone Description automatically generated](module_3_media/media/image27.png)
 
-9.  Within few min the Job status would change to **Active.** Wait until the job status is changed to **Active**. You need to refresh the page to see the updated status. At this point all users from your Microsoft tenant should be imported to Webex under **MANAGEMENT** \> **Users**. Notice few users with status **Verified** indicating they are imported from a trusted source (in this case the Microsoft tenant that we are integrating with).
+10.  Within few min the Job status would change to **Active.** Wait until the job status is changed to **Active**. You need to refresh the page to see the updated status. At this point all users from your Microsoft tenant should be imported to Webex under **MANAGEMENT** \> **Users**. Notice few users with status **Verified** indicating they are imported from a trusted source (in this case the Microsoft tenant that we are integrating with).
 
-10. Now go back to **MANAGEMENT** \> **Organization Settings** and scroll down to the **Microsoft Azure Active Directory Wizard App** section. Click the three dots on the right side and select **Edit Configuration**.
+11. Now go back to **MANAGEMENT** \> **Organization Settings** and scroll down to the **Microsoft Azure Active Directory Wizard App** section. Click the three dots on the right side and select **Edit Configuration**.
 
     ![A screenshot of a computer Description automatically generated](module_3_media/media/image28.png)
 
-11.  It will bring up the Microsoft Azure AD integration page, under **Attributes** tab drop down the field **phoneNumbers\[type eq "work"\].value** & choose **telephoneNumber** from the drop down list.
+12.  It will bring up the Microsoft Azure AD integration page, under **Attributes** tab drop down the field **phoneNumbers\[type eq "work"\].value** & choose **telephoneNumber** from the drop down list.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](module_3_media/media/image29.png)
 
-12.  Now, go to **More** tab and select the checkbox option for **Activate single sign-on** and click **Save**.
+13.  Now, go to **More** tab and select the checkbox option for **Activate single sign-on** and click **Save**.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](module_3_media/media/image30.png)
 
-13. You have now successfully enabled single sign-on for your Webex tenant. From now on, all logins to this Webex tenant will be redirected to Microsoft for authentication & you will use <cholland@cbXXX.dc-YY.com> & dCloud123! for logging into Webex Control Hub.
+14. You have now successfully enabled single sign-on for your Webex tenant. From now on, all logins to this Webex tenant will be redirected to Microsoft for authentication & you will use <cholland@cbXXX.dc-YY.com> & dCloud123! for logging into Webex Control Hub.
 
-14. This completes the SSO configuration and verification.
+15. This completes the SSO configuration and verification.
 
 ## Module 3e: Assign Licenses & Configure Users for Microsoft Presence Sync [Approx 5 min]
 
