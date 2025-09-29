@@ -216,7 +216,7 @@ Integrating O365 with your Webex Control Hub you can also import/synchronize use
 
 6.  You will be taken back to Webex Control Hub and a pop-up window will be displayed. You might be asked if you want to create a new app ir migrate an existing one. If that's the case, select "Create new app". If not, go to the next step.
 
-    ![A screenshot of a application Description automatically generated](module_2_media/media/image11b.png)
+    ![A screenshot of a application Description automatically generated](module_3_media/media/image11b.png)
 
 7. Then, you will be prompted with another pop-up window. Keep the radio button selected for **Sync defaults** and click **Proceed**.
 
