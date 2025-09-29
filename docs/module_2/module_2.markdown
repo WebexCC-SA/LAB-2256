@@ -182,8 +182,6 @@ For Webex Calling, the DID numbers and call control is controlled by Webex Cloud
 
 20. Drop down the Main number option and choose one of the numbers we ordered above and click **Save**.
 
-    ![A screenshot of a computer Description automatically generated](module_2_media/media/image28.png)
-
 21. Observe that as soon as main number is assigned to location, the warning will be gone. Indicating now you will be able to make and receive calls from this location.
 
 
