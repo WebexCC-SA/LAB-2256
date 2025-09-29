@@ -1,0 +1,1290 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Implementing Cisco Calling for Microsoft Teams">
+      
+      
+        <meta name="author" content="Sara Macias Salete">
+      
+      
+      
+        <link rel="prev" href="../../lab_access/Lab_access/">
+      
+      
+        <link rel="next" href="../../module_2/module_2/">
+      
+      
+      <link rel="icon" href="../../template_assets/webex75.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Module 1 - LAB-2256: Implementing Cisco Calling for Microsoft Teams</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-1-direct-routing-with-cube-and-interworking-with-cucm-via-cube" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="LAB-2256: Implementing Cisco Calling for Microsoft Teams" class="md-header__button md-logo" aria-label="LAB-2256: Implementing Cisco Calling for Microsoft Teams" data-md-component="logo">
+      
+  <img src="../../template_assets/webexLogo91.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LAB-2256: Implementing Cisco Calling for Microsoft Teams
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module 1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../lab_access/Lab_access/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lab access
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../module_2/module_2/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 2
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../module_3/module_3/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Module 3
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../appendix/appendix.markdown" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Appendix
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LAB-2256: Implementing Cisco Calling for Microsoft Teams" class="md-nav__button md-logo" aria-label="LAB-2256: Implementing Cisco Calling for Microsoft Teams" data-md-component="logo">
+      
+  <img src="../../template_assets/webexLogo91.png" alt="logo">
+
+    </a>
+    LAB-2256: Implementing Cisco Calling for Microsoft Teams
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab_access/Lab_access/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab access
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Module 1
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 1
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#module-1a-direct-routing-with-cube-approx-45-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module 1a: Direct Routing with CUBE [Approx 45 min]
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Module 1a: Direct Routing with CUBE [Approx 45 min]">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#direct-routing-cube-configuration-approx-10-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      Direct Routing CUBE Configuration [Approx 10 min]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-1a1-add-cube-to-the-microsoft-teams-and-configure-voice-policies-approx-25-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module 1a.1: Add CUBE to the Microsoft Teams and configure Voice policies [Approx 25 min]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-1a2-testing-the-calls-from-microsoft-teams-for-direct-routing-approx-10-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module 1a.2: Testing the calls from Microsoft Teams for Direct Routing [Approx 10 min]
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-1b-interworking-between-cisco-unified-cm-and-microsoft-teams-phone-via-cube-approx-20-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module 1b: Interworking between Cisco Unified CM and Microsoft Teams Phone via CUBE [Approx 20 min]
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Module 1b: Interworking between Cisco Unified CM and Microsoft Teams Phone via CUBE [Approx 20 min]">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#module-1b1-add-required-dial-peers-on-cube-for-cisco-ucm-routing-approx-5-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module 1b.1: Add required dial-peers on CUBE for Cisco UCM routing [Approx 5 min]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-1b2-configure-sip-trunk-and-route-pattern-on-cisco-ucm-to-route-calls-to-cube-approx-10-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module 1b.2: Configure SIP Trunk and Route Pattern on Cisco UCM to route calls to CUBE [Approx 10 min]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-1b3-testing-the-calls-between-microsoft-teams-and-cisco-ucm-using-cube-approx-5-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module 1b.3: Testing the calls between Microsoft Teams and Cisco UCM using CUBE [Approx 5 min]
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module_2/module_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module_3/module_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Module 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/appendix.markdown" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Appendix
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="module-1-direct-routing-with-cube-and-interworking-with-cucm-via-cube">Module 1: Direct Routing with CUBE and Interworking with CUCM via CUBE</h1>
+<h2 id="module-1a-direct-routing-with-cube-approx-45-min"><strong>Module 1a: Direct Routing with CUBE</strong> [Approx 45 min]</h2>
+<p>Microsoft Direct Routing is a Microsoft solution that lets you connect a
+certified, customer-provided Session Border Controller (SBC) to
+Microsoft Teams Phone for on-premises or customer-provided PSTN
+connectivity.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1a_media/media/image1.png" data-title="A diagram of a phone system Description automatically generated" data-desc-position="top"><img alt="A diagram of a phone system Description automatically generated" src="../module_1a_media/media/image1.png"></a></p>
+<h3 id="direct-routing-cube-configuration-approx-10-min">Direct Routing CUBE Configuration [Approx 10 min]</h3>
+<p>In this module there are 6 sub modules, out of which 4 sub-modules are CLI (Command Line Interface) based.  These 4 sub-modules entail importing required certificates for CUBE connectivity with the Microsoft Teams Phone, configure SIP profiles, dial-peers, and other required CLI configurations.  The entire required configuration for CUBE has been generated and put it on <strong>Workstation 1 Desktop</strong> in a file called <strong>Ready-CL_DR_CUBE-Config.txt</strong> file. Configure the CUBE by copying and pasting commands from the file.</p>
+<blockquote>
+<p><strong>NOTE:</strong> If you are interested in understanding all these commands/certificates/SIP Profiles etc., we have all this information listed in <a href="/665b511720/appendix/appendix/">Appendix section</a> for your review after the lab.</p>
+</blockquote>
+<ol>
+<li>
+<p>Continuing on Workstation 1, Minimize all applications and open text
+    file <strong>Ready-CL_DR-CUBE-Config.txt</strong> with <strong>Notepad++</strong>. Right click
+    on the file and choose <strong>Edit with Notepad++</strong>.</p>
+<blockquote>
+<p><strong>NOTE</strong>: <strong><em>DO NOT</em></strong> open this file with Microsoft default notepad
+application, the certificates will not be formatted correctly.</p>
+</blockquote>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1a_media/media/image2.png" data-title="A screenshot of a computer Description automatically
+generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically
+generated" src="../module_1a_media/media/image2.png"></a></p>
+</li>
+<li>
+<p>Open <strong>Putty</strong> from the taskbar and open an SSH connection to
+    <strong>198.18.133.231</strong> (or you can load <strong>cube.dcloud.cisco.com</strong> from
+    available saved logins on Putty) and login as <strong>admin</strong> and
+    <strong>dCloud123!</strong></p>
+</li>
+<li>
+<p>Copy all (use <strong>Ctrl + a</strong>) the contents of the file
+    (<strong>Ready-CL_DR-CUBE-Config.txt</strong>). Go to the putty window and paste
+    (<strong>Right click</strong> anywhere on the putty window).</p>
+</li>
+<li>
+<p>Once all the configuration is entered on Putty, scroll up and make
+    sure there are <strong>NO</strong> error messages for any of the commands and
+    also make sure the certificate <strong>import is successful</strong> as show
+    below.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1a_media/media/image3.png" data-title="A screenshot of a computer screen Description automatically
+generated" data-desc-position="top"><img alt="A screenshot of a computer screen Description automatically
+generated" src="../module_1a_media/media/image3.png"></a></p>
+</li>
+<li>
+<p>The CUBE configuration from CLI is complete and we will move to Microsoft Admin Center to continue to configure Direct Routing configuration.</p>
+</li>
+</ol>
+<h3 id="module-1a1-add-cube-to-the-microsoft-teams-and-configure-voice-policies-approx-25-min">Module 1a.1: Add CUBE to the Microsoft Teams and configure Voice policies [Approx 25 min]</h3>
+<blockquote>
+<p><strong>NOTE</strong>: <em>In the Microsoft admin center, we will add CUBE as a Session
+Border Controller (SBC)</em></p>
+</blockquote>
+<ol>
+<li>
+<p>Continuing on Workstation 1, open a new browser tab, go to <strong>Collab
+    Admin links,</strong> and choose <strong>Microsoft Teams Admin Center</strong>. Login
+    with <a href="mailto:cholland@cbXXX.dc-YY.com">cholland@cbXXX.dc-YY.com</a> and <strong>dCloud123!</strong>, if prompted.</p>
+<blockquote>
+<p><strong>NOTE:</strong> <em>You need to Replace XXX, YY (in domain name) with your session-specific details. If you haven't already done as explained in Accessing your lab section, go to Lab_info.txt file located on your </em><em>workstation 1</em><em> and copy the domain and password.</em>    </p>
+</blockquote>
+</li>
+<li>
+<p>Once logged into the <strong>Microsoft Teams admin center,</strong> on the left
+    side pane, go to <strong>Voice</strong> &gt; <strong>Direct Routing</strong>. On the Direct
+    Routing page click <strong>Add</strong> to add a new SBC (CUBE).</p>
+</li>
+<li>
+<p>On the <strong>Add SBC</strong> page, name the SBC as <strong>cube.cbXXX.dc-YY.com</strong> (the FQDN of the CUBE), and toggle ON the option for <strong>Enabled,</strong> and set SIP signaling port to 5061. Scroll down and click <strong>Save</strong>.</p>
+<blockquote>
+<p><strong>NOTE:</strong> <em>You need to Replace XXX, YY (in domain name) with your session-specific details. If you haven't already done as explained in Accessing your lab section, go to Lab_info.txt file located on your </em><em>workstation 1</em><em> and copy the domain and password.</em></p>
+</blockquote>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1a_media/media/image21.png" data-title="A screenshot of a computer Description automatically
+generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically
+generated" src="../module_1a_media/media/image21.png"></a></p>
+</li>
+<li>
+<p>You will be taken to the SBCs page and there you will see the newly
+    added SBC.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1a_media/media/image22.png" data-title="A screenshot of a phone Description automatically
+generated" data-desc-position="top"><img alt="A screenshot of a phone Description automatically
+generated" src="../module_1a_media/media/image22.png"></a></p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>Sometimes CUBE may take longer to show as Active. Also TLS connectivity status may show an exclamation mark (indicating a warning) due to inactivity but you can ignore that.</em></p>
+</blockquote>
+<p>At this point, CUBE should be able to talk to Microsoft Cloud services
+and establish a TLS connection. You can test that using the below
+commands on the CUBE to check active connections.</p>
+<p><strong><code>show sip-ua connections tcp tls brief</code></strong></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1a_media/media/image23.png" data-title="A screenshot of a computer Description automatically
+generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically
+generated" src="../module_1a_media/media/image23.png"></a></p>
+<p><strong><code>show sip-ua connections tcp tls detail</code></strong></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1a_media/media/image24.png" data-title="A screenshot of a computer program Description automatically
+generated" data-desc-position="top"><img alt="A screenshot of a computer program Description automatically
+generated" src="../module_1a_media/media/image24.png"></a></p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>The </em><em>52.114.X.X</em><em> subnet belongs to Microsoft Cloud indicating CUBE has successfully established communication with Microsoft Cloud/tenant.</em></p>
+</blockquote>
+</li>
+<li>
+<p>Now go to <strong>Voice</strong> &gt; <strong>Voice routing policies</strong>. There will be a
+    default routing policy named <strong>Global (Org-wide default)</strong>. Select
+    the <strong>Global</strong> voice routing policy, and under <strong>PSTN usage
+    records</strong> click <strong>Add PSTN usage records.</strong> It will bring up a
+    fly-out window to add PSTN usage records. Click <strong>Add</strong> on the
+    fly-out window and name it <strong>PSTNUR</strong>, checkmark the PSTN usage
+    record you just created and click <strong>Save and Apply.</strong> The fly-out
+    window will be closed and you will be taken back to the <strong>Global</strong>
+    policy page, click <strong>Save</strong> and click <strong>Confirm</strong> on the pop-up
+    window to update the Global policy with the newly created PSTN usage
+    record (PSTNUR).</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1a_media/media/image25.png" data-title="A screenshot of a computer Description automatically
+generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically
+generated" src="../module_1a_media/media/image25.png"></a></p>
+</li>
+<li>
+<p>Now let's add a voice route. Go to <strong>Voice</strong> &gt; <strong>Direct Routing</strong>.
+    On the Direct routing page go to the <strong>Voice routes</strong> tab and click
+    <strong>Add</strong> to add a new voice route.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1a_media/media/image26.png" data-title="A screenshot of a computer Description automatically
+generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically
+generated" src="../module_1a_media/media/image26.png"></a></p>
+</li>
+<li>
+<p>On the Add voice route page, populate the following parameters and
+    click <strong>Save</strong>.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Parameter</strong></th>
+<th><strong>Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Name</strong></td>
+<td>PSTN-DR</td>
+</tr>
+<tr>
+<td><strong>Priority</strong></td>
+<td>2</td>
+</tr>
+<tr>
+<td><strong>Dialed number pattern</strong></td>
+<td>\+.*</td>
+</tr>
+<tr>
+<td><strong>SBCs enrolled</strong></td>
+<td>Click <strong>Add SBCs</strong> and on the fly-out window, drop down and select the available SBC (<code>cbXXX.dc-YY.com</code>) and click <strong>Apply</strong>.</td>
+</tr>
+<tr>
+<td><strong>PSTN usage records</strong></td>
+<td>Click <strong>Add PSTN usage records</strong> and on the fly-out window, checkmark the available PSTN usage record (<code>PSTNUR</code>) and click <strong>Apply</strong>.</td>
+</tr>
+</tbody>
+</table>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1a_media/media/image27.png" data-title="A screenshot of a computer Description automatically
+generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically
+generated" src="../module_1a_media/media/image27.png"></a></p>
+</li>
+<li>
+<p>Now, let's add the Calling policy. Go to <strong>Voice</strong> &gt; <strong>Calling
+    policies.</strong> Click <strong>Add</strong> to add a new Calling policy.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1a_media/media/image28.png" data-title="A screenshot of a computer Description automatically
+generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically
+generated" src="../module_1a_media/media/image28.png"></a></p>
+</li>
+<li>
+<p>Name the Calling policy as <strong>PSTN-CP.</strong> Toggle <strong>On</strong> for <strong>Make private calls</strong>. Scroll down on the page and
+    select <strong>On</strong> for the option <strong>Busy on busy during calls</strong> option.
+    Click <strong>Save</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1a_media/media/image29.png" data-title="A screenshot of a computer Description automatically
+generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically
+generated" src="../module_1a_media/media/image29.png"></a></p>
+</li>
+<li>
+<p>Now we need to assign the phone number and apply the policies (we
+    defined above) for the user that we are going to use in this section
+    of the lab (<strong>Charles Holland</strong>). On the Microsoft Teams admin
+    center go to <strong>Users</strong> &gt; <strong>Manage users.</strong></p>
+</li>
+<li>
+<p>From the list of users select <strong>Charles Holland</strong>
+    (<a href="mailto:cholland@cbXXX.dc-YY.com">cholland@cbXXX.dc-YY.com</a>). It will take you to the user page. On
+    the user page click <strong>Assign primary phone number</strong> under
+    <strong>Account</strong>.</p>
+</li>
+<li>
+<p>It will bring up a fly-out window for <strong>Assign phone number</strong>. For
+    <strong>Phone number type</strong> keep <strong>Direct Routing</strong> selected. Enter
+    <strong>6018</strong> for the <strong>Assigned phone number</strong>. Click <strong>Apply</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1a_media/media/image30.png" data-title="A screenshot of a computer Description automatically
+generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically
+generated" src="../module_1a_media/media/image30.png"></a></p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>Sometimes it will take longer to update the phone number and it may give you a warning. You can safely ignore the warning and just wait until the pop-up window goes away. It will take around 5 to 10 seconds for the pop-up window to go away.</em></p>
+</blockquote>
+</li>
+<li>
+<p>It will take you back to the user page. Now go to <strong>Policies</strong> tab
+    and click <strong>Edit</strong> under the Policies tab.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1a_media/media/image31.png" data-title="A screenshot of a computer Description automatically
+generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically
+generated" src="../module_1a_media/media/image31.png"></a></p>
+</li>
+<li>
+<p>It will bring up a fly-out window to configure user policies.</p>
+<p>Drop-down options for:</p>
+<p><strong>Select Calling policy</strong> and <strong>select PSTN-CP</strong></p>
+<p>Click <strong>Apply</strong>. Click <strong>Confirm</strong> on the pop-up window to confirm.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1a_media/media/image32.png" data-title="A screenshot of a computer Description automatically
+generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically
+generated" src="../module_1a_media/media/image32.png"></a></p>
+</li>
+<li>
+<p>This completes the Direct Routing configuration for Microsoft Teams.</p>
+</li>
+</ol>
+<h3 id="module-1a2-testing-the-calls-from-microsoft-teams-for-direct-routing-approx-10-min">Module 1a.2: Testing the calls from Microsoft Teams for Direct Routing [Approx 10 min]</h3>
+<blockquote>
+<p><strong>NOTE</strong>: <em>If you have completed any of Modules 3 or 4 before completing this module, you may have disabled Microsoft Native dialing. If so, login to Microsoft Teams Admin Center and</em> go to <strong>Voice</strong> &gt; <strong>Calling policies</strong>. On the Calling policies page select <strong>Global (Org-wide default).</strong> On the <strong>Global (Org-wide default)</strong> policy page toggle <strong>on</strong> the option for <strong>Make private calls</strong> and click <strong>Save</strong>. Click <strong>Confirm</strong> on the pop-up window.</p>
+</blockquote>
+<ol>
+<li>
+<p>Continuing on Workstation 1. Open Microsoft Teams from the
+    desktop/taskbar and log in with credentials
+    <a href="mailto:cholland@cbXXX.dc-YY.com">cholland@cbXXX.dc-YY.com</a> and <strong>dCloud123!</strong> Click <strong>OK</strong>. Click
+    <strong>Done</strong> on the next pop-up window.</p>
+<blockquote>
+<p><strong>NOTE:</strong> <em>You need to Replace XXX, YY (in domain name) with your session-specific details. If you haven't already done as explained in Accessing your lab section, go to Lab_info.txt file located on your </em><em>workstation 1</em><em> and copy the domain and password.</em></p>
+<p><strong>NOTE</strong>: <em>DO NOT click</em> <strong><em><em>No, sign into this app only</em></em></strong>. Ignore the warning about Microsoft Teams update and continue to use Classic one.</p>
+</blockquote>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1a_media/media/image33.png" data-title="A screenshot of a computer Description automatically
+generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically
+generated" src="../module_1a_media/media/image33.png"></a></p>
+</li>
+<li>
+<p>Accept any information/warning messages while logging in.</p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>Before we continue to test, on workstation 1, go to the notifications 
+[</em><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1a_media/media/image34.png" data-desc-position="top"><img alt="" src="../module_1a_media/media/image34.png"></a><em>] (bottom right corner, next to the time) and make sure </em><em>Quiet hours</em><em> are turned </em><em>off</em><em>. If it is turned on (shows in the color Blue) click it to turn it off.</em></p>
+</blockquote>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1a_media/media/image35.png" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="../module_1a_media/media/image35.png"></a></p>
+</li>
+<li>
+<p>Now on Microsoft Teams, go to <strong>Calls</strong> on the left side pane.  Using the dial pad, dial the phone number (<strong>MUST be a US Phone number</strong>)
+    in E.164 format. Example +19725556018 or if you do not have a US
+    Phone number, you can dial Cisco support number <strong>+18005532447</strong>.</p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>Click continue to use Teams Classic if you are prompted in this module or switch when I am not using Teams</em>.</p>
+</blockquote>
+</li>
+<li>
+<p>Make sure the call is connected. Hang up the call after a few
+    seconds.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1a_media/media/image36.png" data-title="A screenshot of a computer Description automatically
+generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically
+generated" src="../module_1a_media/media/image36.png"></a></p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>You will experience one-way audio as you are using a virtual workstation and will not be able to use the microphone.</em></p>
+</blockquote>
+</li>
+<li>
+<p>To make an inbound call, on <strong>workstation 1</strong>, go to
+    <strong>Lab_info.txt</strong> and note down the DID number assigned for Charles
+    Holland. Dial that number from your mobile. If you cannot make calls
+    to a US number from your mobile phone, contact one of your proctors.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1a_media/media/image37.png" data-title="A screenshot of a computer Description automatically
+generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically
+generated" src="../module_1a_media/media/image37.png"></a></p>
+</li>
+<li>
+<p>The incoming call should ring on workstation 1. Answer the call and
+    verify the call is connected. Hang up the call after a few seconds.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1a_media/media/image38.png" data-title="A screenshot of a computer Description automatically
+generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically
+generated" src="../module_1a_media/media/image38.png"></a></p>
+</li>
+<li>
+<p>This completes testing the calls from Microsoft Teams for Direct
+    Routing.</p>
+</li>
+</ol>
+<p>This completes <strong><em>Module 1a -- Direct Routing with CUBE.</em></strong> Let's
+proceed to <strong>Module 1b -- Interworking between CUCM and Microsoft Phone
+System using CUBE.</strong></p>
+<h2 id="module-1b-interworking-between-cisco-unified-cm-and-microsoft-teams-phone-via-cube-approx-20-min">Module 1b: Interworking between Cisco Unified CM and Microsoft Teams Phone via CUBE [Approx 20 min]</h2>
+<blockquote>
+<p><strong>IMPORTANT NOTE</strong>: Make sure you have <strong>COMPLETED Module 1a</strong> (Direct
+Routing with CUBE) before continuing. Module 1a is a
+<strong>mandatory/prerequisite</strong> module to go through Module 1b.</p>
+</blockquote>
+<p>Customers using Microsoft Teams Phone have the option of not only
+connecting to the PSTN using CUBE, but also <strong>to an internal phone
+system such as Cisco Unified Communications Manager.</strong></p>
+<p>The following topology uses a co-resident CUBE for Direct Routing. You
+can also use a dedicated CUBE instance for Direct Routing and an
+additional gateway for connection to the PSTN.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1b_media/media/image1.png" data-title="A diagram of a computer network Description automatically generated" data-desc-position="top"><img alt="A diagram of a computer network Description automatically generated" src="../module_1b_media/media/image1.png"></a></p>
+<h3 id="module-1b1-add-required-dial-peers-on-cube-for-cisco-ucm-routing-approx-5-min">Module 1b.1: Add required dial-peers on CUBE for Cisco UCM routing [Approx 5 min]</h3>
+<p>We need to add two dial-peers (inbound and outbound) on CUBE for routing
+calls to/from CUCM.</p>
+<ol>
+<li>
+<p>Continuing on Workstation 1, go to the putty session where you have
+    logged into CUBE. If the previous login has timed out, log back in
+    again as <strong>admin</strong> and <strong>dCloud123!</strong></p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>Like before, all the commands that you need to execute in
+ this section are saved in a text file named </em><em>MSFT-To-UCM.txt</em><em> and
+ put on Workstation'1 Desktop. We recommend copying the commands from
+ that text file and pasting it onto Putty, to avoid any formatting
+ issues from PDF/Word. You can still follow this guide for command
+ explanations</em>.</p>
+<p><strong>IMPORTANT NOTE</strong>: <em>Be cautious of copying &amp; pasting the
+ commands/certificates as adding an extra space or leaving a character
+ out would cause issues and that involves a lot of troubleshooting and
+ redoing of those commands.</em></p>
+</blockquote>
+</li>
+<li>
+<p>Add below voice class uri and an inbound dial-peer for accepting the
+    inbound calls from CUCM (198.18.133.33)</p>
+<div class="highlight"><pre><span></span><code>config t
+
+    voice class uri 390 sip
+
+        host ipv4:198.18.133.33
+
+    end
+
+!
+
+config t
+
+    dial-peer voice 390 voip
+
+        description inbound dial-peer from Cisco UCM
+
+        session protocol sipv2
+
+        incoming uri via 390
+
+        voice-class codec 1
+
+        voice-class sip tenant 100
+
+        dtmf-relay rtp-nte
+
+        no vad
+
+    end
+
+!
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1b_media/media/image2.png" data-title="A screen shot of a computer code Description automatically
+generated" data-desc-position="top"><img alt="A screen shot of a computer code Description automatically
+generated" src="../module_1b_media/media/image2.png"></a></p>
+</li>
+<li>
+<p>Add outbound dial-peer to route calls to CUCM using the below
+    commands.</p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>By default, when you make an outbound call, Microsoft Teams
+adds </em><em>+1</em><em> to the dialed number. To make it easy for configuration in
+the lab we are adding the destination pattern with </em><em>+1</em><em> and we are
+adding dial-peer for only one user (Anita Perez). In production
+environments, you can use translation patterns on Microsoft Teams
+admin centre to not add +1 by default and you can generalize the
+dial-peer according to your organizational dial plan.</em></p>
+</blockquote>
+<div class="highlight"><pre><span></span><code>config t
+
+dial-peer voice 300 voip
+
+    description outbound to UCM
+
+    destination-pattern +16017$
+
+    session protocol sipv2
+
+    session target ipv4:198.18.133.33
+
+    voice-class codec 1
+
+    voice-class sip tenant 100
+
+    dtmf-relay rtp-nte
+
+    no vad
+
+end
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1b_media/media/image3.png" data-title="A screen shot of a computer code Description automatically
+ generated" data-desc-position="top"><img alt="A screen shot of a computer code Description automatically
+ generated" src="../module_1b_media/media/image3.png"></a></p>
+</li>
+</ol>
+<p>Now cube configuration is complete for UCM calls. Save the
+    configuration with following command &amp; press <strong>Enter</strong> twice.</p>
+<p><code>copy running-config startup-config</code></p>
+<h3 id="module-1b2-configure-sip-trunk-and-route-pattern-on-cisco-ucm-to-route-calls-to-cube-approx-10-min">Module 1b.2: Configure SIP Trunk and Route Pattern on Cisco UCM to route calls to CUBE [Approx 10 min]</h3>
+<ol>
+<li>
+<p>Continuing on Workstation 1, open a new browser tab. From the
+    browser home page go to <strong>Collaboration Admin Links</strong> &gt; <strong>Cisco
+    Unified Communications Manager</strong> (or you can directly connect to
+    <a href="https://cucm1.dcloud.cisco.com">https://cucm1.dcloud.cisco.com</a>). Login as <strong>administrator</strong> &amp;
+    <strong>dCloud123!</strong></p>
+</li>
+<li>
+<p>Once logged in to Cisco UCM go to <strong>Device</strong> &gt; <strong>Trunk.</strong> Click
+    <strong>Add New.</strong> It will take you to Trunk Configuration page.</p>
+</li>
+<li>
+<p>On the Trunk configuration page drop down option for <strong>Trunk Type</strong>
+    and choose <strong>SIP Trunk.</strong> Leave the rest of the options as is and
+    click <strong>Next</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1b_media/media/image4.png" data-title="A screenshot of a computer Description automatically
+generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically
+generated" src="../module_1b_media/media/image4.png"></a></p>
+</li>
+<li>
+<p>On the <strong>Trunk Configuration</strong> page populate the following information and click <strong>Save</strong> to save the configuration. You will need to scroll down to see the <strong>Inbound Calls</strong> and <strong>SIP Information</strong> sections on the Trunk Configuration page.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter Name</th>
+<th>Parameter Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Device Name</td>
+<td>Direct-Routing-Trunk</td>
+</tr>
+<tr>
+<td>Device Pool</td>
+<td>dCloud_DP</td>
+</tr>
+<tr>
+<td>Inbound Calls \ Significant Digits</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Inbound Calls \ Calling Search Space</td>
+<td>Call_Everyone</td>
+</tr>
+<tr>
+<td>SIP Information \ Destination \ Destination Address</td>
+<td>198.18.133.231</td>
+</tr>
+<tr>
+<td>SIP Information \ SIP Trunk Security Profile</td>
+<td>Non Secure SIP Trunk Profile</td>
+</tr>
+<tr>
+<td>SIP Information \ SIP Profile</td>
+<td>dCloud Standard SIP Profile</td>
+</tr>
+</tbody>
+</table>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1b_media/media/image5.png" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="../module_1b_media/media/image5.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1b_media/media/image6.png" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="../module_1b_media/media/image6.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1b_media/media/image7.png" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="../module_1b_media/media/image7.png"></a></p>
+</li>
+<li>
+<p>Once the Trunk is saved, click <strong>Reset</strong> and click <strong>Reset again</strong>
+    on the pop-up window to confirm. Within two minutes the trunk should
+    come into <strong>Full Service</strong> as shown below.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1b_media/media/image8.png" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="../module_1b_media/media/image8.png"></a></p>
+</li>
+<li>
+<p>Now, on the Cisco UCM go to <strong>Call Routing</strong> &gt; <strong>Route/Hunt</strong> &gt;
+    <strong>Route Pattern.</strong> Click <strong>Add New</strong></p>
+</li>
+<li>
+<p>On the Route Pattern Configuration page populate the following and
+    Click <strong>Save</strong>. Click <strong>OK</strong> to accept any pop-up windows while
+    saving the route pattern.</p>
+<div class="highlight"><pre><span></span><code>-----------------------------------------------------------------------
+Parameter                     Value
+----------------------------- -----------------------------------------
+Route Pattern                 6018
+
+Route Partition               Base_PT
+
+Gateway/Route List            Drop down and choose Direct-Routing-Trunk
+-----------------------------------------------------------------------
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1b_media/media/image9.png" data-title="A screenshot of a computer Description automatically generated" data-desc-position="top"><img alt="A screenshot of a computer Description automatically generated" src="../module_1b_media/media/image9.png"></a></p>
+</li>
+<li>
+<p>This completes the configuring SIP Trunk and route patterns on Cisco
+    UCM. Now, you have routing configured between Microsoft Teams &amp;
+    Cisco UCM (both ways) using CUBE.</p>
+</li>
+</ol>
+<h3 id="module-1b3-testing-the-calls-between-microsoft-teams-and-cisco-ucm-using-cube-approx-5-min">Module 1b.3: Testing the calls between Microsoft Teams and Cisco UCM using CUBE [Approx 5 min]</h3>
+<ol>
+<li>
+<p>Open RDP connection to Workstation 2 using the one of the methods
+    described in <strong>Accessing the lab section.</strong> Credentials for
+    workstation 2 (Anita Perez) are <strong>dcloud\aperez</strong> &amp; <strong>dCloud123!</strong></p>
+</li>
+<li>
+<p>Once logged into workstation 2, open <strong>Cisco Jabber</strong> from the
+    desktop. The Jabber application should auto login as <strong>Anita
+    Perez</strong>. If not, enter the email address <a href="mailto:aperez@dcloud.cisco.com">aperez@dcloud.cisco.com</a>
+    on Jabber and click <strong>Continue</strong>. ON the next screen, enter username
+    as <strong>aperez</strong> and password as <strong>dCloud123!</strong> Click Login.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1b_media/media/image10.png" data-title="A screenshot of a login screen Description automatically
+generated" data-desc-position="top"><img alt="A screenshot of a login screen Description automatically
+generated" src="../module_1b_media/media/image10.png"></a></p>
+</li>
+<li>
+<p>Now, let's make inbound call towards Microsoft Teams. From <strong>Cisco
+    Jabber</strong> (as <strong>Anita Perez</strong>), dial <strong>6018</strong> (extension number of
+    <strong>Charles Holland</strong> on Microsoft Teams). Answer the call on
+    <strong>Workstation 1</strong> Microsoft Teams (as <strong>Charles Holland</strong>). Make
+    sure the call gets connected. Wait for few seconds and hang up the
+    call.</p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>You will not be able to hear the audio because we are using
+virtual workstations and microphone is not available.</em></p>
+</blockquote>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../module_1b_media/media/image11.png" data-title="A screenshot of a video chat Description automatically generated" data-desc-position="top"><img alt="A screenshot of a video chat Description automatically generated" src="../module_1b_media/media/image11.png"></a></p>
+</li>
+<li>
+<p>Now, let's try to make outbound call from Microsoft Teams. From
+    workstation 1 (as <strong>Charles Holland</strong>) dial extension number
+    <strong>6017</strong> (extension number of <strong>Anita Perez</strong> on Cisco CUM). Answer
+    the call on Workstation 2 Cisco Jabber (as Anita Perez). Make sure
+    the call gets connected. Wait for few seconds and hang up the call.</p>
+</li>
+<li>
+<p>This completes testing the calling between Microsoft Teams and Cisco
+    UCM using CUBE.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../../lab_access/Lab_access/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lab access">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Lab access
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../module_2/module_2/" class="md-footer__link md-footer__link--next" aria-label="Next: Module 2">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Module 2
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2025 Cisco
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.instant", "navigation.top", "navigation.footer", "search.suggest", "content.code.copy", "toc.integrate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../template_assets/js/newLoad.js"></script>
+      
+        <script src="../../template_assets/js/setInfo.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
