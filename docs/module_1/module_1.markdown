@@ -53,7 +53,7 @@ Border Controller (SBC)*
     Admin links,** and choose **Microsoft Teams Admin Center**. Login
     with <cholland@cbXXX.dc-YY.com> and **dCloud123!**, if prompted.
 
-    > **NOTE:** *You need to Replace XXX, YY (in domain name) & AAAA (in password) with your session-specific details. If you haven't already done as explained in Accessing your lab section, go to Lab_info.txt file located on your **workstation 1** and copy the domain and password.*    
+    > **NOTE:** *You need to Replace XXX, YY (in domain name) with your session-specific details. If you haven't already done as explained in Accessing your lab section, go to Lab_info.txt file located on your **workstation 1** and copy the domain and password.*    
 
 2.  Once logged into the **Microsoft Teams admin center,** on the left
     side pane, go to **Voice** \> **Direct Routing**. On the Direct
@@ -61,7 +61,7 @@ Border Controller (SBC)*
 
 3. On the **Add SBC** page, name the SBC as **cube.cbXXX.dc-YY.com** (the FQDN of the CUBE), and toggle ON the option for **Enabled,** and set SIP signaling port to 5061. Scroll down and click **Save**.
 
-    > **NOTE:** *You need to Replace XXX, YY (in domain name) & AAAA (in password) with your session-specific details. If you haven't already done as explained in Accessing your lab section, go to Lab_info.txt file located on your **workstation 1** and copy the domain and password.*
+    > **NOTE:** *You need to Replace XXX, YY (in domain name) with your session-specific details. If you haven't already done as explained in Accessing your lab section, go to Lab_info.txt file located on your **workstation 1** and copy the domain and password.*
 
     ![A screenshot of a computer Description automatically
 generated](module_1a_media/media/image21.png)
@@ -186,7 +186,7 @@ generated](module_1a_media/media/image32.png)
     <cholland@cbXXX.dc-YY.com> and **dCloud123!** Click **OK**. Click
     **Done** on the next pop-up window.
 
-    > **NOTE:** *You need to Replace XXX, YY (in domain name) & AAAA (in password) with your session-specific details. If you haven't already done as explained in Accessing your lab section, go to Lab_info.txt file located on your **workstation 1** and copy the domain and password.*
+    > **NOTE:** *You need to Replace XXX, YY (in domain name) with your session-specific details. If you haven't already done as explained in Accessing your lab section, go to Lab_info.txt file located on your **workstation 1** and copy the domain and password.*
 
     > **NOTE**: *DO NOT click* ***_No, sign into this app only_***. Ignore the warning about Microsoft Teams update and continue to use Classic one.
 
