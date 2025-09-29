@@ -195,9 +195,9 @@ In this section of the lab, we will use **Kellie Melby** and **Taylor Bard** use
 
 2. We can enable **Presence Sync** for the whole organization. It is not possible to enable it for individual users only, although this can later be managed through delegated Microsoft Graph API permissions.
 
-3. On the Control Hub, go to **SERVICES** > **Calling**. 
+3. On the Control Hub, go to **SERVICES** > **Calling**. On the Calling page, go to **Settings**. Click on the tab **Webex App**
 
-4. Scroll down to the Microsoft Teams Integration section and toggle the radio button **Presence Sync** & **Hide Webex windows**. If the option **Optimize Webex app for Microsoft Teams experience** is toggled **ON**, untoggle it for now. We will explore this option later.
+4. On the  **Webex App** tab, scroll down to the Microsoft Teams Integration section and toggle the radio button **Presence Sync** & **Hide Webex windows**. If the option **Optimize Webex app for Microsoft Teams experience** is toggled **ON**, untoggle it for now. We will explore this option later.
 
     > **NOTE:** *If you have completed module 3, you may have already completed enabling Presence Sync & Hide Webex Windows. You can skip steps 3 and 4 above.*
 

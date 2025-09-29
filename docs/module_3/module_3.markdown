@@ -254,9 +254,9 @@ In this section of the lab, we will use **Adam McKenzie** and **Monica Cheng** u
 
 1. Continuing on **Workstation 3**, go to the browser tab where you had the **Webex Control Hub** open. If you need to log in to Webex Control Hub, use the credentials `<cholland@cbXXX.dc-YY.com>` and **dCloud123!**.
 
-2. On the Control Hub, go to **SERVICES** > **Calling**. On the Calling page, go to **Client Settings**.
+2. On the Control Hub, go to **SERVICES** > **Calling**. On the Calling page, go to **Settings**. Click on the tab **Webex App**
 
-3. On the **Client Settings** page, scroll down to the Microsoft Teams Integration section and toggle the radio button **Presence Sync** & **Hide Webex windows.** If the option **Set Microsoft Teams as the default app for calling dock** is toggled ON, untoggle it for now. We will explore this option later.
+3. On the  **Webex App** tab, scroll down to the Microsoft Teams Integration section and toggle the radio button **Presence Sync** & **Hide Webex windows.** If the option **Set Microsoft Teams as the default app for calling dock** is toggled ON, untoggle it for now. We will explore this option later.
 
     > **NOTE:** *If you have completed Module 2, you may have already toggled on the Presence Sync and Hide Webex Windows options.*
 
