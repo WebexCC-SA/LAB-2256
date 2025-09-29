@@ -82,11 +82,11 @@ Integrating O365 with your Webex Control Hub you can also import/synchronize use
 
 12. Within few min the Job status would change to **Active.** Wait until the job status is changed to **Active**. You may need to refresh the page, after 2 to 3 minutes, to see the updated status. At this point all users from your Microsoft tenant should be imported to Webex under **MANAGEMENT** \> **Users**. Notice few users with status **Verified** indicating they are imported from a trusted source (in this case the Microsoft tenant that we are integrating with).
 
-13. Now go back to **MANAGEMENT** \> **Organization Settings** and scroll down to the **Microsoft Azure Active Directory Wizard App** section. Click the three dots on the right side and select **Edit Configuration**.
+13. Now go back to **MANAGEMENT** \> **Organization Settings** and scroll down to the **Microsoft Entra ID  Wizard App** section. Click the three dots on the right side and select **Edit Configuration**.
 
     ![A screenshot of a computer Description automatically generated](module_2_media/media/image14.png)
 
-14. It will bring up the Microsoft Azure AD integration page, under **Attributes** tab drop down the field **phoneNumbers\[type eq "work"\].value** & choose **telephoneNumber** from the drop down list.
+14. It will bring up the Microsoft Entra ID integration page, under **Attributes** tab drop down the field **phoneNumbers\[type eq "work"\].value** & choose **telephoneNumber** from the drop down list.
 
     ![A screenshot of a computer AI-generated content may be incorrect.](module_2_media/media/image15.png)
 
